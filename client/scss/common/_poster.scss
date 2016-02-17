@@ -1,0 +1,78 @@
+body {
+  background: url(../assets/img/wood.jpg) repeat;
+  background-size: 200px;
+}
+
+.poster-wrapper {
+  border-left: $poster-border-width solid #fff;
+  border-right: $poster-border-width solid #fff;
+  background-color: #fbfaf6;
+  margin: 0 auto;
+  max-width: 1300px;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  @media (min-width: 1300px) {
+
+  }
+}
+
+.blue-wrapper {
+  text-align: center;
+  background: $blue;
+  h1, h3, p {
+    color: $white;
+  }
+  strong {
+    color: $red;
+  }
+}
+
+.footer {
+  height: 623px;
+  background-size: cover;
+  border-bottom: $poster-border-width solid #fff;
+  background-color: $blue;
+}
+
+@media (min-width: 1300px) {
+
+  .poster-shadow {
+    position: relative;
+    z-index: 1;
+    padding-left: 20px;
+    padding-right: 20px;
+    background: url(../assets/img/poster-shadow.png) repeat-y center;
+    background-size: 1800px;
+    // -webkit-transform-style: preserve-3d;
+    // -moz-transform: rotate(1deg);
+    // -ms-transform: rotate(1deg);
+    // -o-transform: rotate(1deg);
+    // -webkit-transform: rotateZ(1deg);
+    // transform: rotate(1deg);
+  }
+}
+
+.sheet, .sheet-1, .sheet-2 {
+  position: absolute;
+  background: $white;
+  top: 30%;
+  left: 1%;
+  z-index: 0;
+  width: 300px;
+  height: 300px;
+  box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.75);
+  transform: rotate(1deg);
+}
+
+.sheet-1 {
+  right: 2%;
+  left: auto;
+  transform: rotate(2deg);
+}
+
+.sheet-2 {
+  top: 34%;
+  left: 2%;
+  height: 600px;
+  transform: rotate(2deg);
+}

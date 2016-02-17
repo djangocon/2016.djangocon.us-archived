@@ -55,3 +55,15 @@ docs/_build/
 
 # PyBuilder
 target/
+
+
+# Misc
+dev.db
+/build
+/node_modules
+/var/
+/tmp
+.DS_Store
+
+
+

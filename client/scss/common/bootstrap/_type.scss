@@ -1,0 +1,26 @@
+@font-face {
+  font-family: 'liberatorheavy';
+  src: url('../assets/fonts/liberator-heavy-webfont.eot');
+  src: url('../assets/fonts/liberator-heavy-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../assets/fonts/liberator-heavy-webfont.woff2') format('woff2'),
+       url('../assets/fonts/liberator-heavy-webfont.woff') format('woff'),
+       url('../assets/fonts/liberator-heavy-webfont.ttf') format('truetype'),
+       url('../assets/fonts/liberator-heavy-webfont.svg#liberatorheavy') format('svg');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+//
+// Headings
+//
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  color: $red;
+}
+
+h3 {
+  font-family: $font-family-serif;
+  text-transform: uppercase;
+}

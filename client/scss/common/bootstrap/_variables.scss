@@ -1,0 +1,28 @@
+
+$font-family-serif:          'OfficinaSerifITCW01-Boo_734540', Georgia, "Times New Roman", Times, serif !default;
+$font-family-brand:          'liberatorheavy', Helvetica, Arial, sans-serif !default;
+$font-family-base:           $font-family-serif !default;
+
+$headings-font-family:       $font-family-brand;
+
+$container-max-widths: (
+  sm: 576px,
+  md: 720px,
+  lg: 940px,
+  xl: 1140px
+) !default;
+
+
+$red: #cc0000;
+$white: #ffffff;
+$blue: #004b8d;
+
+$poster-border-width: 20px;
+
+// div[class="row"] {
+//     border: 1px dotted rgba(0, 0, 0, 0.5);
+// }
+
+// div[class^="col-"] {
+//     background-color: rgba(255, 0, 0, 0.2);
+// }

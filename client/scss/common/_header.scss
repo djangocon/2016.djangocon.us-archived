@@ -1,0 +1,30 @@
+.header {
+  position: relative;
+  margin-top: 60px;
+  height: 623px;
+  background-image: url(../assets/img/header_bg.jpg);
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-color: $blue;
+  background-size: cover;
+  border-top: $poster-border-width solid #fff;
+}
+
+.logo-full {
+  width: 300px;
+  position: absolute;
+  top: -129px;
+  left: 50%;
+  margin-left: -150px;
+}
+
+.header-triangle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url(../assets/img/blue_triangle.svg);
+  background-repeat: no-repeat;
+  background-position: center bottom;
+}
