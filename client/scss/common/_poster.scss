@@ -20,6 +20,9 @@ body {
 .blue-wrapper {
   text-align: center;
   background: $blue;
+  h1, h4 {
+    -webkit-text-stroke: 1px #ffffff;
+  }
   h1, h3, p {
     color: $white;
   }
