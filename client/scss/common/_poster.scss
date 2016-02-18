@@ -11,7 +11,7 @@ body {
   margin: 0 auto;
   max-width: 1300px;
   padding-top: 2em;
-  padding-bottom: 2em;
+  padding-bottom: 6em;
   @media (min-width: 1300px) {
 
   }
@@ -20,6 +20,9 @@ body {
 .blue-wrapper {
   text-align: center;
   background: $blue;
+  background-image: url(../assets/img/bend.png);
+  background-repeat: no-repeat;
+  background-position: bottom left;
   h1, h4 {
     -webkit-text-stroke: 1px #ffffff;
   }
