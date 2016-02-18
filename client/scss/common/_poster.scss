@@ -4,6 +4,7 @@ body {
 }
 
 .poster-wrapper {
+  position: relative;
   border-left: $poster-border-width solid #fff;
   border-right: $poster-border-width solid #fff;
   background-color: #fbfaf6;
@@ -34,11 +35,14 @@ body {
   background-color: $blue;
 }
 
+.poster-shadow {
+  z-index: 1;
+}
 @media (min-width: 1300px) {
 
   .poster-shadow {
     position: relative;
-    z-index: 1;
+
     padding-left: 20px;
     padding-right: 20px;
     background: url(../assets/img/poster-shadow.png) repeat-y center;
