@@ -3,6 +3,10 @@ node via Homebrew:
 
     $ brew install node
 
+Install all node dev dependencies:
+
+    $ npm install
+
 To compile all static files simply run:
 
     $ make all

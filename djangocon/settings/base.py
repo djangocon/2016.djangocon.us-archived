@@ -52,8 +52,6 @@ INSTALLED_APPS = (
     'taggit',
     'compressor',
     'modelcluster',
-    'sorl.thumbnail',
-    #'debug_toolbar',
 
     'wagtail.wagtailcore',
     'wagtail.wagtailadmin',
@@ -144,7 +142,6 @@ STATICFILES_FINDERS = (
 
 STATICFILES_DIRS = (
     os.path.join(PROJECT_PATH, 'build'),
-    # os.path.join(PROJECT_MODULE_PATH, 'static'),
 )
 
 STATIC_ROOT = os.path.join(VAR_ROOT, 'static')
