@@ -3,17 +3,30 @@ node via Homebrew:
 
     $ brew install node
 
+Ideally, create a virtualenv and activate it
+
 Install all node dev dependencies:
 
     $ npm install
+
+Install requirements:
+
+    $ pip install -r requirements.txt
 
 To compile all static files simply run:
 
     $ make all
 
-Finally collect those static files and start the development server:
+Collect those static files:
 
     $ manage.py collectstatic
+
+Migrate: 
+
+    $ manage.py migrate
+
+Start the development server: 
+ 
     $ manage.py runserver
 
 #### Static files during development
