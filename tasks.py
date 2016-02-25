@@ -23,4 +23,4 @@ def update_develop_db():
 
 @task
 def update_local_db():
-    run('dropdb -h localhost djangocon2015; createdb -h localhost djangocon2015 && gondor sqldump primary | ./manage.py dbshell')
+    run('dropdb -h localhost djangocon2016; createdb -h localhost djangocon2016 && gondor sqldump primary | ./manage.py dbshell')

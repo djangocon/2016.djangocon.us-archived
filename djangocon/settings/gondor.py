@@ -7,11 +7,10 @@ DEBUG = False
 GONDOR_INSTANCE = os.environ.get("GONDOR_INSTANCE", None)
 
 ALLOWED_HOSTS = [
-    'cs998.gondor.co',
-    '2015.djangocon.us',
+    'tl837.us2.gondor.io'
+    '2016.djangocon.us',
     'djangocon.us',
     'www.djangocon.us',
-    'ol579.gondor.co'
 ]
 
 if "GONDOR_DATABASE_URL" in os.environ:
@@ -105,7 +104,7 @@ LOGGING = {
     }
 }
 
-DEFAULT_FROM_EMAIL = "DjangoCon 2015 <noreply@djangocon.us>"
+DEFAULT_FROM_EMAIL = "DjangoCon 2016 <noreply@djangocon.us>"
 
 if "GONDOR_SENDGRID_USER" in os.environ:
     EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"

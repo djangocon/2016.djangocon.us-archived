@@ -1,7 +1,7 @@
-DjangoCon 2015
+DjangoCon 2016
 ============
 
-DjangoCon 2015 is built on top of Pinax Symposion but may have customizations that
+DjangoCon 2016 is built on top of Pinax Symposion but may have customizations that
 will may make things more difficult for you.
 
 Code of Conduct
@@ -39,7 +39,7 @@ Exit the virtualenv and reactivate it to activate the settings just changed::
 
 Setup the postgres database and load fixtures::
 
-    createdb djangocon2015
+    createdb djangocon2016
     python manage.py syncdb
     python manage.py migrate
     python manage.py loaddata fixtures/*
