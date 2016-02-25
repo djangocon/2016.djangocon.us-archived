@@ -27,7 +27,7 @@ INTERNAL_IPS = [
 ]
 
 ADMINS = [
-    ('DjangoCon Web Team', 'webteam@djangocon.us'),
+    ('DjangoCon Web Team', 'hello@djangocon.us'),
 ]
 
 MANAGERS = ADMINS
@@ -260,7 +260,7 @@ METRON_SETTINGS = {
 
 SESSION_COOKIE_NAME = "DJANGOCON2016"
 
-THEME_CONTACT_EMAIL = 'webteam@djangocon.us'
+THEME_CONTACT_EMAIL = 'hello@djangocon.us'
 SERVER_EMAIL = ''
 
 SOUTH_MIGRATION_MODULES = {
