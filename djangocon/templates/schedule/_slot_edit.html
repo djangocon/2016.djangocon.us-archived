@@ -1,0 +1,32 @@
+{% load bootstrap_tags %}
+{% load markitup_tags %}
+
+<div class="modal-dialog">
+  <div class="modal-content">
+    <form id="slotEditForm" class="modal-form" method="POST"
+          action="{% url 'schedule_slot_edit' slug slot.pk %}">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">x</button>
+          <h3>Edit Slot</h3>
+        </div>
+        <div class="modal-body">
+          {% csrf_token %}
+          {% if form.content_override %}
+            {{ form.content_override }}
+            {% markitup_editor form.content_override.auto_id %}
+            <small>
+              Content is processed using <a
+              href="http://daringfireball.net/projects/markdown/syntax"
+              target="_blank">Markdown</a>.
+            </small>
+          {% else %}
+            {{ form|as_bootstrap }}
+          {% endif %}
+        </div>
+        <div class="modal-footer">
+          <a href="#" class="btn btn-default" data-dismiss="modal">Close</a>
+          <button type="submit" class="btn btn-primary">Save changes</button>
+        </div>
+    </form>
+  </div>
+</div>

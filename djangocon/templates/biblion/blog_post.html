@@ -1,0 +1,41 @@
+{% extends "site_base.html" %}
+
+{% load i18n %}
+{% load tz %}
+{% load djangocon_extras %}
+
+{% block head_title %}{{ post.title }}{% endblock head_title %}
+
+{% block page_title %}{{ post.title }}{% endblock page_title %}
+
+{% block body_class %}blog{% endblock %}
+
+{% block body %}
+    {% localtime off %}
+
+    <div class="row base-row">
+        <div class="col-xs-8 col-xs-offset-2">
+        <hr>
+        </div>
+    </div>
+
+    <div class="row base-row">
+        <div class="col-xs-8 col-xs-offset-2">
+            {% autoescape off %}
+            <h1 class="brdp">{{ post.title|iconreplace }}</h1>
+            {% endautoescape %}
+            <div class="newsdate">
+                {% if post.published %}{{ post.published|date }}{% else %}{% trans "Not published yet" %}{% endif %}
+                by {{ post.author.get_full_name }}
+            </div>
+
+            <div class="blog-teaser brdp">{{ post.teaser_html|safe }}</div>
+
+            <div class="blog-content brdp">{{ post.content_html|safe }}</div>
+            <hr>
+            <p class="brdp-finger"><a href="{% url 'blog' %}">Read all news posts</a></p>
+            <hr>
+        </div>
+    </div>
+    {% endlocaltime %}
+{% endblock %}

@@ -1,0 +1,33 @@
+{% load sponsorship_tags %}
+{% load thumbnail %}
+{% load core_tags %}
+
+{% sponsors as all_sponsors %}
+{% regroup all_sponsors by level as sponsors_list %}
+
+<h1>Sponsorship Guide</h1>
+
+{% for sponsor in sponsors_list %}
+<h2>{{ sponsor.grouper }} Level Sponsors</h2>
+<hr>
+{% for sponsor in sponsor.list %}
+<h3>{{ sponsor.level }} Level Sponsor :: {{ sponsor }}</h3>
+
+<h4><a href="{{ sponsor.external_url }}">website</a></h4>
+
+<h3>Sponsorship Benefits</h3>
+{% for sponsor_benefit in sponsor.sponsor_benefits.all %}
+    <h4>{{ sponsor_benefit.benefit }}</h4>
+    {% if sponsor_benefit.text %}
+        {{ sponsor_benefit.text|markdown }}
+    {% endif %}
+
+    {% if sponsor_benefit.upload %}
+        <img src="{{ sponsor_benefit.upload.url }}">
+        <a href="{{ sponsor_benefit.upload.url }}">source</a>
+    {% endif %}
+{% endfor %}
+
+<hr>
+{% endfor %}
+{% endfor %}

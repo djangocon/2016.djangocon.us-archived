@@ -1,0 +1,443 @@
+{% extends "comps/site_base.html" %}
+
+{% load i18n %}
+{% load bootstrap_tags %}
+{% load boxes_tags %}
+{% load cache %}
+
+{% block head_title %}Conference Schedule{% endblock head_title %}
+
+{% block body_class %}full{% endblock body_class %}
+
+{% block body %}
+
+<div class="row small-header">
+    <div class="container">
+        <h1>Conference Talks</h1>
+    </div>
+</div>
+
+<div class="container no-padding page-content">
+
+<div class="col-md-6 col-centered announcement-msg">Tutorials take place on Monday Sep 2. The conference proper (talks, shown below) run from Sep 3-5. This is followed by two days of sprint activity on Sep 6 and 7.</div>
+
+<div class="col-md-4 schedule">
+        <table class="calendar table">
+            <thead>
+                <tr>
+                    <th>General Sessions: Aug.30th</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="odd">
+                    <td>
+                        <p class="start-time">09:00 AM</p>
+                        <p>Coffee + Networking</p>
+                    </td>
+                </tr>
+
+                <tr class="even">
+                    <td>
+                        <p class="start-time">10:00 AM</p>
+                        <p>Introduction</p>
+                        <p class="speaker">Steve Holden, Christophe Pettus & Russell Keith-Magee</p>
+                    </td>
+                </tr>
+
+                <tr class="odd">
+                    <td>
+                        <p class="start-time">10:15 AM</p>
+                        <p>Keynote: State of the Pony Report</p>
+                        <p class="speaker">Russell Keith-Magee</p>
+                    </td>
+                </tr>
+
+                <tr class="even">
+                    <td>
+                        <p class="start-time">11:00 AM</p>
+                        <p>Morning Break</p>
+                    </td>
+                </tr>
+
+                <tr class="odd">
+                    <td>
+                        <p class="start-time">11:30 AM</p>
+                        <p class="track">track 1</p>
+                        <p><span class="title"><a href="#">Django and Docker: a Marriage Made in Heaven</a></span></p>
+                        <p class="speaker">Ken Cochrane</p>
+                        <p class="track">track 2</p>
+                        <p><span class="title"><a href="#">Scaling Your Write-heavy Django App: A Case Study </a></span></p>
+                        <p class="speaker">Tobias McNulty</p>
+
+                    </td>
+                </tr>
+
+                <tr class="even">
+                    <td>
+                        <p class="start-time">12:15 PM</p>
+                        <p class="track">track 1</p>
+                        <p><span class="title"><a href="#">CSS Preprocessors</a></span></p>
+                        <p class="speaker">Michael Trythall</p>
+                        <p class="track">track 2</p>
+                        <p><span class="title"><a href="#">Trial by Fire: Real World Performance Optimization</a></span></p>
+                        <p class="speaker">Joseph Jasinski, Dan Johnson</p>
+
+                    </td>
+                </tr>
+
+            <tr class="odd">
+                <td>
+                    <p class="start-time">01:00 PM</p>
+                    <p>Lunch</p>
+                </td>
+            </tr>
+
+            <tr class="even">
+                <td>
+                    <p class="start-time">02:00 PM</p>
+                    <p class="track">track 1</p>
+                    <p><span class="title"><a href="#">Serving More Requests for Less Money: how Django is saving "Ain't It Cool News"</a></span>
+                    <span class="speaker">Nick Catalano</span></p>
+                    <p class="track">track 2</p>
+                    <p><span class="title"><a href="#">My Bootcamp Brings all the Nerds to the Yard: Lessons from GeekChic</a></span>
+                    <span class="speaker">Josannah Keller</span></p>
+                </td>
+            </tr>
+
+            <tr class="odd">
+                <td>
+                    <p class="start-time">02:45 PM</p>
+                    <p class="track">track 1</p>
+                    <p><span class="title"><a href="#">Winning an Election with Django and jQuery Mobile</a></span>
+                    <span class="speaker">Eric Palakovich Carr</span></p>
+                    <p class="track">track 2</p>
+                    <p><span class="title"><a href="#">Getting Started with Salt</a></span>
+                    <span class="speaker">Peter Baumgartner</span></p>
+                </td>
+            </tr>
+
+            <tr class="even">
+                <td>
+                    <p class="start-time">03:30 PM</p>
+                    <p>Afternoon Break</p>
+                </td>
+            </tr>
+
+            <tr class="odd">
+                <td>
+                    <p class="start-time">04:00 PM</p>
+                    <p class="track">track 1</p>
+                    <p><span class="title"><a href="#">How to Create Amazing Open Source Modules</a></span>
+                    <span class="speaker">Kumar McMillan</span></p>
+                    <p class="track">track 2</p>
+                    <p><span class="title"><a href="#">Finding the Needle: Search and Django</a></span>
+                    <span class="speaker">Ben Lopatin</span></p>                    
+                </td>
+            </tr>
+
+            <tr class="even">
+                <td>
+                    <p class="start-time">04:45 PM</p>
+                    <p class="track">track 1</p>    
+                    <p><span class="title"><a href="#">Writing Fast and Efficient Unit Tests for Django</a></span>
+                    <span class="speaker">Casey Kinsey</span></p>
+                    <p class="track">track 2</p>
+                    <p><span class="title"><a href="#">The Path to Smoother Database Migrations</a></span>
+                    <span class="speaker">Nathan Duthoit</span></p> 
+                </td>
+            </tr>
+
+            <tr class="odd">
+                <td>
+                     <p class="start-time">05:30 PM</p>
+                     <p>Close</p>
+                </td>
+            </tr>
+
+
+
+</tbody>
+</table>
+
+
+
+</div>
+
+<div class="col-md-4 schedule">
+        <table class="calendar table">
+            <thead>
+                <tr>
+                    <th>General Sessions: Aug.31st</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="odd">
+                    <td>
+                        <p class="start-time">08:00 AM</p>
+                        <p>Coffee + Networking</p>
+                    </td>
+                </tr>
+
+                <tr class="even">
+                    <td>
+                        <p class="start-time">09:00 AM</p>
+                        <p><span class="title"><a href="#">Plenary Session: Be Agile, Not Vulnerable</a></span></p>
+                        <p class="speaker">Jacob Kaplan-Moss</p>
+                    </td>
+                </tr>
+
+                <tr class="odd">
+                    <td>
+                        <p class="start-time">10:00 AM</p>
+                        <p><span class="title"><a href="#">Plenary Session: Transactions for Web Developers</a></span></p>
+                        <p class="speaker">Aymeric Augustin</p>
+                    </td>
+                </tr>
+
+                <tr class="even">
+                    <td>
+                        <p class="start-time">11:00 AM</p>
+                        <p>Morning Break</p>
+                    </td>
+                </tr>
+
+                <tr class="odd">
+                    <td>
+                        <p class="start-time">11:30 AM</p>
+                        <p class="track">track 1</p>
+                        <p><span class="title"><a href="#">Red User, Blue User, MyUser, auth.User</a></span></p>
+                        <p class="speaker">Russell Keith-Magee</p>
+                        <p class="track">track 2</p>
+                        <p><span class="title"><a href="#">MySQL 5.6</a></span></p>
+                        <p class="speaker">Dave Stokes</p>
+
+                    </td>
+                </tr>
+
+                <tr class="even">
+                    <td>
+                        <p class="start-time">12:15 PM</p>
+                        <p class="track">track 1</p>
+                        <p><span class="title"><a href="#">How to Learn Django the Wrong Way</a></span></p>
+                        <p class="speaker">Moon Limb</p>
+                        <p class="track">track 2</p>
+                        <p><span class="title"><a href="#">10 Minutes to Replication </a></span></p>
+                        <p class="speaker">Josh Berkus</p>
+
+                    </td>
+                </tr>
+
+            <tr class="odd">
+                <td>
+                    <p class="start-time">01:00 PM</p>
+                    <p>Lunch</p>
+                </td>
+            </tr>
+
+            <tr class="even">
+                <td>
+                    <p class="start-time">02:00 PM</p>
+                    <p class="track">track 1</p>
+                    <p><span class="title"><a href="#">Building Rich Applications with Django and Ember.js"</a></span>
+                    <span class="speaker">Gabriel Grant</span></p>
+                    <p class="track">track 2</p>
+                    <p><span class="title"><a href="#">Epic South Disasters: or, Why You Actually Need to Pay Attention to your DBMS</a></span>
+                    <span class="speaker">Christopher Adams</span></p>
+                </td>
+            </tr>
+
+            <tr class="odd">
+                <td>
+                    <p class="start-time">02:45 PM</p>
+                    <p class="track">track 1</p>
+                    <p><span class="title"><a href="#">Rapid Prototyping and Communicating with Clients</a></span>
+                    <span class="speaker">Katherine Chuang</span></p>
+                    <p class="track">track 2</p>
+                    <p><span class="title"><a href="#">Everybody Loves Migrations </a></span>
+                    <span class="speaker">Andrew Godwin</span></p>
+                </td>
+            </tr>
+
+            <tr class="even">
+                <td>
+                    <p class="start-time">03:30 PM</p>
+                    <p>Afternoon Break</p>
+                </td>
+            </tr>
+
+            <tr class="odd">
+                <td>
+                    <p class="start-time">04:00 PM</p>
+                    <p class="track">track 1</p>
+                    <p><span class="title"><a href="#">Small Shop / Big Solutions: Django and Long-Term Thinking</a></span>
+                    <span class="speaker">Ben Keating</span></p>
+                    <p class="track">track 2</p>
+                    <p><span class="title"><a href="#">Database Sharding with Django</a></span>
+                    <span class="speaker">Ash Christopher</span></p>                    
+                </td>
+            </tr>
+
+            <tr class="even">
+                <td>
+                    <p class="start-time">04:45 PM</p>   
+                    <p><span class="title"><a href="#">Lightning Talks</a></span>
+                </td>
+            </tr>
+
+            <tr class="odd">
+                <td>
+                     <p class="start-time">05:30 PM</p>
+                     <p>Close</p>
+                </td>
+            </tr>
+
+
+
+</tbody>
+</table>
+
+
+
+</div>
+
+<div class="col-md-4 schedule">
+        <table class="calendar table">
+            <thead>
+                <tr>
+                    <th>General Sessions: Sept.1st</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="odd">
+                    <td>
+                        <p class="start-time">08:00 AM</p>
+                        <p>Coffee + Networking</p>
+                    </td>
+                </tr>
+
+                <tr class="even">
+                    <td>
+                        <p class="start-time">09:00 AM</p>
+                        <p><span class="title"><a href="#">Lightning Talks</a></span></p>
+                    </td>
+                </tr>
+
+                <tr class="odd">
+                    <td>
+                        <p class="start-time">10:00 AM</p>
+                        <p class="track">track 1</p>
+                        <p><span class="title"><a href="#">Stateless / Immutable Webapps - Stealing Ideas from Functional Patterns</a></span></p>
+                        <p class="speaker">Matt ODonnell</p>
+                        <p class="track">track 2</p>
+                        <p><span class="title"><a href="#">Making Django Play Nice with Third Party Services</a></span></p>
+                        <p class="speaker">Matt Makai</p>
+                    </td>
+                </tr>
+
+                <tr class="even">
+                    <td>
+                        <p class="start-time">10:45 AM</p>
+                        <p>Morning Break</p>
+                    </td>
+                </tr>
+
+                <tr class="odd">
+                    <td>
+                        <p class="start-time">11:30 AM</p>
+                        <p class="track">track 1</p>
+                        <p><span class="title"><a href="#">State of the Real-time Web with Django</a></span></p>
+                        <p class="speaker">Aymeric Augustin</p>
+                        <p class="track">track 2</p>
+                        <p><span class="title"><a href="#">HTTP for Great Good</a></span></p>
+                        <p class="speaker">Matt Robenolt</p>
+
+                    </td>
+                </tr>
+
+                <tr class="even">
+                    <td>
+                        <p class="start-time">12:15 PM</p>
+                        <p class="track">track 1</p>
+                        <p><span class="title"><a href="#">Guerilla APIs: integrating web systems that weren't designed to be integrated </a></span></p>
+                        <p class="speaker">Russell Keith-Magee</p>
+                        <p class="track">track 2</p>
+                        <p><span class="title"><a href="#">Django Toolsets: what are they buying you, what are they costing you?</a></span></p>
+                        <p class="speaker">Eli Ribble</p>
+
+                    </td>
+                </tr>
+
+            <tr class="odd">
+                <td>
+                    <p class="start-time">01:00 PM</p>
+                    <p>Lunch</p>
+                </td>
+            </tr>
+
+            <tr class="even">
+                <td>
+                    <p class="start-time">02:00 PM</p>
+                    <p class="track">track 1</p>
+                    <p><span class="title"><a href="#">Take My Money: an Intro to Charging for Things with Django"</a></span>
+                    <span class="speaker">Gabriel Grant</span></p>
+                    <p class="track">track 2</p>
+                    <p><span class="title"><a href="#">Denormalize All the Things!</a></span>
+                    <span class="speaker">Nathan Duthoit</span></p>
+                </td>
+            </tr>
+
+            <tr class="odd">
+                <td>
+                    <p class="start-time">02:45 PM</p>
+                    <p class="track">track 1</p>
+                    <p><span class="title"><a href="#">Overcoming Troubles with Class-based Generic Views </a></span>
+                    <span class="speaker">Andrew Pinkham</span></p>
+                    <p class="track">track 2</p>
+                    <p><span class="title"><a href="#">Integration and Functional Testing with LiveServerTestCase, Selenium and More</a></span>
+                    <span class="speaker">Julien Phalip</span></p>
+                </td>
+            </tr>
+
+            <tr class="even">
+                <td>
+                    <p class="start-time">03:30 PM</p>
+                    <p>Afternoon Break</p>
+                </td>
+            </tr>
+
+            <tr class="odd">
+                <td>
+                    <p class="start-time">04:00 PM</p>
+                    <p>Awards and Wrap-up</p>                 
+                </td>
+            </tr>
+
+            <tr class="even">
+                <td>
+                    <p class="start-time">04:45 PM</p>   
+                    <p>Sprint Planning</p>
+                </td>
+            </tr>
+
+            <tr class="odd">
+                <td>
+                     <p class="start-time">05:15 PM</p>
+                     <p>Close</p>
+                </td>
+            </tr>
+
+
+
+</tbody>
+</table>
+
+
+
+</div>
+
+
+
+
+
+
+{% endblock body %}

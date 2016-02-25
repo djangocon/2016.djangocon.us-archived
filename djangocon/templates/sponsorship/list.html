@@ -1,0 +1,49 @@
+{% extends "site_base.html" %}
+
+{% load url from future %}
+
+{% load djangocon_extras %}
+{% load sponsorship_tags %}
+{% load thumbnail %}
+{% load i18n %}
+
+{% block head_title %}{% trans "About Our Sponsors" %}{% endblock head_title %}
+
+{% block page_title %}{% trans "About Our Sponsors" %}{% endblock page_title %}
+
+{% block body_class %}sponsorships{% endblock %}
+
+{% block body_outer %}
+<!-- sponsors -->
+  <div class="row base-row sponsors-section">
+
+    <div class="container">
+      <div class="col-md-12 col-centered">
+        <h1 class="brdp">OUR SPONSORS</h1>
+      </div>
+    </div>
+
+    {% sponsors as all_sponsors %}
+    {% regroup all_sponsors by level as sponsors_list %}
+
+    {% for sponsor in sponsors_list%}
+      {% with sponsor.grouper|slugify as sponsor_template_name %}
+        {% with "sponsorship/includes/level_"|addstr:sponsor_template_name|lower|addstr:".html" as template %}
+          {% include template %}
+        {% endwith %}
+      {% endwith %}
+
+    {% endfor %}
+
+    <div class="container">
+        <div class="col-md-6 col-centered announcement-msg">
+            <a href="/become-sponsor/" class="btn btn-primary"><span>Learn about Sponsorships</span></a>
+        </div>
+    </div>
+  </div>
+
+<div class="row divider-section">
+</div>
+
+
+{% endblock %}

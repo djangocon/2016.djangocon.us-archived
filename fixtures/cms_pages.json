@@ -1,0 +1,212 @@
+[
+{
+    "pk": 1, 
+    "model": "cms.page", 
+    "fields": {
+        "body": "A great tutorial about amazing stuff.A great tutorial about amazing stuff.A great tutorial about amazing stuff.A great tutorial about amazing stuff.A great tutorial about amazing stuff.A great tutorial about amazing stuff.A great tutorial about amazing stuff.A great tutorial about amazing stuff.A great tutorial about amazing stuff.A great tutorial about amazing stuff.A great tutorial about amazing stuff.A great tutorial about amazing stuff.", 
+        "status": 2, 
+        "updated": "2014-05-12T13:13:57.049", 
+        "created": "2014-05-12T13:13:41.687", 
+        "_body_rendered": "<p>A great tutorial about amazing stuff.A great tutorial about amazing stuff.A great tutorial about amazing stuff.A great tutorial about amazing stuff.A great tutorial about amazing stuff.A great tutorial about amazing stuff.A great tutorial about amazing stuff.A great tutorial about amazing stuff.A great tutorial about amazing stuff.A great tutorial about amazing stuff.A great tutorial about amazing stuff.A great tutorial about amazing stuff.</p>", 
+        "title": "One Great Tutorial", 
+        "publish_date": "2014-05-12T13:13:41.687", 
+        "path": "schedule_list/"
+    }
+},
+{
+    "pk": 3, 
+    "model": "cms.page", 
+    "fields": {
+        "body": "###Why is this conference in Portland, and who decided?\r\n\r\nAfter four consecutive years on the West Coast (three in Portland and one in Mountain View), the sense of the community was that we needed a change of venue. Accordingly, the conference headed eastward for DjangoCon 2012 and 2013. Delegates to DjangoCon 2011, the last event held in Portland, had opportunity to voice their preference for future locations through a post-conference survey. Chicago was the overwhelming favorite.\r\n\r\n", 
+        "status": 2, 
+        "updated": "2014-05-12T14:56:46.933", 
+        "created": "2014-05-12T13:47:39.384", 
+        "_body_rendered": "<h3>Why is this conference in Portland, and who decided?</h3>\n<p>After four consecutive years on the West Coast (three in Portland and one in Mountain View), the sense of the community was that we needed a change of venue. Accordingly, the conference headed eastward for DjangoCon 2012 and 2013. Delegates to DjangoCon 2011, the last event held in Portland, had opportunity to voice their preference for future locations through a post-conference survey. Chicago was the overwhelming favorite.</p>", 
+        "title": "Frequently Asked Questions", 
+        "publish_date": "2014-05-12T13:47:39.384", 
+        "path": "cms_page/"
+    }
+},
+{
+    "pk": 4, 
+    "model": "cms.page", 
+    "fields": {
+        "body": "### Sprints\r\n\r\nGreat Sprints.Great Sprints.Great Sprints.Great Sprints.Great Sprints.Great Sprints.Great Sprints.Great Sprints.Great Sprints.Great Sprints.Great Sprints.Great Sprints.Great Sprints.Great Sprints.Great Sprints.Great Sprints.Great Sprints.", 
+        "status": 2, 
+        "updated": "2014-05-12T13:48:46.536", 
+        "created": "2014-05-12T13:48:46.529", 
+        "_body_rendered": "<h3>Sprints</h3>\n<p>Great Sprints.Great Sprints.Great Sprints.Great Sprints.Great Sprints.Great Sprints.Great Sprints.Great Sprints.Great Sprints.Great Sprints.Great Sprints.Great Sprints.Great Sprints.Great Sprints.Great Sprints.Great Sprints.Great Sprints.</p>", 
+        "title": "Sprints", 
+        "publish_date": "2014-05-12T13:48:46.529", 
+        "path": "cms_page/cms_page/"
+    }
+},
+{
+    "pk": 5, 
+    "model": "cms.page", 
+    "fields": {
+        "body": "### Lightning Talks\r\n\r\nLightning TalksLightning TalksLightning TalksLightning TalksLightning TalksLightning TalksLightning TalksLightning TalksLightning TalksLightning TalksLightning TalksLightning TalksLightning TalksLightning TalksLightning TalksLightning TalksLightning TalksLightning TalksLightning TalksLightning Talks\r\n\r\n### Open Space\r\n\r\nOpen SpaceOpen SpaceOpen SpaceOpen SpaceOpen SpaceOpen SpaceOpen SpaceOpen SpaceOpen SpaceOpen SpaceOpen SpaceOpen SpaceOpen SpaceOpen SpaceOpen SpaceOpen SpaceOpen SpaceOpen SpaceOpen SpaceOpen SpaceOpen SpaceOpen SpaceOpen SpaceOpen SpaceOpen SpaceOpen Space\r\n", 
+        "status": 2, 
+        "updated": "2014-05-12T13:55:14.396", 
+        "created": "2014-05-12T13:55:14.389", 
+        "_body_rendered": "<h3>Lightning Talks</h3>\n<p>Lightning TalksLightning TalksLightning TalksLightning TalksLightning TalksLightning TalksLightning TalksLightning TalksLightning TalksLightning TalksLightning TalksLightning TalksLightning TalksLightning TalksLightning TalksLightning TalksLightning TalksLightning TalksLightning TalksLightning Talks</p>\n<h3>Open Space</h3>\n<p>Open SpaceOpen SpaceOpen SpaceOpen SpaceOpen SpaceOpen SpaceOpen SpaceOpen SpaceOpen SpaceOpen SpaceOpen SpaceOpen SpaceOpen SpaceOpen SpaceOpen SpaceOpen SpaceOpen SpaceOpen SpaceOpen SpaceOpen SpaceOpen SpaceOpen SpaceOpen SpaceOpen SpaceOpen SpaceOpen Space</p>", 
+        "title": "Lightning Talks + Open Spaces", 
+        "publish_date": "2014-05-12T13:55:14.389", 
+        "path": "lightning_talks_open_spaces/"
+    }
+},
+{
+    "pk": 6, 
+    "model": "cms.page", 
+    "fields": {
+        "body": "### Night Outing1\r\n\r\nOne great outingOne great outingOne great outingOne great outingOne great outingOne great outingOne great outingOne great outingOne great outingOne great outingOne great outingOne great outingOne great outingOne great outing\r\n\r\n### Night Outing 2\r\n\r\nOne great outingOne great outingOne great outingOne great outingOne great outingOne great outingOne great outingOne great outingOne great outingOne great outingOne great outingOne great outingOne great outingOne great outingOne great outing", 
+        "status": 2, 
+        "updated": "2014-05-12T14:03:03.557", 
+        "created": "2014-05-12T14:03:03.550", 
+        "_body_rendered": "<h3>Night Outing1</h3>\n<p>One great outingOne great outingOne great outingOne great outingOne great outingOne great outingOne great outingOne great outingOne great outingOne great outingOne great outingOne great outingOne great outingOne great outing</p>\n<h3>Night Outing 2</h3>\n<p>One great outingOne great outingOne great outingOne great outingOne great outingOne great outingOne great outingOne great outingOne great outingOne great outingOne great outingOne great outingOne great outingOne great outingOne great outing</p>", 
+        "title": "Night Outings", 
+        "publish_date": "2014-05-12T14:03:03.550", 
+        "path": "night_outings/"
+    }
+},
+{
+    "pk": 7, 
+    "model": "cms.page", 
+    "fields": {
+        "body": "### Great Sprints\r\n\r\nReally fun sprints for everyone.Really fun sprints for everyone.Really fun sprints for everyone.Really fun sprints for everyone.Really fun sprints for everyone.Really fun sprints for everyone.Really fun sprints for everyone.Really fun sprints for everyone.Really fun sprints for everyone.Really fun sprints for everyone.Really fun sprints for everyone.", 
+        "status": 2, 
+        "updated": "2014-05-12T14:32:40.962", 
+        "created": "2014-05-12T14:32:40.956", 
+        "_body_rendered": "<h3>Great Sprints</h3>\n<p>Really fun sprints for everyone.Really fun sprints for everyone.Really fun sprints for everyone.Really fun sprints for everyone.Really fun sprints for everyone.Really fun sprints for everyone.Really fun sprints for everyone.Really fun sprints for everyone.Really fun sprints for everyone.Really fun sprints for everyone.Really fun sprints for everyone.</p>", 
+        "title": "Sprints", 
+        "publish_date": "2014-05-12T14:32:40.956", 
+        "path": "sprints/"
+    }
+},
+{
+    "pk": 8, 
+    "model": "cms.page", 
+    "fields": {
+        "body": "###DJANGOCON IS FOR DEVELOPERS\r\n\r\nAlmost everyone who attends this conference develops Django, or uses Django to develop applications. Many do both. So this event is the place to meet and interact with Django developers.\r\n\r\nDjangoCon is the place to find out straight from the horse's mouth what's coming down the pike. You will also discover lots of detail about an enormous range of applications different people are building with Django.\r\n\r\nYou can meet your friends from the Django community, socialize with Django core developers, and enjoy time in downtown Chicago with all it has to offer.\r\n\r\n###IMPORTANT DATES\r\n\r\n\r\n\r\n###CODE OF CONDUCT\r\n\r\nAll participants are expected to behave respectfully to each other. Very few appear to need this to be spelled out. For those who do, and for those who feel that they have not been respectfully treated, we have a [Code of Conduct](localhost:8000/about/conduct/)", 
+        "status": 2, 
+        "updated": "2014-05-12T14:48:53.848", 
+        "created": "2014-05-12T14:41:07.827", 
+        "_body_rendered": "<h3>DJANGOCON IS FOR DEVELOPERS</h3>\n<p>Almost everyone who attends this conference develops Django, or uses Django to develop applications. Many do both. So this event is the place to meet and interact with Django developers.</p>\n<p>DjangoCon is the place to find out straight from the horse's mouth what's coming down the pike. You will also discover lots of detail about an enormous range of applications different people are building with Django.</p>\n<p>You can meet your friends from the Django community, socialize with Django core developers, and enjoy time in downtown Chicago with all it has to offer.</p>\n<h3>IMPORTANT DATES</h3>\n<h3>CODE OF CONDUCT</h3>\n<p>All participants are expected to behave respectfully to each other. Very few appear to need this to be spelled out. For those who do, and for those who feel that they have not been respectfully treated, we have a <a>Code of Conduct</a></p>", 
+        "title": "What is Djangocon?", 
+        "publish_date": "2014-05-12T14:41:07.827", 
+        "path": "about/"
+    }
+},
+{
+    "pk": 9, 
+    "model": "cms.page", 
+    "fields": {
+        "body": "Contact us Contact us Contact us Contact us Contact us  ", 
+        "status": 2, 
+        "updated": "2014-05-14T13:48:20.857", 
+        "created": "2014-05-12T15:40:37.318", 
+        "_body_rendered": "<p>Contact us Contact us Contact us Contact us Contact us  </p>", 
+        "title": "Contact Us", 
+        "publish_date": "2014-05-12T15:40:37.318", 
+        "path": "contact_us/"
+    }
+},
+{
+    "pk": 10, 
+    "model": "cms.page", 
+    "fields": {
+        "body": "###Some great questions\r\n\r\nSome great questionsSome great questionsSome great questionsSome great questionsSome great questionsSome great questionsSome great questionsSome great questionsSome great questionsSome great questionsSome great questionsSome great questionsSome great questionsSome great questionsSome great questions.", 
+        "status": 2, 
+        "updated": "2014-05-12T16:29:16.685", 
+        "created": "2014-05-12T16:29:16.679", 
+        "_body_rendered": "<h3>Some great questions</h3>\n<p>Some great questionsSome great questionsSome great questionsSome great questionsSome great questionsSome great questionsSome great questionsSome great questionsSome great questionsSome great questionsSome great questionsSome great questionsSome great questionsSome great questionsSome great questions.</p>", 
+        "title": "Frequently Asked Questions", 
+        "publish_date": "2014-05-12T16:29:16.679", 
+        "path": "faq/"
+    }
+},
+{
+    "pk": 11, 
+    "model": "cms.page", 
+    "fields": {
+        "body": "###DjangoCon's Code of Conduct\r\n\r\nDjangoCon's Code of ConductDjangoCon's Code of ConductDjangoCon's Code of ConductDjangoCon's Code of ConductDjangoCon's Code of Conduct", 
+        "status": 2, 
+        "updated": "2014-05-14T13:44:52.857", 
+        "created": "2014-05-12T16:30:30.401", 
+        "_body_rendered": "<h3>DjangoCon's Code of Conduct</h3>\n<p>DjangoCon's Code of ConductDjangoCon's Code of ConductDjangoCon's Code of ConductDjangoCon's Code of ConductDjangoCon's Code of Conduct</p>", 
+        "title": "Code of Conduct", 
+        "publish_date": "2014-05-12T16:30:30.401", 
+        "path": "code_of_conduct/"
+    }
+},
+{
+    "pk": 12, 
+    "model": "cms.page", 
+    "fields": {
+        "body": "###Place info here", 
+        "status": 2, 
+        "updated": "2014-05-14T14:43:06.982", 
+        "created": "2014-05-14T14:40:14.180", 
+        "_body_rendered": "<h3>Place info here</h3>", 
+        "title": "Registration Info", 
+        "publish_date": "2014-05-14T14:40:14.180", 
+        "path": "registration_info/"
+    }
+},
+{
+    "pk": 13, 
+    "model": "cms.page", 
+    "fields": {
+        "body": "###Register here", 
+        "status": 2, 
+        "updated": "2014-05-14T14:43:27.237", 
+        "created": "2014-05-14T14:40:47.821", 
+        "_body_rendered": "<h3>Register here</h3>", 
+        "title": "Register", 
+        "publish_date": "2014-05-14T14:40:47.821", 
+        "path": "register/"
+    }
+},
+{
+    "pk": 14, 
+    "model": "cms.page", 
+    "fields": {
+        "body": "###Hotels nearby", 
+        "status": 2, 
+        "updated": "2014-05-14T14:42:42.099", 
+        "created": "2014-05-14T14:41:35.614", 
+        "_body_rendered": "<h3>Hotels nearby</h3>", 
+        "title": "Hotels", 
+        "publish_date": "2014-05-14T14:41:35.614", 
+        "path": "hotels/"
+    }
+},
+{
+    "pk": 15, 
+    "model": "cms.page", 
+    "fields": {
+        "body": "###Traveling to Portland, Or", 
+        "status": 2, 
+        "updated": "2014-05-14T14:42:14.555", 
+        "created": "2014-05-14T14:42:14.549", 
+        "_body_rendered": "<h3>Traveling to Portland, Or</h3>", 
+        "title": "Travel ", 
+        "publish_date": "2014-05-14T14:42:14.549", 
+        "path": "travel/"
+    }
+},
+{
+    "pk": 16, 
+    "model": "cms.page", 
+    "fields": {
+        "body": "###Terms and conditions Here", 
+        "status": 2, 
+        "updated": "2014-05-14T15:17:50.511", 
+        "created": "2014-05-14T15:17:50.504", 
+        "_body_rendered": "<h3>Terms and conditions Here</h3>", 
+        "title": "Sponsor Terms and Conditions ", 
+        "publish_date": "2014-05-14T15:17:50.504", 
+        "path": "sponsor/terms/"
+    }
+}
+]

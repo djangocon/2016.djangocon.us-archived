@@ -1,0 +1,6 @@
+/* @import must be at top of file, otherwise CSS will not work */
+@import url("//hello.myfonts.net/count/2da762");
+
+@font-face {font-family: 'BrandonText-Medium';src: url('webfonts/2DA762_0_0.eot');src: url('webfonts/2DA762_0_0.eot?#iefix') format('embedded-opentype'),url('webfonts/2DA762_0_0.woff2') format('woff2'),url('webfonts/2DA762_0_0.woff') format('woff'),url('webfonts/2DA762_0_0.ttf') format('truetype');}
+@font-face {font-family: 'BrandonPrinted-Two';src: url('webfonts/2DA762_1_0.eot');src: url('webfonts/2DA762_1_0.eot?#iefix') format('embedded-opentype'),url('webfonts/2DA762_1_0.woff2') format('woff2'),url('webfonts/2DA762_1_0.woff') format('woff'),url('webfonts/2DA762_1_0.ttf') format('truetype');}
+@font-face {font-family: 'BrandonPrinted-Extras';src: url('webfonts/2DA762_2_0.eot');src: url('webfonts/2DA762_2_0.eot?#iefix') format('embedded-opentype'),url('webfonts/2DA762_2_0.woff2') format('woff2'),url('webfonts/2DA762_2_0.woff') format('woff'),url('webfonts/2DA762_2_0.ttf') format('truetype');}

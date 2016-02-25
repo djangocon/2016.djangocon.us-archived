@@ -1,0 +1,58 @@
+{% load url from future %}
+{% load boxes_tags %}
+{% load core_tags %}
+{% regroup timetable.slots_qs by start as slots %}
+
+<div class="schedule">
+        <table class="calendar table">
+            <thead>
+                <tr>
+                    <th colspan="2">{{ timetable.day.date|date:"l, F jS" }}</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for slot_group in slots %}
+                <tr class="{% cycle 'odd' 'even' %}">
+                    <td colspan="2">
+                        <p class="start-time">{{ slot_group.grouper|time:"h:iA"}}</p>
+                    </td>
+                </tr>
+                <tr class="{% cycle 'odd' 'even' %}">
+                    {% for slot in slot_group.list|sort_by_m2m:"rooms.name" %}
+                        <td class="{% for room in slot.rooms %}{{ room.name|slugify}} {% endfor %}" {% if slot_group.list|length == 1 %}colspan="2"{% endif %}>
+                            {% if slot.content %}
+                                <p class="start-time"><a href="{% url 'schedule_presentation_detail' slot.content.pk %}">{{ slot.content.title }}</a></p>
+                                {% if slot.content.proposal.audience_level != 4 %}
+                                    <p class="audience_level">({{ slot.content.proposal.get_audience_level_display }} Level)</p>
+                                {% endif %}
+                                <p class="speaker">{{ slot.content.speakers|join:", " }}</p>
+                            {% else %}
+                                {% if slot.content_override.raw %}
+                                    {{ slot.content_override.rendered|safe }}
+                                {% else %}
+                                {% endif %}
+                            {% endif %}
+                            {% if slot.content or slot.content_override.raw %}
+                            <p class="end-time">
+                              until {{ slot.end }}
+                              {% if slot.rooms %}
+                                <span class="room">in
+                                {% for room in slot.rooms %}
+                                    {{ room.name }}{% if not forloop.last %}, {% endif %}
+                                {% endfor %}
+                                </span>
+                              {% endif %}
+                            </p>
+                            {% endif %}
+
+                        </td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% with timetable.day.date.day|slugify as day %}
+            {% box "schedule_day_"|add:day %}
+        {% endwith %}
+</div>
+

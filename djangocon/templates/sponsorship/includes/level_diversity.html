@@ -1,0 +1,32 @@
+{% load thumbnail %}
+{% load core_tags %}
+
+<div class="container">
+  <div class="col-md-12 col-centered sponsorship-level-wrapper">
+    <div class="sponsorship-level">{{sponsor.grouper}}</div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="sponsor-row">
+  {% for sponsor in sponsor.list %}
+    <div class="col-md-3 col-sm-3 col-xs-6 sponsorship-detail diversity">
+      <a class="anchor" id="{{ sponsor.name|slugify }}"></a>
+      <a href="{{ sponsor.external_url }}">
+        <div class="sponsor-thumbnail">
+          <img src="{% thumbnail sponsor.website_logo '132x80' %}" alt="{{ sponsor.name }}" />
+        </div>
+      </a>
+      <h3><a href="{{ sponsor.external_url }}">{{ sponsor.name }}</a></h3>
+      {% if sponsor.listing_text %}
+        {{ sponsor.listing_text|markdown }}
+      {% endif %}
+    </div>
+
+  {% if forloop.counter|divisibleby:"4" and not forloop.last %}
+      </div>
+      <div class="sponsor-row">
+  {% endif %}
+  {% endfor %}
+  </div>
+</div>

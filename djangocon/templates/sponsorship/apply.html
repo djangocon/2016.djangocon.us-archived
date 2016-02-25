@@ -1,0 +1,31 @@
+{% extends "site_base_onecolumn.html" %}
+
+{% load url from future %}
+
+
+{% load bootstrap_tags %}
+{% load i18n %}
+{% load boxes_tags %}
+
+{% block page_title %}{% trans "Apply to be a Sponsor" %}{% endblock page_title %}
+
+{% block body_class %}sponsorships{% endblock %}
+
+{% block body %}
+
+<div class="col-md-6 col-centered announcement-msg">
+    {% box "sponsorship-apply" %}
+</div>
+
+<form method="POST" action="">
+    {% csrf_token %}
+    {{ form|as_bootstrap }}
+    <div class="form-actions">
+        <input class="btn btn-primary" type="submit" value="Apply" />
+        <a class="btn" href="{% url 'dashboard' %}">Cancel</a>
+        <p class="help-block">
+            <small>By submitting this sponsor application you are agreeing to the <a href="{% url 'cms_page' "sponsor/terms/" %}" target="_blank">terms and conditions</a>.</small>
+        </p>
+    </div>
+</form>
+{% endblock %}

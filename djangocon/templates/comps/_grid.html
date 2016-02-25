@@ -1,0 +1,48 @@
+{% load url from future %}
+{% load boxes_tags %}
+{% regroup timetable.slots_qs by start as slots %}
+
+<div class="col-md-6">
+    <table class="calendar table">
+        <thead>
+            <tr>
+                <th>{{ timetable.day.date|date:"l, F jS" }}</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for slot_group in slots %}
+            <tr class="{% cycle 'odd' 'even' %}">
+                <td>
+                    <p class="start-time">{{ slot_group.grouper|time:"h:i A" }}</p>
+                    {% for slot in slot_group.list %}
+                        {% if slot.content %}
+                            <p class="title"><a href="{% url 'schedule_presentation_detail' slot.content.pk %}">{{ slot.content.title }}</a></p>
+                            <p class="speaker">{{ slot.content.speakers|join:", " }}</p>
+                        {% else %}
+                            {% if slot.content_override.raw %}
+                                {{ slot.content_override.rendered|safe }}
+                            {% else %}
+                            {% endif %}
+                        {% endif %}
+                      {% if slot.content or slot.content_override.raw %}
+                      <p class="end-time">
+                          until {{ slot.end }}
+                          {% if slot.rooms %}
+                            <span class="room">in
+                            {% for room in slot.rooms %}
+                                {{ room.name }}{% if not forloop.last %}, {% endif %}
+                            {% endfor %}
+                            </span>
+                          {% endif %}
+                     </p>
+                     {% endif %}
+                    {% endfor %}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% with timetable.day.date.day|slugify as day %}
+        {% box "schedule_day_"|add:day %}
+    {% endwith %}
+</div>

@@ -1,0 +1,39 @@
+{% extends "site_base.html" %}
+
+{% load bootstrap_tags %}
+{% load i18n %}
+
+{% block head_title %}{{ sponsor.level }}{% trans "Sponsorship" %}{% endblock head_title %}
+
+{% block body %}
+	{% trans "Sponsorship" as page_itle %}
+	{% include "_page_title.html" %}
+
+	<form enctype="multipart/form-data" method="POST" action="" class="form-horizontal">
+		{% csrf_token %}
+
+		{{ form|as_bootstrap }}
+
+		{% if formset.forms %}
+		<h3>{{ sponsor.level }} Sponsor Benefits</h3>
+
+		{{ formset.management_form|as_bootstrap }}
+			{{ formset.non_form_errors }}
+			
+			{% for form in formset.forms %}
+			<div class="form-group">
+				<label>{{ form.instance.benefit }}</label>
+				{% if form.instance.benefit.description %}
+					<p class="help-block">{{ form.instance.benefit.description }}</p>
+				{% endif %}
+				{{ form|as_bootstrap }}
+			</div>
+			{% endfor %}
+		{% endif %}
+
+		<div class="form-actions">
+			<input class="btn btn-primary" type="submit" value="Save" />
+			<a class="btn btn-default" href="{% url 'dashboard' %}">Cancel</a>
+		</div>
+	</form>
+{% endblock body %}

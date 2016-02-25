@@ -1,0 +1,233 @@
+{% extends "comps/site_base.html" %}
+{% load staticfiles %}
+
+
+{% block site_brand %}<a class="navbar-brand" href="{% url 'home' %}">
+          <img width="180" height="" class="img-responsive" src="{% static 'images/logo.png' %}"></a>
+          {% endblock site_brand %}
+
+{% block body_id %}my-page{% endblock body_id %}
+      {% block body_outer %}
+
+<!-- headline -->
+      <div class="main-header" style="margin-top:70px;">
+        <div class="col-md-7 pull-right header-message">
+        <h1 class="padded-multi-line">We're returning to Portland!<br>
+        Aug. 30 - Sept. 5, 2014</h1>
+        </div>
+        </div> 
+<!-- /headline -->         
+     
+<!-- call to action -->
+      <div class="row cta-section">
+      <div class="container">
+
+        <div class="col-xs-12 col-sm-4 col-md-4 cta">
+        <a href="#">
+          <svg width="100" height="100">
+                <image xlink:href="{% static "images/proposal-icon.svg" %}" src="{% static "images/proposal-icon.png" %}" width="100" height="100"/>
+              </svg>
+            <div class="cta-content">
+            Call for Proposals
+            </div>
+            </a>
+        </div>
+        
+
+        <div class="col-xs-12 col-sm-4 col-md-4 cta">
+        <a href="#">
+          <svg width="100" height="100">
+                <image xlink:href="{% static "images/sponsor-icon.svg" %}" src="{% static "images/sponsor-icon.png" %}" width="100" height="100"/>
+              </svg>
+            <div class="cta-content">
+            Become a Sponsor
+            </div>
+            </a>
+        </div>
+       
+ 
+        <div class="col-xs-12 col-sm-4 col-md-4 cta">
+        <a href="#">
+          <svg width="100" height="100">
+                <image xlink:href="{% static "images/register-icon.svg" %}" src="{% static "images/register-icon.png" %}" width="100" height="100"/>
+              </svg>
+            <div class="cta-content">
+            Registration Info
+            </div>
+        </div>
+        </a>
+      </div>
+      </div>
+<!-- /call to action -->
+
+
+    <div class="row news-section">
+        <div class="container">
+            <div class=" news col-md-12 col-centered">
+              <h1>LATEST NEWS</h1>
+              <ul>
+              <div class="col-md-4 col-sm-12"><li>
+                <a href="#"><h2>Sprint Venue Selected</h2>
+                Digital Bootcamp will host the DjangoCon Sprints, September 6-7...
+                </a>
+              </li></div>
+             
+              <div class="col-md-4 col-sm-12"><li>
+                <a href="#"><h2>DjangoCast Interviews DSF President</h2>
+                Hear Russell Keith-Magee talk about DjangoCon, the DSF and the past and future of Django...
+                </a>
+                </li></div>
+              <div class="col-md-4 col-sm-12"><li>
+                <a href="#"><h2>Open Space/Meeting Reservations</h2>
+                Do you need space for a meeting or an Open Space session? You can reserve a room before the conference starts...
+                </a>
+              </li></div>
+              </ul>
+            </div>
+        </div>
+    </div>
+
+      <div class="row sponsors-section">
+
+       <div class="container">
+
+          <h1>OUR SPONSORS</h1>
+          </div>
+
+
+          <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+   
+      </ol>
+
+      <div class="carousel-inner">
+        <div class="item active">
+          <div class="container">
+            <div class="row sponsors ">
+                <div class="col-md-2 col-sm-2 col-xs-6">
+                <div class="sponsor-logo">
+                <img width="" height="" class="img-responsive" src="{% static 'images/caktus.png' %}">
+                </div>
+                <div class="level-label">Kryptonite
+                </div>
+                </div>
+
+                <div class="col-md-2 col-sm-2 col-xs-6">
+                <div class="sponsor-logo">
+                <img width="" height="" class="img-responsive" src="{% static 'images/newrelic.png' %}">
+                </div>
+                <div class="level-label">Diamond
+                </div>                
+                </div>
+
+                <div class="col-md-2 col-sm-2 col-xs-6">
+                <div class="sponsor-logo">
+                <img width="" height="" class="img-responsive" src="{% static 'images/revlogo.png' %}">
+                </div>
+                <div class="level-label">Diamond
+                </div>                
+                </div>
+
+                <div class="col-md-2 col-sm-2 col-xs-6">
+                <div class="sponsor-logo">
+                <img width="" height="" class="img-responsive" src="{% static 'images/pgxlogo.png' %}">
+                </div>
+                <div class="level-label">Diamond
+                </div>                
+                </div>
+
+                <div class="col-md-2 col-sm-2 col-xs-6">
+                <div class="sponsor-logo">
+                <img width="" height="" class="img-responsive" src="{% static 'images/cox.png' %}">
+                </div>
+                <div class="level-label">Diamond
+                </div>                
+                </div>
+
+                <div class="col-md-2 col-sm-2 col-xs-6">
+                <div class="sponsor-logo">
+                <img width="" height="" class="img-responsive" src="{% static 'images/caktus.png' %}">
+                </div>
+                <div class="level-label">Diamond
+                </div>                
+                </div>                
+              </div><!-- /end row -->
+
+                 
+        </div><!-- /end container -->
+        </div><!-- /end item -->
+
+      <div class="item">
+          <div class="container">
+            <div class="row sponsors ">
+                <div class="col-md-2 col-sm-2 col-xs-6">
+                <div class="sponsor-logo">
+                <img width="" height="" class="img-responsive" src="{% static 'images/caktus.png' %}">
+                </div>
+                <div class="level-label">Platinum
+                </div> 
+                </div>
+
+                <div class="col-md-2 col-sm-2 col-xs-6">
+                <div class="sponsor-logo">
+                <img width="" height="" class="img-responsive" src="{% static 'images/caktus.png' %}">
+                </div>
+                <div class="level-label">Gold
+                </div> 
+                </div>
+
+                <div class="col-md-2 col-sm-2 col-xs-6">
+                <div class="sponsor-logo">
+                <img width="" height="" class="img-responsive" src="{% static 'images/caktus.png' %}">
+                </div>
+                <div class="level-label">Gold
+                </div> 
+                </div>
+
+                <div class="col-md-2 col-sm-2 col-xs-6">
+                <div class="sponsor-logo">
+                <img width="" height="" class="img-responsive" src="{% static 'images/caktus.png' %}">
+                </div>
+                <div class="level-label">Gold
+                </div> 
+                </div>
+
+                <div class="col-md-2 col-sm-2 col-xs-6">
+                <div class="sponsor-logo">
+                <img width="" height="" class="img-responsive" src="{% static 'images/caktus.png' %}">
+                </div>
+                <div class="level-label">Gold
+                </div> 
+                </div>
+
+                <div class="col-md-2 col-sm-2 col-xs-6">
+                <div class="sponsor-logo">
+                <img width="" height="" class="img-responsive" src="{% static 'images/caktus.png' %}">
+                </div>
+                <div class="level-label">Gold
+                </div> 
+                </div>
+
+              </div><!-- /end row -->
+
+            </div><!-- /end container -->
+        </div><!-- /end item -->
+ 
+        </div>  <!-- /end carousel inner -->     
+
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+    </div><!-- /.carousel -->
+
+ </div>
+<!-- /sponsors -->
+      
+
+      {% endblock body_outer %}
+
+    

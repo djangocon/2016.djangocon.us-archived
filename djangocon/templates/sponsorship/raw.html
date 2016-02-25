@@ -1,0 +1,85 @@
+{% load sponsorship_tags %}
+{% load thumbnail %}
+
+{% sponsors as all_sponsors %}
+{% regroup all_sponsors by level as sponsors_list %}
+
+<h1>Sponsor blocks</h1>
+
+<h2>Plain</h2>
+
+<div>
+{% for sponsor in sponsors_list %}
+<p>
+  <strong>{{ sponsor.grouper }}:</strong>
+  {% for sponsor in sponsor.list %}
+  <span>
+    {% if not forloop.first %} | {% endif %}
+    <a href="{{ sponsor.external_url }}">
+      {{ sponsor }}
+    </a>
+  </span>
+  {% endfor %}
+</p>
+{% endfor %}
+</div>
+
+<hr>
+
+<h2>Markdown</h2>
+
+<xmp>
+{% for sponsor in sponsors_list %}
+**{{ sponsor.grouper }}:** {% for sponsor in sponsor.list %}{% if not forloop.first %} | {% endif %}[{{ sponsor }}]({{ sponsor.external_url }}){% endfor %}
+{% endfor %}
+</xmp>
+
+
+<hr>
+
+<h2>Table (rich / logo)</h2>
+
+<div>
+{% for sponsor in sponsors_list%}
+  <h3>{{ sponsor.grouper }}</h3>
+  <table>
+    <tbody>
+      <tr>
+      {% for sponsor in sponsor.list %}
+      <td>
+        <a href="{{ sponsor.external_url }}">
+          <img src="{% thumbnail sponsor.website_logo "200x200" %}" alt="{{ sponsor.name }}" />
+          <div>
+            {{ sponsor }}
+          </div>
+        </a>
+      </td>
+      {% if forloop.counter|divisibleby:4 %}
+        </tr><tr>
+      {% endif %}
+      {% endfor %}
+      </tr>
+    </tbody>
+  </table>
+{% endfor %}
+</div>
+
+<hr>
+
+<h2>List (rich / logo)</h2>
+
+<div>
+{% for sponsor in sponsors_list%}
+  <h3>{{ sponsor.grouper }}</h3>
+  {% for sponsor in sponsor.list %}
+  <p>
+    <a href="{{ sponsor.external_url }}">
+      <img src="{% thumbnail sponsor.website_logo "600x600" %}" alt="{{ sponsor.name }}" />
+      <div>
+        {{ sponsor }}
+      </div>
+    </a>
+  </p>
+  {% endfor %}
+{% endfor %}
+</div>

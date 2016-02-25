@@ -1,0 +1,55 @@
+{% extends "site_base.html" %}
+
+{% load bootstrap_tags %}
+{% load staticfiles %}
+
+{% block page_title %}Conference Schedule Edit{% endblock page_title %}
+
+{% block extra_style %}
+  <link rel="stylesheet" href="{% static "chosen/chosen.min.css" %}" />
+{% endblock extra_style %}
+
+{% block extra_script %}
+  <script src="{% static "chosen/chosen.jquery.min.js" %}"></script>
+  <script>
+    $(function() {
+      $("a.edit-slot").click(function(event) {
+        event.preventDefault();
+        $("#slotEditModal").load($(this).data("action"), function() {
+          $("#id_presentation").chosen({width: "100%"});
+          $("#slotEditModal").modal("show");
+        });
+      });
+    });
+    $(function() {
+       //submit event handler
+        $("form#schedule-builder :submit").click(function(e) {
+            var name = this.name;
+            if(name == 'delete') {
+                if (!confirm("Are you sure you want to delete the schedule?"))
+                    {
+                        e.preventDefault();
+                        return;
+                    }
+            }
+        });
+    });
+  </script>
+{% endblock extra_script %}
+
+{% block body %}
+<div class="row base-row">
+  {% for timetable in days %}
+    {% include "schedule/_edit_grid.html" %}
+  {% endfor %}
+</div>
+
+<div class="row base-row">
+  <form id="schedule-builder" action="." method="post" enctype="multipart/form-data">{% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit" name="submit" value="Submit" />
+      <input type="submit" id="delete" name="delete" value="Delete Schedule" />
+  </form>
+  <div class="modal-markItUp modal fade" id="slotEditModal"></div>
+</div>
+{% endblock body %}

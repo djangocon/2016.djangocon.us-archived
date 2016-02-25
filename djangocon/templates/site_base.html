@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+{% load pipeline %}
+{% load markitup_tags %}
+{% load sitetree %}
+{% load metron_tags %}
+{% load waffle_tags %}
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block head_title_base %}{% block head_title %}{% endblock head_title %} | {{ SITE_NAME }} in Austin, TX{% endblock head_title_base %}</title>
+  {% block viewport %}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% endblock viewport %}
+
+  {% block open_graph %}
+  <meta property="og:title" content="DjangoCon US 2015 in Austin, TX" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://2015.djangocon.us/" />
+  <meta property="og:site_name" content="DjangoCon US 2015" />
+  <meta property="og:description" content="A six-day not-for-profit by-the-community and for-the-community international conference for the Django web framework. " />
+  <meta property="og:image" content="{% static 'images/djangocon-logo-thumb.png' %}" />
+  {% endblock open_graph %}
+
+  {% block style_base %}
+  {% stylesheet 'base' %}
+  {% block extra_style %}{% endblock extra_style %}
+  {% endblock style_base %}
+
+  {% block html5shim %}
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+  <![endif]-->
+  {% endblock html5shim %}
+
+  {% block extra_head_base %}
+    <link href="{% static 'images/favicon.ico' %}" rel="shortcut icon" />
+    <script src="//cdn.jsdelivr.net/jquery/1.11.2/jquery.min.js"></script>
+    {% block extra_head %}{% endblock extra_head %}
+  {% endblock extra_head_base %}
+</head>
+
+<body class="{% block body_class %}{% endblock body_class %}" id="{% block body_id %}{% endblock body_id %}">
+<div class="poster-bg">
+
+  <div class="poster-shadow">
+    <div class="django-sticker"></div>
+
+    {% block topbar_base %}
+    <!-- Fixed navbar -->
+    <div class="navbar-wrapper">
+    <div class="navbar navbar-default" role="navigation">
+      <div class="container">
+        {% block topbar %}
+        <div class="navbar-header">
+          <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{% url 'home' %}">
+            <img width="180" class="img-responsive" src="{% static 'images/logo.png' %}" alt="logo">
+          </a>
+        </div>
+        <div class="navbar-collapse collapse">
+          {% block nav %}
+            {% sitetree_menu from "main" include "trunk" template "sitetree/menu_bootstrap3.html" %}
+          {% endblock nav %}
+          {% flag "open-registration" %}
+            {% block account_bar %}
+              {% include "_account_bar.html" %}
+            {% endblock account_bar %}
+          {% endflag %}
+        </div>
+        <!--/.nav-collapse -->
+        {% endblock topbar %}
+      </div>
+    </div>
+    </div>
+    {% endblock topbar_base %}
+
+
+    <div class="row small-header">
+      <div class="container">
+        <h1 class="brdp">{% block page_title %}{% endblock page_title %}</h1>
+      </div>
+    </div>
+
+
+    {% block body_base %}
+      {% block body_outer %}
+       {% include "_messages.html" %}
+          {% block body %}{% endblock body %}
+      {% endblock body_outer %}
+    {% endblock body_base %}
+
+    {% block footer_base %}
+
+    <div class="row" id="footer">
+      <div class="mainback">
+        <div class="turm">
+          <div class="outer">
+            <div class="inner">
+              <div class="container">
+                <div class="nail nail-bl"></div>
+                <div class="nail nail-br"></div>
+                <div class="col-md-6 col-centered footer-note">
+                  <div class="contact-us">Questions? Comments?</div><a href="{% url 'contact_form' %}">Contact Us</a><br>
+                  Design + Build by
+                      <a href="https://www.lincolnloop.com">Lincoln Loop</a> <br />
+                      Hosted on <a href="https://gondor.io">Gondor</a> <br />
+                      Presented by <a href="http://defna.org">DEFNA</a>
+                    <p>©{% now "Y" %} DjangoCon</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    {% endblock footer_base %}
+
+  </div>
+</div>
+  {% block script_base %}
+  {% javascript 'base' %}
+  {% block extra_script %}{% endblock extra_script %}
+  {% endblock script_base %}
+
+  {% block extra_body_base %}
+    {% block extra_body %}{% endblock extra_body %}
+  {% endblock extra_body_base %}
+  {% analytics %}
+</body>
+</html>

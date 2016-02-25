@@ -1,0 +1,11 @@
+[
+{
+    "pk": 2, 
+    "model": "schedule.schedule", 
+    "fields": {
+        "section": 1, 
+        "hidden": false, 
+        "published": true
+    }
+}
+]

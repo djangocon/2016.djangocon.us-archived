@@ -1,0 +1,48 @@
+# requirements for running this project.
+
+--extra-index-url=http://dist.pinaxproject.com/dev/
+--extra-index-url=http://dist.pinaxproject.com/alpha/
+--extra-index-url=http://dist.pinaxproject.com/fresh-start/
+
+# Django packages
+Django>1.6,<1.7
+django-mailer==0.2a1
+django-redis-cache==0.13.0
+metron==1.3.5 # 0.2.dev3
+pinax-utils==1.0b1.dev3
+South==1.0.2
+# pin the version based on the version used for PyOhio 2014
+git+git://github.com/pyohio/symposion.git@2f6930ae11c6dcffd55d2e36c347fbcedd8552fa#egg=symposion
+biblion==2.2.3
+django-comps==0.3.0
+django-contact-form==1.0
+django-pipeline==1.4.6
+django-user-accounts==1.0.1
+slimit==0.8.1
+    # 3.6 breaks slimit https://github.com/dabeaz/ply/issues/63
+    ply==3.4
+cssmin==0.2.0
+
+unicodecsv==0.12.0
+
+# Other Python packages
+gondor==1.2.5
+hiredis==0.1.1
+Pillow==2.7.0
+psycopg2==2.4.6
+pytz==2012g
+redis==2.7.2
+opbeat==2.0.1
+django-waffle==0.10.1
+
+# Theme requirements
+pinax-theme-bootstrap==5.1.0
+django-forms-bootstrap==3.0.0
+django-bootstrap-form==3.1
+
+# Added as part of the "lost levels"
+eventbrite==3.2.1
+
+# Added for Guidebook export
+tablib==0.10.0
+unidecode==0.4.18

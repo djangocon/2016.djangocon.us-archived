@@ -1,0 +1,6 @@
+-r base.txt
+
+gevent==1.0.1
+gunicorn==0.17.2
+whitenoise==1.0.6
+barrel==0.1.3

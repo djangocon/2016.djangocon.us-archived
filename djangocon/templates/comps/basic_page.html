@@ -1,0 +1,62 @@
+{% extends "comps/site_base.html" %}
+
+{% load i18n %}
+{% load bootstrap_tags %}
+{% load boxes_tags %}
+{% load cache %}
+
+{% block head_title %}Basic Page{% endblock head_title %}
+
+{% block body_class %}full{% endblock body_class %}
+
+{% block body %}
+
+
+<div class="container no-padding page-content">
+
+    <div class="col-md-7 col-sm-9 col-xs-11 col-centered">
+    <h3>Header Text Here</h3>
+    <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed suscipit dui a venenatis vulputate. Nunc convallis odio eget tellus ultricies consectetur. Cras vel auctor lorem. <a href="#">Praesent sit amet</a> ipsum felis. Ut quis viverra orci. Nullam dapibus fringilla interdum. Suspendisse augue ligula, pretium et urna eu, laoreet vehicula ligula. Vestibulum pharetra velit malesuada diam bibendum, et iaculis nibh sollicitudin.
+    </p>
+    <p>
+    Nulla eget erat imperdiet nisl dapibus viverra. Sed ut dapibus sem. Pellentesque eleifend erat nec lorem tempor adipiscing. Maecenas sit amet fermentum purus, a blandit velit. Aenean vel sapien sed lorem scelerisque pellentesque sit amet at tortor. Pellentesque consequat vehicula tellus. Sed quis dictum dolor. Aliquam id eros euismod, tempus sem sit amet, <a href="#">rutrum sapien.</a> Fusce pulvinar tincidunt congue. Duis nisl odio, tempus a nulla sit amet, tincidunt gravida risus.
+    </p>
+
+
+    <h3>Header Text Here</h3>
+    <p>
+    Maecenas augue magna, facilisis non semper id, bibendum ac dui. Suspendisse rutrum sem eget felis semper vehicula. Donec vel mi mi. Quisque aliquet ipsum vitae vulputate bibendum. Sed ac lacus massa. Aliquam dignissim dolor mattis, mattis turpis ut, iaculis lorem. Curabitur ut sollicitudin diam. 
+    </p>
+    <p>
+    Nullam ac volutpat tellus. Phasellus risus metus, egestas a dolor vitae, sagittis accumsan massa. Sed et metus dignissim ligula sagittis vehicula. In vitae ornare massa. Donec dignissim congue mi ut placerat. Quisque mauris neque, adipiscing eget sapien a, vestibulum ornare ante. Sed sem libero, ultrices vitae adipiscing et, eleifend non purus. Morbi lobortis lacus at pellentesque rhoncus. Aenean dui turpis, commodo ut erat sit amet, porta lacinia risus.
+    </p>
+
+    <ul>
+        <li>
+        <p>We have identified several traveler's hotels within reasonable walking distance of the conference venue.  These are listed in Budget .. Alternative Lodging.  We're also attempting to negotiate discounted rates in other venues on behalf of the delegates.</p>
+        </li>
+        <li>
+        <p>Delegates interested in sharing accommodations can connect via the wiki available in Budget .. Room Sharing Wiki.</p>
+        </li>
+        <li>
+        <p>Mass transit options (including transportation to/from the major airports) are listed in Budget ... Transit.</p>
+        </li>
+        <li>
+        <p>The Open Bastion has donated $10,000 of financial assistance to delegates who require it; the current plan is to offer partial scholarships to recipients to be determined by the DSF.  We plan to provide sponsors with the opportunity to contribute additional funds.  Please contact Lynn Root (DSF's delegate) erin.lynn.root@gmail.com directly with your request.</p>
+        </li>
+    </ul>
+
+    </div>
+
+
+
+
+</div>
+
+
+
+
+
+
+{% endblock body %}

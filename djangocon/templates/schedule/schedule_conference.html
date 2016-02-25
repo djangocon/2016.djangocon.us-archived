@@ -1,0 +1,32 @@
+{% extends "site_base.html" %}
+
+{% load static %}
+{% load i18n %}
+{% load bootstrap_tags %}
+{% load boxes_tags %}
+{% load cache %}
+
+{% block page_title %}{% trans "Conference Schedule" %}{% endblock page_title %}
+
+{% block body_class %}full{% endblock body_class %}
+
+{% block body %}
+<div class="row base-row">
+
+<div class="col-md-6 col-centered announcement-msg">
+	{% box "schedule_top" %}
+</div>
+<div class="container no-padding page-content">
+	{% for section in sections %}
+
+		{% for timetable in section.days %}
+			{% include "schedule/_grid.html" %}
+		{% endfor %}
+
+	{% endfor %}
+</div>
+<div class="col-md-6 col-centered announcement-msg">
+	{% box "schedule_bottom" %}
+</div>
+</div>
+{% endblock body %}
