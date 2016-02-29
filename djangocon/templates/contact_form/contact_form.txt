@@ -1,4 +1,0 @@
-{{ name }} at {{ email }} sent you the following message:
-
-{{ body }}
-

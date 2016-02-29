@@ -1,1 +1,0 @@
-[DjangoCon 2015] Contact Form
