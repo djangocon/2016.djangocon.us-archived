@@ -143,6 +143,7 @@ INSTALLED_APPS = [
     "pinax.eventlog",
     "pinax.pages",
     "pinax.blog",
+    "markitup",
 
     # symposion
     "symposion",
@@ -207,9 +208,21 @@ AUTHENTICATION_BACKENDS = [
     "account.auth_backends.UsernameAuthenticationBackend",
 ]
 
+# Symposion settings
+
 CONFERENCE_ID = 1
 PROPOSAL_FORMS = {
-    "talk": "djangocon.proposals.forms.TalkProposalForm",
+    "tutorial": "djangocon.proposals.forms.TutorialProposalForm",
+    "talk-25-min": "djangocon.proposals.forms.TalkProposalForm",
+    "talk-45-min": "djangocon.proposals.forms.TalkProposalForm",
+    "open-space": "djangocon.proposals.forms.OpenSpaceProposalForm",
 }
 PINAX_PAGES_HOOKSET = "djangocon.hooks.PinaxPagesHookSet"
 PINAX_BOXES_HOOKSET = "djangocon.hooks.PinaxBoxesHookSet"
+
+# adjust for number of reviews currenly about 1/5 (default: 3)
+SYMPOSION_VOTE_THRESHOLD = 3
+
+MARKITUP_SET = "markitup/sets/markdown"
+MARKITUP_FILTER = ["symposion.markdown_parser.parse", {}]
+MARKITUP_SKIN = "markitup/skins/simple"
