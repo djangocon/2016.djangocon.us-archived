@@ -52,18 +52,6 @@ To compile all static files simply run:
 
     $ make all
 
-Collect those static files:
-
-    $ manage.py collectstatic
-
-Migrate: 
-
-    $ manage.py migrate
-
-Start the development server: 
- 
-    $ manage.py runserver
-
 #### Static files during development
 
 You can watch for changes of CSS and JS files and have them re-compiled
