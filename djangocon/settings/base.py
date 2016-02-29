@@ -1,10 +1,14 @@
 import os
 import dj_database_url
 
+from unipath import FSPath as Path
+
 
 def env_or_default(NAME, default):
     return os.environ.get(NAME, default)
 
+PROJECT_ROOT = Path(__file__).ancestor(3)
+# PROJECT_ROOT = os.path.dirname(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir)))
 
 PROJECT_ROOT = os.path.dirname(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir)))
 PACKAGE_ROOT = os.path.dirname(os.path.abspath(os.path.abspath(os.path.dirname(__file__))))
@@ -18,7 +22,9 @@ DATABASES = {
 
 ALLOWED_HOSTS = [
     os.environ.get("GONDOR_INSTANCE_DOMAIN"),
-    "conference.pinaxproject.com"
+    "2016.djangocon.us",
+    "www.djangocon.us",
+    "localhost',"
 ]
 
 # Local time zone for this installation. Choices can be found here:
