@@ -2,8 +2,12 @@ import os
 import dj_database_url
 
 
-PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
-PACKAGE_ROOT = os.path.abspath(os.path.dirname(__file__))
+def env_or_default(NAME, default):
+    return os.environ.get(NAME, default)
+
+
+PROJECT_ROOT = os.path.dirname(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir)))
+PACKAGE_ROOT = os.path.dirname(os.path.abspath(os.path.abspath(os.path.dirname(__file__))))
 BASE_DIR = PACKAGE_ROOT
 
 DEBUG = bool(int(os.environ.get("DEBUG", "1")))
