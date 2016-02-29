@@ -8,7 +8,7 @@ Code of Conduct
 ---------------
 
 As a contributor, you can help us keep the Django community open and inclusive.
-Please read and follow our `Code of Conduct <https://www.djangoproject.com/conduct/>`_.
+Please read and follow our [Code of Conduct](https://www.djangoproject.com/conduct/).
 
 
 Getting Started
@@ -17,15 +17,27 @@ Getting Started
 Make sure you are using a virtual environment of some sort (e.g. `virtualenv` or
 `pyenv`).
 
+Create a database (defaults to Postgres):
+
     $ createdb djangocon2016
+
+Install requirements:
 
     $ pip install -r requirements.txt
 
+Sync models to database:
+
     $ ./manage.py migrate
+
+Load default fixtures into database:
 
     $ ./manage.py loaddata fixtures/*
 
+Create a superuser account to access the admin:
+
     $ ./manage.py createsuperuser
+
+Start the web server:
 
     $ ./manage.py runserver
 
