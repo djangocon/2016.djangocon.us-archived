@@ -16,3 +16,4 @@ git+https://github.com/pinax/symposion.git
 # DjangoCon custom requirements
 django-markitup==2.3.1
 pinax-blog==4.3.0
+Unipath==1.1
