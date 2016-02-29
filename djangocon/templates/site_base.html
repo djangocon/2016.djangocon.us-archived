@@ -1,0 +1,55 @@
+{% extends "theme_bootstrap/base.html" %}
+
+{% load staticfiles %}
+{% load metron_tags %}
+{% load i18n %}
+{% load sitetree %}
+
+
+{% block styles %}
+    {% include "_styles.html" %}
+{% endblock %}
+
+
+{% block extra_head_base %}
+    {% block extra_head %}{% endblock %}
+{% endblock %}
+
+{% block nav %}
+    {% sitetree_menu from "main" include "trunk" template "sitetree/menu_bootstrap3.html" %}
+{% endblock %}
+
+{% block body_base %}
+    <section id="content_body">
+        <div class="container">
+            {% include "_messages.html" %}
+            <div class="row">
+                <div class="col-md-9">
+                    {% block body %}
+                    {% endblock %}
+                </div>
+                <div class="col-md-3">
+                    {% block sidebar %}
+                        {% include "_default_sidebar.html" %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+
+{% block footer %}
+    {% include "_footer.html" %}
+{% endblock %}
+
+
+{% block scripts %}
+    {% include "_scripts.html" %}
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/ace.js"></script>
+{% endblock %}
+
+{% block extra_body_base %}
+    {% analytics %}
+    {% block extra_body %}{% endblock %}
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "site_base.html" %}
+
+
+{% block body_base %}
+    <section id="content_body">
+        <div class="container">
+            {% include "_messages.html" %}
+            {% block body %}
+            {% endblock %}
+        </div>
+    </section>
+{% endblock %}

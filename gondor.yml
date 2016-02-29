@@ -1,0 +1,7 @@
+buildpack: https://buildpack.gondor.io/python
+site: eldarion-conferences/djangocon
+deploy:
+  services:
+    - web
+branches:
+  master: primary
