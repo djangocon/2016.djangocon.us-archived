@@ -73,7 +73,7 @@ STATIC_URL = "/site_media/static/"
 
 # Additional locations of static files
 STATICFILES_DIRS = [
-    PROJECT_ROOT.child("static", "dist"),
+    PROJECT_ROOT.child("build"),
 ]
 
 # List of finder classes that know how to find static files in
