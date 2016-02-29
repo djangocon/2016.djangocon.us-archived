@@ -7,11 +7,10 @@ from unipath import FSPath as Path
 def env_or_default(NAME, default):
     return os.environ.get(NAME, default)
 
-PROJECT_ROOT = Path(__file__).ancestor(3)
-# PROJECT_ROOT = os.path.dirname(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir)))
 
-PROJECT_ROOT = os.path.dirname(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir)))
-PACKAGE_ROOT = os.path.dirname(os.path.abspath(os.path.abspath(os.path.dirname(__file__))))
+PROJECT_ROOT = Path(__file__).ancestor(3)
+PACKAGE_ROOT = PROJECT_ROOT.child('djangocon')
+
 BASE_DIR = PACKAGE_ROOT
 
 DEBUG = bool(int(os.environ.get("DEBUG", "1")))
@@ -55,7 +54,7 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = os.path.join(PACKAGE_ROOT, "site_media", "media")
+MEDIA_ROOT = PROJECT_ROOT.child("site_media", "media")
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -66,7 +65,7 @@ MEDIA_URL = "/site_media/media/"
 # Don"t put anything in this directory yourself; store your static files
 # in apps" "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = os.path.join(PACKAGE_ROOT, "site_media", "static")
+STATIC_ROOT = PROJECT_ROOT.child("site_media", "static")
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
@@ -74,7 +73,7 @@ STATIC_URL = "/site_media/static/"
 
 # Additional locations of static files
 STATICFILES_DIRS = [
-    os.path.join(PROJECT_ROOT, "static", "dist"),
+    PROJECT_ROOT.child("static", "dist"),
 ]
 
 # List of finder classes that know how to find static files in
@@ -91,7 +90,7 @@ TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [
-            os.path.join(PACKAGE_ROOT, "templates"),
+            PACKAGE_ROOT.child("templates"),
         ],
         "APP_DIRS": True,
         "OPTIONS": {
@@ -200,7 +199,7 @@ LOGGING = {
 }
 
 FIXTURE_DIRS = [
-    os.path.join(PROJECT_ROOT, "fixtures"),
+    PROJECT_ROOT.child("fixtures"),
 ]
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
