@@ -24,6 +24,10 @@ body {
   background-repeat: no-repeat;
   background-position: bottom left;
   color: $white;
+  a, a:active, a:visited {
+    color: #fff;
+    text-decoration: underline;
+  }
 }
 
 .footer {
