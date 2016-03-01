@@ -10,7 +10,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>{% block title %}{% endblock %}</title>
+    <title>{% block head_title %}{% endblock %}</title>
 
     <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
     <script type="text/javascript" src="http://fast.fonts.net/jsapi/fe2c8273-c030-4484-aefe-d70b479707e7.js"></script>
@@ -22,36 +22,19 @@
 
   <body class="poster-bg {% block body_class %}{% endblock %}">
 
-    {% include "includes/navigation.html" %}
-      <div class="sheet"></div>
-      <div class="sheet-1"></div>
-      <div class="sheet-2"></div>
-      <div class="poster-shadow">
+    {% block nav %}
+      {% sitetree_menu from "main" include "trunk" %}
+    {% endblock %}
 
+    <div class="sheet"></div>
+    <div class="sheet-1"></div>
+    <div class="sheet-2"></div>
+    <div class="poster-shadow">
 
-      {% block nav %}
-          {% sitetree_menu from "main" include "trunk" template "sitetree/menu_bootstrap3.html" %}
+      {% include "_messages.html" %}
+
+      {% block body %}
       {% endblock %}
-
-      {% block body_base %}
-          <section id="content_body">
-              <div class="container">
-                  {% include "_messages.html" %}
-                  <div class="row">
-                      <div class="col-md-9">
-                          {% block body %}
-                          {% endblock %}
-                      </div>
-                      <div class="col-md-3">
-                          {% block sidebar %}
-                              {% include "_default_sidebar.html" %}
-                          {% endblock %}
-                      </div>
-                  </div>
-              </div>
-          </section>
-      {% endblock %}
-     {% block content %}{% endblock %}
 
       <footer class="footer poster-wrapper ">
       </footer>

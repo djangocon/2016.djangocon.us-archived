@@ -1,0 +1,18 @@
+{% load sitetree %}
+<nav class="navbar navbar-dark bg-faded">
+  <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
+    &#9776;
+  </button>
+  <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
+    <ul class="nav navbar-nav">
+      {% for item in sitetree_items %}
+      <li class="nav-item">
+        <a class="nav-link" href="{% sitetree_url for item %}" {% if item.hint %}title="{{ item.hint }}"{% endif %} {% if item.is_current or item.in_current_branch %}class="{{ item.is_current|yesno:"current_item ," }}{{ item.in_current_branch|yesno:"current_branch," }}"{% endif %}>{{ item.title_resolved }}</a>
+        <!--{% if item.has_children %}
+        {% sitetree_children of item for menu template "sitetree/menu.html" %}
+        {% endif %}-->
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</nav>
