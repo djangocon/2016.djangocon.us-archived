@@ -23,15 +23,7 @@ body {
   background-image: url(../assets/img/bend.png);
   background-repeat: no-repeat;
   background-position: bottom left;
-  h1, h4 {
-    -webkit-text-stroke: 1px #ffffff;
-  }
-  h1, h3, p {
-    color: $white;
-  }
-  strong {
-    color: $red;
-  }
+  color: $white;
 }
 
 .footer {

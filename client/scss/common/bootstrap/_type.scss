@@ -8,19 +8,39 @@
        url('../assets/fonts/liberator-heavy-webfont.svg#liberatorheavy') format('svg');
   font-weight: normal;
   font-style: normal;
-
 }
 
+* {
+  font-weight: 300;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 //
 // Headings
 //
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-  color: $red;
+  color: $white;
 }
 
 h3 {
   font-family: $font-family-serif;
   text-transform: uppercase;
+}
+
+.white-outline {
+  font-family: $font-family-brand;
+  text-shadow:1px 1px 0 #fff,
+  -1px -1px 0 #fff,
+  1px -1px 0 #fff,
+  -1px 1px 0 #fff,
+  0px 1px 0 #fff,
+  1px 0px 0 #fff,
+  0px -1px 0 #fff,
+  -1px 0px 0 #fff;
+  letter-spacing: 2px;
+  color: $red;
 }
