@@ -1,3 +1,13 @@
 .footer {
+  height: 290px;
+  background-size: cover;
+  border-bottom: $poster-border-width solid #fff;
+  background-color: $blue;
   margin-bottom: 2em;
+  text-align: center;
+  color: $white;
+  a, a:active, a:visited {
+    color: #fff;
+    text-decoration: underline;
+  }
 }
