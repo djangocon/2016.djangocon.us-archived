@@ -12,7 +12,7 @@ clean:
 	rm -rf build/*
 
 collect:
-	manage.py collectstatic --noinput
+	$(shell pwd)/manage.py collectstatic --noinput
 
 # --- CSS ----------------------------------------------------------------------
 

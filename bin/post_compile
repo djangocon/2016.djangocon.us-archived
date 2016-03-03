@@ -1,14 +1,5 @@
 #!/bin/bash
 
 set -e
-
-set-env() {
-    echo "export $1=$2" >> .profile.d/node.sh
-}
-
 npm install
-export PATH="$(pwd)/node_modules/.bin:${PATH}"
-set-env PATH "$PATH"
-
-make all
 make collect
