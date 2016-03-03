@@ -1,38 +1,29 @@
 import os
 import urlparse
 
-from .base import *
+import dj_database_url
+
+from .base import *  # noqa
+
 
 DEBUG = False
 GONDOR_INSTANCE = os.environ.get("GONDOR_INSTANCE", None)
 
 ALLOWED_HOSTS = [
-    'cs998.gondor.co',
-    'ol579.gondor.co'
     '2016.djangocon.us',
     'djangocon.us',
     'www.djangocon.us',
 ]
+if 'GONDOR_INSTANCE_DOMAIN' in os.environ:
+    ALLOWED_HOSTS.append(os.environ['GONDOR_INSTANCE_DOMAIN'])
 
-if "GONDOR_DATABASE_URL" in os.environ:
-    urlparse.uses_netloc.append("postgres")
-    url = urlparse.urlparse(os.environ["GONDOR_DATABASE_URL"])
-    DATABASES = {
-        "default": {
-            "ENGINE": {
-                "postgres": "django.db.backends.postgresql_psycopg2"
-            }[url.scheme],
-            "NAME": url.path[1:],
-            "USER": url.username,
-            "PASSWORD": url.password,
-            "HOST": url.hostname,
-            "PORT": url.port
-        }
-    }
+DATABASES = {
+    "default": dj_database_url.config()
+}
 
-if "GONDOR_REDIS_URL" in os.environ:
+if "REDIS_URL" in os.environ:
     urlparse.uses_netloc.append("redis")
-    url = urlparse.urlparse(os.environ["GONDOR_REDIS_URL"])
+    url = urlparse.urlparse(os.environ["REDIS_URL"])
     CACHES = {
         "default": {
             "BACKEND": "redis_cache.RedisCache",
@@ -53,7 +44,7 @@ SECURE_HSTS_INCLUDE_SUBDOMAINS = False
 
 SITE_ID = int(os.environ.get("SITE_ID", "1"))
 
-if GONDOR_INSTANCE == 'develop':
+if GONDOR_INSTANCE == 'staging':
     CDN_URL = "http://staging.djangocon.us.global.prod.fastly.net/"
 elif GONDOR_INSTANCE == 'primary':
     CDN_URL = "//djangocon-us.global.ssl.fastly.net/"
@@ -63,12 +54,9 @@ else:
 STATIC_URL = CDN_URL + "site_media/static/"
 MEDIA_URL = CDN_URL + "site_media/media/"
 
-MEDIA_ROOT = os.path.join(os.environ["GONDOR_DATA_DIR"], "site_media", "media")
-STATIC_ROOT = os.path.join(os.environ["GONDOR_DATA_DIR"], "site_media", "static")
-
 ADMIN_MEDIA_PREFIX = STATIC_URL + "admin/"
 
-FILE_UPLOAD_PERMISSIONS = 0640
+FILE_UPLOAD_PERMISSIONS = 0o640
 
 LOGGING = {
     "version": 1,
