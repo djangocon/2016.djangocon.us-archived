@@ -2,6 +2,7 @@ site: eldarion-conferences/djangocon-2016
 buildpack: https://buildpack.gondor.io/python
 branches:
   master: primary
+  development: next
 deploy:
   services:
     - web
