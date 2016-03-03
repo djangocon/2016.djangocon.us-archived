@@ -72,10 +72,6 @@ LOGGING = {
             "class": "logging.StreamHandler",
             "formatter": "simple"
         },
-        'opbeat': {
-            'level': 'WARNING',
-            'class': 'opbeat.contrib.django.handlers.OpbeatHandler',
-        },
     },
     "root": {
         "handlers": ["console"],
