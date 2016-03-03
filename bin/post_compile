@@ -11,3 +11,4 @@ export PATH="$(pwd)/node_modules/.bin:${PATH}"
 set-env PATH "$PATH"
 
 make all
+make collect
