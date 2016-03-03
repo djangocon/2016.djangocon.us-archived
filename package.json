@@ -1,10 +1,11 @@
 {
   "name": "djangocon.us_2016",
   "version": "1.0.0",
-  "description": "### Installation for local development",
-  "main": "index.js",
+  "description": "Front-end portion of DjangoCon 2016",
+  "repository": "https://github.com/djangocon/2016.djangocon.us",
+  "main": "build/js/base.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "postinstall": "make -j4 all"
   },
   "author": "",
   "license": "ISC",

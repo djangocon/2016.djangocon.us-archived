@@ -1,3 +1,4 @@
+SHELL=/bin/bash -eu -o pipefail
 NPM_BIN := $(shell pwd)/node_modules/.bin
 
 # --- Utils --------------------------------------------------------------------
