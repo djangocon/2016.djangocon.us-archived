@@ -1,8 +1,8 @@
-site: eldarion-conferences/djangocon-2016
+site: djangocon/2016
 buildpack: https://buildpack.gondor.io/python
 branches:
   master: primary
-  development: next
+  development: staging
 deploy:
   services:
     - web
