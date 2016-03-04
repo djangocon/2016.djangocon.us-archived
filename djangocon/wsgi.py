@@ -5,6 +5,6 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "djangocon.settings")
 
 from django.core.wsgi import get_wsgi_application  # noqa
 
-from dj_static import Cling, MediaCling  # noqa
+from whitenoise.django import DjangoWhiteNoise  # noqa
 
-application = Cling(MediaCling(get_wsgi_application()))
+application = DjangoWhiteNoise(get_wsgi_application())
