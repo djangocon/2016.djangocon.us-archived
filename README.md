@@ -50,15 +50,9 @@ node via Homebrew:
 
     $ brew install node
 
-Ideally, create a virtualenv and activate it
-
 Install all node dev dependencies:
 
     $ npm install
-
-Install requirements:
-
-    $ pip install -r requirements.txt
 
 To compile all static files simply run:
 
@@ -87,9 +81,11 @@ For JS we use browserify to collect all dependencies, from `client/js` as well
 as from the `node_modules` into one file. We transform that with Babel from ES6
 to ES5 for compatibility reasons. We compress that with uglify.
 
-## Contributors
 
-Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds/all-contributors#emoji-key)) (semi-ordered by contribution date):
+Contributors
+---------------
+
+Thanks goes to these wonderful people ([emoji key](#emoji-key)) (semi-ordered by contribution date):
 
 Contributor | Contributions
 :---: | :---:
@@ -103,3 +99,19 @@ Contributor | Contributions
 [![Sara D Gore](https://avatars.githubusercontent.com/u/2285473?v=3&s=100)<br />Sara D Gore](https://github.com/SaraDGore) | [📖❓](https://github.com/djangocon/2016.djangocon.us/commits?author=SaraDGore)
 [![Andrew Pinkham](https://avatars.githubusercontent.com/u/2659203?v=3&s=100)<br />Andrew Pinkham](https://github.com/jambonrose) | [📖❓](https://github.com/djangocon/2016.djangocon.us/commits?author=jambonrose)
 [![Brian Rosner](https://avatars.githubusercontent.com/u/124?v=3&s=100)<br />Brian Rosner](https://github.com/brosner) | [💻](https://github.com/djangocon/2016.djangocon.us/commits?author=brosner)
+
+#### Emoji key
+
+Emoji | Represents | Links to
+:---: | --- | ---
+💻 | Code | `https://github.com/${ownerName}/${repoName}/commits?author=${username}`
+📖 | Documentation | `https://github.com/${ownerName}/${repoName}/commits?author=${username}`, Wiki, or other source of documentation
+❓ | Answering Questions (in Issues, Stack Overflow, Gitter, Slack, etc.)
+🎨 | Design | the logo/iconography/visual design/etc.
+👀 | Reviewed Pull Requests
+
+
+License
+---------------
+
+[BSD License](LICENSE)
