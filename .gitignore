@@ -67,3 +67,5 @@ dev.db
 
 
 
+pages.json
+djangocon/settings/local.py
