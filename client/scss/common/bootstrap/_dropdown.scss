@@ -16,9 +16,20 @@
   background-clip: padding-box;
   border: none;
   border-radius: 0;
-
   @include box-shadow(0 6px 12px rgba(0,0,0,.175));
+  &:after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 50px;
+    background-image: url(../assets/img/ribbon.svg);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: 100%;
+  }
 }
+
 
 // Dividers (basically an `<hr>`) within the dropdown
 .dropdown-divider {
@@ -42,7 +53,7 @@
   border: 0; // For `<button>`s
 
   @include hover-focus {
-    color: $dropdown-link-hover-color;
+    color: $blue;
     text-decoration: none;
     background-color: $dropdown-link-hover-bg;
   }
