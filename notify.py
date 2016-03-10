@@ -3,7 +3,7 @@ from __future__ import print_function
 import sys
 import subprocess
 import re
-from time import ctime
+import datetime
 
 def notify(text, title="Error"):
     script = 'display notification "{}" with title "Error" subtitle "world" sound name "Funk"'.format(text)
@@ -14,7 +14,7 @@ def watch_for_error(proc):
     regex = re.compile(r'^\s+"formatted"\: "Error: (.*)",$',
                        re.UNICODE | re.DOTALL | re.MULTILINE)
     for line in iter(proc.stderr.readline, b''):
-        print(ctime)
+        print(datetime.datetime.now())
         print(line, file=sys.stderr, end="")
         try:
             error = regex.match(line).groups()[0]
