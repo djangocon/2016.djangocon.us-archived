@@ -19,5 +19,7 @@
     "postcss-cli": "^2.5.0",
     "uglifyjs": "^2.4.10"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "watchify": "^3.7.0"
+  }
 }
