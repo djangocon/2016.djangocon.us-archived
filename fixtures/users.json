@@ -1,0 +1,20 @@
+[
+{
+    "pk": 1,
+    "model": "auth.user",
+    "fields": {
+        "date_joined": "2015-10-17T00:14:31.619Z",
+        "groups": [],
+        "user_permissions": [],
+        "username": "pinax",
+        "last_name": "",
+        "is_superuser": true,
+        "is_active": true,
+        "email": "",
+        "is_staff": true,
+        "last_login": null,
+        "first_name": "",
+        "password": "pbkdf2_sha256$20000$mL5SrgzL4TSJ$y9rRoK1ZghGD8ywsJK0472Zp7DB+fr7jPZ9+MxPlWr0="
+    }
+}
+]

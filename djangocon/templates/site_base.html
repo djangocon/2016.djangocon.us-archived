@@ -1,0 +1,45 @@
+{% load staticfiles %}
+{% load metron_tags %}
+{% load i18n %}
+{% load sitetree %}
+
+<!DOCTYPE html> <html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{% block head_title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+    <script type="text/javascript" src="//fast.fonts.net/jsapi/fe2c8273-c030-4484-aefe-d70b479707e7.js"></script>
+
+    {% block extra_css %}
+    {% endblock %}
+  </head>
+
+  <body class="poster-bg {% block body_class %}{% endblock %}">
+
+    {% block nav %}
+      {% sitetree_menu from "main" include "trunk" %}
+    {% endblock %}
+
+    {% include "includes/sheets.html" %}
+
+    <div class="poster-shadow">
+
+      {% include "_messages.html" %}
+      {% block body %}
+      {% endblock %}
+      {% include "includes/footer.html" %}
+
+    </div>
+
+    <script src="{% static 'js/base.js' %}"></script>
+
+    {% block extra_js %}
+    {% endblock %}
+
+    {% analytics %}
+    {% block extra_body %}{% endblock %}
+
+  </body>
+</html>

@@ -1,0 +1,52 @@
+{% extends "site_base.html" %}
+
+{% load static from staticfiles %}
+{% load i18n %}
+{% load pinax_boxes_tags %}
+
+{% block head_title %}{% trans "Welcome" %}{% endblock %}
+
+{% block body_class %}home{% endblock %}
+
+{% block body %}
+
+<div class="header poster-wrapper ">
+<div class="header-triangle"></div>
+  <img class="logo-full" src="{% static "assets/img/logo-full.png" %}">
+</div>
+
+<div class="poster-wrapper blue-wrapper">
+  <div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3"><h1 class="white-outline">DjangoCon US 2016</h1></div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3"><h3>We are pleased to announce that the DjangoCon US 2016 conference will take place in: <br><br><strong class="white-outline">Philadelphia, Pennsylvania</strong><br><br> from: <br><br><strong class="white-outline">July 17-22, 2016</strong><br><br> at:<br><br> <strong class="white-outline">The Wharton School at the University of Pennsylvania</strong></h3><br><br></div>
+    </div>
+    <div class="row">
+            <div class="col-md-2 col-md-offset-3"><h4 class="white-outline">July 17: Tutorials</h4></div>
+            <div class="col-md-2 "><h4 class="white-outline">July 18-20: Talks</h4></div>
+            <div class="col-md-2 "><h4 class="white-outline">July 21-22: Sprints</h4></div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <br>
+        <br>
+        <p>
+        We have a lot of amazing things planned that we’ll announce over the next few weeks. <br><br><strong>Until then, here’s what you can do to help:</strong>
+        </p>
+        <p>
+        Mark your calendars and help us spread the word!
+        Start thinking about topics for when our Call for Proposals is announced.
+        </p>
+        <p>
+        Watch this space, <a href="http://www.twitter.com/DjangoCon">@DjangoCon</a> on Twitter, or follow the discussions on the djangocon-organizers list.
+        Sponsor the event!
+        Want to help by joining our organizers?
+        Start working on those proposals, and we hope we'll see you at DjangoCon US!</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

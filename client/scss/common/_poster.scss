@@ -23,22 +23,11 @@ body {
   background-image: url(../assets/img/bend.png);
   background-repeat: no-repeat;
   background-position: bottom left;
-  h1, h4 {
-    -webkit-text-stroke: 1px #ffffff;
+  color: $white;
+  a, a:active, a:visited {
+    color: #fff;
+    text-decoration: underline;
   }
-  h1, h3, p {
-    color: $white;
-  }
-  strong {
-    color: $red;
-  }
-}
-
-.footer {
-  height: 623px;
-  background-size: cover;
-  border-bottom: $poster-border-width solid #fff;
-  background-color: $blue;
 }
 
 .poster-shadow {
@@ -62,27 +51,40 @@ body {
   }
 }
 
-.sheet, .sheet-1, .sheet-2 {
+.sheet, .sheet-1, .sheet-2, .sheet-3, .sheet-4 {
   position: absolute;
   background: $white;
   top: 30%;
   left: 1%;
   z-index: 0;
-  width: 300px;
-  height: 300px;
+  width: 50%;
+  height: 100%;
   box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.75);
   transform: rotate(1deg);
 }
 
 .sheet-1 {
-  right: 2%;
-  left: auto;
+  left: 2%;
   transform: rotate(2deg);
 }
 
 .sheet-2 {
   top: 34%;
-  left: 2%;
-  height: 600px;
+  right: 2%;
+  left: auto;
+  transform: rotate(-2deg);
+}
+
+
+.sheet-3 {
+  top: 19%;
+  left: 12%;
   transform: rotate(2deg);
+}
+
+.sheet-4 {
+  top: 19%;
+  left: auto;
+  right: 12%;
+  transform: rotate(-2deg);
 }

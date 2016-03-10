@@ -1,0 +1,8 @@
+site: djangocon/2016
+buildpack: https://buildpack.gondor.io/python
+branches:
+  master: primary
+  development: staging
+deploy:
+  services:
+    - web

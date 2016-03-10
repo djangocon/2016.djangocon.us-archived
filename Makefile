@@ -1,3 +1,4 @@
+SHELL=/bin/bash -eu -o pipefail
 NPM_BIN := $(shell pwd)/node_modules/.bin
 
 # --- Utils --------------------------------------------------------------------
@@ -11,7 +12,7 @@ clean:
 	rm -rf build/*
 
 collect:
-	manage.py collectstatic --noinput
+	$(shell pwd)/manage.py collectstatic --noinput
 
 # --- CSS ----------------------------------------------------------------------
 
