@@ -3,13 +3,24 @@
 {% load sponsorship_tags %}
 {% load thumbnail %}
 {% load i18n %}
+{% load static from staticfiles %}
+
 
 {% block head_title %}{% trans "About Our Sponsors" %}{% endblock %}
 
 {% block body_class %}sponsorships{% endblock %}
 
-{% block body_outer %}
-    <h1>{% trans "About Our Sponsors" %}</h1>
+{% block body %}
+
+<div class="blog-header poster-wrapper ">
+  <h1>{% trans "About Our Sponsors" %}</h1>
+  <img class="logo-full" src="{% static "assets/img/logo-full.png" %}">
+</div>
+
+<div class="poster-wrapper">
+  <div class="container">
+    <div class="row">
+
     <a href="{% url "pages_page" "sponsors/prospectus/" %}" class="btn">Learn how to become a sponsor <span class="arrow"></span></a>
 
     {% sponsor_levels as levels %}
@@ -37,4 +48,7 @@
             {% endfor %}
         {% endif %}
     {% endfor %}
+    </div>
+  </div>
+</div>
 {% endblock %}

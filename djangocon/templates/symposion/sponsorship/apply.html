@@ -3,6 +3,7 @@
 {% load bootstrap %}
 {% load i18n %}
 {% load pinax_boxes_tags %}
+{% load static from staticfiles %}
 
 {% block head_title %}{% trans "Apply to be a Sponsor" %}{% endblock %}
 
@@ -10,19 +11,32 @@
 
 {% block body %}
 
-    {% box "sponsorship-apply" %}
+<div class="small-header poster-wrapper ">
+  <div class="header-triangle"></div>
+  <h1>{% trans "Apply for Sponsorship" %}</h1>
+  <img class="logo-full" src="{% static "assets/img/logo-full.png" %}">
+</div>
 
-    <form method="POST" action="" class="form-horizontal">
+<div class="poster-wrapper">
+  <div class="container">
+    <div class="row">
+
+      {% box "sponsorship-apply" %}
+
+      <form method="POST" action="" class="form-horizontal">
         {% csrf_token %}
         <legend>{% trans "Apply to Be a Sponsor" %}</legend>
         {{ form|bootstrap_horizontal }}
         <div class="form-actions">
-            <input class="btn btn-primary" type="submit" value="Apply" />
-            <a class="btn btn-default" href="{% url "dashboard" %}">Cancel</a>
-            <p class="help-block">
-                <small>By submitting this sponsor application you are agreeing to the <a href="{% url "pages_page" "sponsor/terms/" %}" target="_blank">terms and conditions</a>.</small>
-            </p>
+          <input class="btn btn-primary" type="submit" value="Apply" />
+          <a class="btn btn-default" href="{% url "dashboard" %}">Cancel</a>
+          <p class="help-block">
+            <small>By submitting this sponsor application you are agreeing to the <a href="{% url "pages_page" "sponsor/terms/" %}" target="_blank">terms and conditions</a>.</small>
+          </p>
         </div>
-    </form>
+      </form>
 
+    </div>
+  </div>
+</div>
 {% endblock %}

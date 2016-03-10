@@ -13,6 +13,35 @@
   }
 }
 
+.small-header, .blog-header, .edit-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-top: 60px;
+  height: 200px;
+  background-color: $blue;
+  background-size: cover;
+  border-top: $poster-border-width solid #fff;
+  color: #fff;
+  padding-bottom: 0;
+  @include media-breakpoint-up(md) {
+    height: 323px;
+  }
+  h1 {
+    z-index: 2;
+  }
+}
+
+.blog-header, .edit-header {
+  background-color: #fbfaf6;
+  color: $blue;
+  padding-top: 6em;
+  @include media-breakpoint-up(md) {
+    height: 200px;
+  }
+}
+
 .logo-full {
   width: 300px;
   position: absolute;
@@ -21,13 +50,21 @@
   margin-left: -150px;
 }
 
-.header-triangle {
+.header-triangle, .white-header-triangle {
   position: absolute;
+  z-index: 1;
   left: 0;
   top: 0;
   right: 0;
   bottom: 0;
-  background-image: url(../assets/img/blue_triangle.svg);
   background-repeat: no-repeat;
   background-position: center bottom;
+}
+
+.header-triangle {
+  background-image: url(../assets/img/blue_triangle.svg);
+}
+
+.white-header-triangle {
+  background-image: url(../assets/img/white_triangle.svg);
 }
