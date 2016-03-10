@@ -68,3 +68,4 @@ dev.db
 
 
 djangocon/settings/local.py
+pages.json
