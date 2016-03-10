@@ -2,6 +2,7 @@
 
 {% load sitetree %}
 {% load i18n %}
+{% load static from staticfiles %}
 
 {% block body_class %}cms-page{% endblock %}
 
@@ -10,18 +11,28 @@
 {% block breadcrumbs %}{% sitetree_breadcrumbs from "main" %}{% endblock %}
 
 {% block body %}
+<div class="edit-header poster-wrapper">
+  <h1>{{ page.title }}</h1>
+  <img class="logo-full" src="{% static "assets/img/logo-full.png" %}">
+</div>
+<div class="poster-wrapper">
+  <div class="container">
     {% if editable %}
-        <div class="pull-right">
-            <a href="{% url 'pages_page_edit' page.path %}" class="btn btn-sm btn-default">
-                <i class="fa fa-pencil"></i>
-                Edit this page
-            </a>
-        </div>
-    {% endif %}
-    <h2>{{ page.title }}</h2>
-
-    <div class="page-content">
-        {{ page.body_html|safe }}
+    <div class="row">
+      <a href="{% url 'pages_page_edit' page.path %}" class="btn btn-sm btn-default">
+        <i class="fa fa-pencil"></i>
+          Edit this page
+      </a>
     </div>
+    {% endif %}
+
+    <div class="row">
+      <div class="page-content">
+        {{ page.body_html|safe }}
+      </div>
+    </div>
+
+  </div>
+</div>
 
 {% endblock %}
