@@ -9,7 +9,6 @@ psycopg2==2.6.1
 pinax-pages==0.4.2
 pinax-boxes==2.1.2
 whitenoise==2.0.6
-invoke==0.12.2
 
 # run off of master for now
 git+https://github.com/pinax/symposion.git
@@ -18,3 +17,5 @@ git+https://github.com/pinax/symposion.git
 django-markitup==2.3.1
 pinax-blog==4.3.0
 Unipath==1.1
+invoke==0.12.2
+fake-factory==0.5.6
