@@ -3,10 +3,18 @@
 {% load bootstrap %}
 {% load i18n %}
 {% load pinax_boxes_tags %}
+{% load static from staticfiles %}
 
 {% block page_title %}{% trans "Create Speaker Profile" %}{% endblock %}
 
 {% block body %}
+<div class="edit-header poster-wrapper">
+  <img class="logo-full" src="{% static "assets/img/logo-full.png" %}">
+</div>
+
+<div class="poster-wrapper">
+  <div class="container">
+    <div class="row">
     {% box "speaker-profile" %}
 
     <form method="POST" action="" enctype="multipart/form-data">
@@ -20,4 +28,7 @@
             <a class="btn btn-default" href="{% url "dashboard" %}">Cancel</a>
         </div>
     </form>
+    </div>
+  </div>
+</div>
 {% endblock %}

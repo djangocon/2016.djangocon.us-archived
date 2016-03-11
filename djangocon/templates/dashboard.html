@@ -1,6 +1,7 @@
 {% extends "site_base.html" %}
 
 {% load i18n %}
+{% load static from staticfiles %}
 {% load proposal_tags %}
 {% load review_tags %}
 {% load teams_tags %}
@@ -10,6 +11,14 @@
 {% block body_class %}auth{% endblock %}
 
 {% block body %}
+<div class="edit-header poster-wrapper">
+  <img class="logo-full" src="{% static "assets/img/logo-full.png" %}">
+</div>
+
+<div class="poster-wrapper">
+  <div class="container">
+    <div class="row">
+
     <div class="panel panel-default">
         <div class="panel-heading">
             <div class="pull-right">
@@ -231,4 +240,8 @@
             {% endif %}
         </div>
     {% endif %}
+
+        </div>
+  </div>
+</div>
 {% endblock %}

@@ -7,6 +7,12 @@
 {% block head_title %}{{ speaker.name }}{% endblock %}
 
 {% block body %}
+<div class="edit-header poster-wrapper">
+  <img class="logo-full" src="{% static "assets/img/logo-full.png" %}">
+</div>
+
+<div class="poster-wrapper">
+  <div class="container">
     <div class="row">
         <div class="col-md-2">
             {% if speaker.photo %}
@@ -34,8 +40,10 @@
                     </p>
                 {% endif %}
             {% empty %}
-                <p>No presentations. This page is only visible to staff until there is a presentation.<p>
+                <p>No presentations. This page is only visible to staff until there is a presentation.</p>
             {% endfor %}
         </div>
     </div>
+  </div>
+</div>
 {% endblock %}
