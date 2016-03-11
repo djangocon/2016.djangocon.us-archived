@@ -13,7 +13,7 @@
   }
 }
 
-.small-header, .blog-header, .edit-header {
+.small-header, .blog-header {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -33,7 +33,7 @@
   }
 }
 
-.blog-header, .edit-header {
+.blog-header, .small-header {
   background-color: #fbfaf6;
   color: $blue;
   padding-top: 6em;
@@ -45,7 +45,7 @@
 .logo-full {
   width: 300px;
   position: absolute;
-  top: -129px;
+  top: 5px;
   left: 50%;
   margin-left: -161px;
 }

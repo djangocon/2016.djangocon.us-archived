@@ -6,6 +6,15 @@
 {% block page_title %}{% trans "Submit A Proposal" %}{% endblock %}
 
 {% block body %}
+
+<div class="blog-header poster-wrapper ">
+  <h1>Submit Proposal</h1>
+</div>
+
+<div class="poster-wrapper">
+  <div class="container">
+    <div class="row">
+
     {% box "proposal_submit" %}
 
     {% if kinds %}
@@ -17,4 +26,8 @@
     {% else %}
         <p>Proposals are not currently open for submission.</p>
     {% endif %}
+    </div>
+  </div>
+</div>
+
 {% endblock %}

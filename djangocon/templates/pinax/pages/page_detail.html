@@ -11,10 +11,11 @@
 {% block breadcrumbs %}{% sitetree_breadcrumbs from "main" %}{% endblock %}
 
 {% block body %}
-<div class="edit-header poster-wrapper">
+
+<div class="small-header poster-wrapper">
   <h1>{{ page.title }}</h1>
-  <img class="logo-full" src="{% static "assets/img/logo-full.png" %}">
 </div>
+
 <div class="poster-wrapper">
   <div class="container">
     {% if editable %}

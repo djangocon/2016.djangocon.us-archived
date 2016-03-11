@@ -3,7 +3,8 @@
   background: $red;
   color: $red;
   border-radius: 0rem;
-   box-shadow:
+  z-index: 3;
+  box-shadow:
     0 0 0 3px rgba(255,255,255,1),
     0 0 0 10px $blue;
 }

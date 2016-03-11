@@ -4,8 +4,15 @@
 
 {% block head_title %}Upload File{% endblock %}
 
-{% block body_outer %}
-    <h1>Upload File</h1>
+{% block body %}
+<div class="small-header poster-wrapper ">
+  <h1>Upload File</h1>
+</div>
+
+<div class="poster-wrapper">
+  <div class="container">
+    <div class="row">
+
     <form method="POST" action="{% url "file_create" %}" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form|bootstrap }}
@@ -13,4 +20,8 @@
             <button class="btn btn-primary" type="submit">Upload</button>
         </div>
     </form>
+
+    </div>
+  </div>
+</div>
 {% endblock %}

@@ -7,6 +7,14 @@
 {% block page_title %}Submit a Proposal for a {{ kind.name }}{% endblock %}
 
 {% block body %}
+<div class="blog-header poster-wrapper ">
+  <h1>Proposal</h1>
+</div>
+
+<div class="poster-wrapper">
+  <div class="container">
+    <div class="row">
+
     {% box "example_proposal" %}
 
     <form method="POST" action="" enctype="multipart/form-data" class="form-horizontal">
@@ -23,4 +31,7 @@
             <input class="btn btn-default" type="submit" name="add-speakers" value="Save and Add Additional Speakers" />
         </div>
     </form>
+    </div>
+  </div>
+</div>
 {% endblock %}

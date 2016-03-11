@@ -28,7 +28,14 @@
 {% block breadcrumbs %}{% sitetree_breadcrumbs from "main" %}{% endblock %}
 
 {% block body %}
-    <h2>Accepted {{ schedule.section.name }}</h2>
+{% block body %}
+<div class="small-header poster-wrapper">
+  <h1>Accepted {{ schedule.section.name }}</h1>
+</div>
+
+<div class="poster-wrapper">
+  <div class="container">
+    <div class="row">
     {% cache 600 "schedule-list" schedule.section.name %}
         {% for presentation in presentations %}
             <div class="row">
@@ -48,4 +55,7 @@
             </div>
         {% endfor %}
     {% endcache %}
+    </div>
+  </div>
+</div>
 {% endblock %}

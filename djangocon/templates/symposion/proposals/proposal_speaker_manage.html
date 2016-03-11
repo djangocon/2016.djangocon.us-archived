@@ -4,6 +4,14 @@
 {% load bootstrap %}
 
 {% block body %}
+
+<div class="blog-header poster-wrapper ">
+  <h1>{% trans 'Proposal:' %} {{ proposal.title }}</h1>
+</div>
+
+<div class="poster-wrapper">
+  <div class="container">
+    <div class="row">
     <h1>{% trans 'Proposal:' %} {{ proposal.title }}</h1>
 
     <p>
@@ -30,6 +38,9 @@
             <input type="submit" value="Add speaker" class="btn btn-primary" />
         </div>
     </form>
+    </div>
+  </div>
+</div>
 {% endblock %}
 
 {% block extra_body %}

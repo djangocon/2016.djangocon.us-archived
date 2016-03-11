@@ -7,6 +7,14 @@
 {% block head_title %}{{ proposal.title }}{% endblock %}
 
 {% block body %}
+<div class="blog-header poster-wrapper ">
+  <h1>{{ proposal.title }}</h1>
+</div>
+
+<div class="poster-wrapper">
+  <div class="container">
+    <div class="row">
+
     <div class="pull-right">
         {% if not proposal.cancelled %}
             {% if request.user == proposal.speaker.user %}
@@ -97,6 +105,10 @@
     {% endif %}
     </div>
 </div>
+    </div>
+  </div>
+</div>
+
 {% endblock %}
 
 {% block extra_script %}

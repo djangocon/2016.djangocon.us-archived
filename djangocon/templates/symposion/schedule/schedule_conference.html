@@ -11,9 +11,17 @@
 {% block right %}
 {% endblock %}
 
-{% block body_outer %}
+{% block body %}
+<div class="blog-header poster-wrapper ">
+  <h1>Conference Schedule</h1>
+</div>
+
+<div class="poster-wrapper">
+  <div class="container">
+    <div class="row">
+
     <div class="page-head">
-        <h1>Conference Schedule</h1>
+
         {% block breadcrumbs %}{% endblock %}
     </div>
     {% box "schedule_top" %}
@@ -28,4 +36,7 @@
     {% endfor %}
 
     {% box "schedule_bottom" %}
+    </div>
+  </div>
+</div>
 {% endblock %}
