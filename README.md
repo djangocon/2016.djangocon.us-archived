@@ -25,6 +25,12 @@ Install requirements:
 
     $ pip install -r requirements.txt
 
+Create a local settings file and set your `DJANGO_SETTINGS_MODULE` to use it:
+
+    $ cp djangocon/settings/local.py.example djangocon/settings/local.py
+
+    $ export DJANGO_SETTINGS_MODULE=djangocon.settings.local
+
 Sync models to database:
 
     $ ./manage.py migrate
