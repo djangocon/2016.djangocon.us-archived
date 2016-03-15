@@ -21,7 +21,7 @@
     <form enctype="multipart/form-data" method="POST" action="" class="form-horizontal">
         {% csrf_token %}
         <fieldset>
-            {{ form|bootstrap_horizontal }}
+            {{ form|bootstrap }}
         </fieldset>
 
         <h3>{{ sponsor.level }} Sponsor Benefits</h3>
