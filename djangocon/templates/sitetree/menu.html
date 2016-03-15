@@ -9,17 +9,17 @@
     <img class="logo-full hidden-sm-down" src="{% static "assets/img/logo-full.png" %}">
     <ul class="nav navbar-nav">
       {% for item in sitetree_items %}
-      <li class="nav-item">
-        <a class="nav-link" href="{% sitetree_url for item %}" {% if item.hint %}title="{{ item.hint }}"{% endif %} {% if item.is_current or item.in_current_branch %}class="{{ item.is_current|yesno:"current_item ," }}{{ item.in_current_branch|yesno:"current_branch," }}"{% endif %}>{{ item.title_resolved }}</a>
-      </li>
-      {% if item.has_children %}
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle {% if item.is_current or item.in_current_branch %}{{ item.is_current|yesno:"current_item ," }}{{ item.in_current_branch|yesno:"current_branch," }}{% endif %}" href="{% sitetree_url for item %}" {% if item.hint %}title="{{ item.hint }}"{% endif %} data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{ item.title_resolved }}</a>
-          <div class="dropdown-menu">
-            {% sitetree_children of item for menu template "sitetree/children.html" %}
-          </div>
-        </li>
-      {% endif %}
+        {% if item.has_children %}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle {% if item.is_current or item.in_current_branch %}{{ item.is_current|yesno:"current_item ," }}{{ item.in_current_branch|yesno:"current_branch," }}{% endif %}" href="{% sitetree_url for item %}" {% if item.hint %}title="{{ item.hint }}"{% endif %} data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{ item.title_resolved }}</a>
+            <div class="dropdown-menu">
+              {% sitetree_children of item for menu template "sitetree/children.html" %}
+            </div>
+        {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% sitetree_url for item %}" {% if item.hint %}title="{{ item.hint }}"{% endif %} {% if item.is_current or item.in_current_branch %}class="{{ item.is_current|yesno:"current_item ," }}{{ item.in_current_branch|yesno:"current_branch," }}"{% endif %}>{{ item.title_resolved }}</a>
+        {% endif %}
+          </li>
       {% endfor %}
     </ul>
   </div>
