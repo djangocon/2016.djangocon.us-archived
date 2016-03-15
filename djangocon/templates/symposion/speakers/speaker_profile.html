@@ -12,21 +12,27 @@
 <div class="poster-wrapper">
   <div class="container">
     <div class="row">
-        <div class="col-md-2">
-            {% if speaker.photo %}
-                <img src="{% thumbnail speaker.photo '128x128' %}" alt="{{ speaker.name }}" />
-            {% else %}
-                &nbsp;
-            {% endif %}
+        <div class="col-md-3">
+        {% if speaker.photo %}
+          <div class="card">
+            <img class="card-img-top" src="{% thumbnail speaker.photo  '218x240' crop %}" alt="{{ speaker.name }}">
+            <div class="card-block">
+              <h4 class="card-title">{{ speaker.name }}</h4>
+            </div>
+          </div>
+
+          {% else %}
+            &nbsp;
+          {% endif %}
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 col-md-offset-1">
             {% if speaker.user == request.user or request.user.is_staff %}
                 <a class="btn btn-default pull-right" href="{% url "speaker_edit" speaker.pk %}">Edit</a>
             {% endif %}
             <h1>{{ speaker.name }}</h1>
             <div class="bio">{{ speaker.biography|safe }}</div>
 
-            <h2>Presentations</h2>
+            <h3>Presentations</h3>
             {% for presentation in presentations %}
                 <h3><a href="{% url "schedule_presentation_detail" presentation.pk %}">{{ presentation.title }}</a></h3>
                 {% if presentation.slot %}
