@@ -8,7 +8,7 @@
 {% block body %}
 
 <div class="blog-header poster-wrapper ">
-  <img class="logo-full" src="{% static "assets/img/logo-full.png" %}">
+  <h1>{% if post.title %}{{ post.title }}{% else %}Blog{% endif %} </h1>
 </div>
 
 <div class="poster-wrapper">
