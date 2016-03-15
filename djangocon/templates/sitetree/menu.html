@@ -26,6 +26,7 @@
 
     <ul class="nav navbar-nav pull-sm-right">
     {% if user.is_authenticated %}
+      <li class="nav-item"><a href="{% url 'dashboard' %}" class="btn btn-primary">Dashboard</a></li>
       <li class="nav-item"><a href="{% url 'account_logout' %}" class="btn btn-primary">Logout</a></li>
     {% else %}
       <li class="nav-item"><a href="{% url 'account_signup' %}" class="btn btn-primary">Register</a></li>
