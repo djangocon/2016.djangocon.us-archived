@@ -1,3 +1,3 @@
-from .staging import *  # noqa
+from .gondor import *  # noqa
 
 DEBUG = True
