@@ -51,3 +51,14 @@ h4, h5, h6 {
   letter-spacing: 2px;
   color: $red;
 }
+
+hr {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+
+hr{
+  border-bottom: 1px dashed #ccc;
+  background: $light-gray;
+}

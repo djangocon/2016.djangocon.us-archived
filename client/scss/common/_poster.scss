@@ -7,7 +7,7 @@ body {
   position: relative;
   border-left: $poster-border-width solid #fff;
   border-right: $poster-border-width solid #fff;
-  background-color: #fbfaf6;
+  background-color: $light-gray;
   margin: 0 auto;
   max-width: 1300px;
   padding-top: 2em;
