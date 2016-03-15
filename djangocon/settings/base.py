@@ -237,3 +237,5 @@ SYMPOSION_VOTE_THRESHOLD = 3
 MARKITUP_SET = "markitup/sets/markdown"
 MARKITUP_FILTER = ["symposion.markdown_parser.parse", {}]
 MARKITUP_SKIN = "markitup/skins/simple"
+
+THEME_CONTACT_EMAIL = 'hello@djangocon.us'
