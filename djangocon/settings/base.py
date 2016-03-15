@@ -245,3 +245,4 @@ ADMINS = [
 ]
 
 SERVER_EMAIL = ''
+DEFAULT_FROM_EMAIL = "noreply@djangocon.us"
