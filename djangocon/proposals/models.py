@@ -13,8 +13,8 @@ class Proposal(ProposalBase):
 
     AUDIENCE_LEVELS = [
         (AUDIENCE_LEVEL_NOVICE, "Novice"),
-        (AUDIENCE_LEVEL_INTERMEDIATE, "Intermediate"),
-        (AUDIENCE_LEVEL_EXPERIENCED, "Experienced"),
+        (AUDIENCE_LEVEL_INTERMEDIATE, "Intermediate or Advanced"),
+        # (AUDIENCE_LEVEL_EXPERIENCED, "Experienced"),
         (AUDIENCE_LEVEL_NOT_APPLICABLE, "Not Applicable"),
     ]
 
