@@ -7,8 +7,13 @@
 {% block head_title %}{% trans "Sign up" %}{% endblock %}
 
 {% block body %}
+<div class="small-header poster-wrapper">
+</div>
+
+<div class="poster-wrapper">
+  <div class="container">
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-6 col-md-offset-3">
             <form id="signup_form" method="post" action="{% url "account_signup" %}" autocapitalize="off" {% if form.is_multipart %} enctype="multipart/form-data"{% endif %}>
                 <legend>{% trans "Sign up" %}</legend>
                 {% csrf_token %}
@@ -24,10 +29,9 @@
                 </small>
             </p>
         </div>
-        <div class="col-md-4">
-            {% include "account/_signup_sidebar.html" %}
-        </div>
     </div>
+  </div>
+</div>
 {% endblock %}
 
 {% block scripts %}

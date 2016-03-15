@@ -1,0 +1,13 @@
+.dashboard-card .card-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  h3 {
+    align-self: flex-start;
+    margin: 0;
+  }
+  .card-header-actions {
+    align-self: flex-end;
+    margin-left: auto;
+  }
+}

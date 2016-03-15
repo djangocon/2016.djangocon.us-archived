@@ -15,19 +15,21 @@
 <div class="poster-wrapper">
   <div class="container">
     <div class="row">
-    {% box "speaker-profile" %}
+        <div  class="col-md-6 col-md-offset-3">
+        {% box "speaker-profile" %}
 
-    <form method="POST" action="" enctype="multipart/form-data">
-        {% csrf_token %}
-        <legend>{% trans "Create Speaker Profile" %}</legend>
-        <fieldset>
-            {{ speaker_form|bootstrap }}
-        </fieldset>
-        <div class="form-actions">
-            <input class="btn btn-primary" type="submit" value="Save" />
-            <a class="btn btn-default" href="{% url "dashboard" %}">Cancel</a>
+        <form method="POST" action="" enctype="multipart/form-data">
+            {% csrf_token %}
+            <legend>{% trans "Create Speaker Profile" %}</legend>
+            <fieldset>
+                {{ speaker_form|bootstrap }}
+            </fieldset>
+            <div class="form-actions">
+                <input class="btn btn-primary" type="submit" value="Save" />
+                <a class="btn btn-default" href="{% url "dashboard" %}">Cancel</a>
+            </div>
+        </form>
         </div>
-    </form>
     </div>
   </div>
 </div>

@@ -14,7 +14,7 @@
 <div class="poster-wrapper">
   <div class="container">
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-6 col-md-offset-3">
             <form method="POST" action="{% url "account_login" %}" autocapitalize="off" {% if form.is_multipart %} enctype="multipart/form-data"{% endif %}>
                 <legend>{% trans "Log in to an existing account" %}</legend>
                 {% csrf_token %}
@@ -32,9 +32,6 @@
                     </small>
                 </p>
             {% endif %}
-        </div>
-        <div class="col-md-4">
-            {% include "account/_login_sidebar.html" %}
         </div>
     </div>
   </div>
