@@ -2,6 +2,7 @@
 
 var $ = require('jquery');
 global.jQuery = $;
+window.jQuery = window.$ = $;
 require('bootstrap');
 
 $(document).ready(function() {
