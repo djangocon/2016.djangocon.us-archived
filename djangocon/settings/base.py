@@ -243,3 +243,6 @@ THEME_CONTACT_EMAIL = 'hello@djangocon.us'
 ADMINS = [
     ('DjangoCon US Team', 'hello@djangocon.us'),
 ]
+
+SERVER_EMAIL = ''
+DEFAULT_FROM_EMAIL = "noreply@djangocon.us"
