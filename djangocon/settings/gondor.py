@@ -88,7 +88,7 @@ DEFAULT_FROM_EMAIL = "DjangoCon 2016 <noreply@djangocon.us>"
 if "GONDOR_SENDGRID_USER" in os.environ:
     EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
     EMAIL_HOST = "smtp.sendgrid.net"
-    EMAIL_PORT = 587
+    EMAIL_PORT = 2525
     EMAIL_HOST_USER = os.environ["GONDOR_SENDGRID_USER"]
     EMAIL_HOST_PASSWORD = os.environ["GONDOR_SENDGRID_PASSWORD"]
     EMAIL_USE_TLS = True
