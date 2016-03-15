@@ -239,3 +239,7 @@ MARKITUP_FILTER = ["symposion.markdown_parser.parse", {}]
 MARKITUP_SKIN = "markitup/skins/simple"
 
 THEME_CONTACT_EMAIL = 'hello@djangocon.us'
+
+ADMINS = [
+    ('DjangoCon US Team', 'hello@djangocon.us'),
+]
