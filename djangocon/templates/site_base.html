@@ -2,6 +2,7 @@
 {% load metron_tags %}
 {% load i18n %}
 {% load sitetree %}
+{% load markitup_tags %}
 
 <!DOCTYPE html> <html lang="en">
   <head>
@@ -34,8 +35,10 @@
 
     </div>
 
+    {% markitup_media "no-jquery" %}
 
     {% block extra_js %}
+
     {% endblock %}
 
     {% analytics %}
