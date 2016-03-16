@@ -19,12 +19,12 @@
   <div class="container">
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
-        {% box "sponsorship-apply" %}
+        {# box "sponsorship-apply" #}
 
         <form method="POST" action="" class="form-horizontal">
           {% csrf_token %}
           <legend>{% trans "Apply to Be a Sponsor" %}</legend>
-          {{ form|bootstrap }}
+          {{ form|bootstrap_horizontal }}
           <div class="form-actions">
             <input class="btn btn-primary" type="submit" value="Apply" />
             <a class="btn btn-default" href="{% url "dashboard" %}">Cancel</a>
