@@ -245,7 +245,7 @@ MARKITUP_SKIN = "markitup/skins/simple"
 THEME_CONTACT_EMAIL = 'hello@djangocon.us'
 
 ADMINS = [
-    ('DjangoCon US Team', 'hello@djangocon.us'),
+    ('DjangoCon US Errors', 'errors@defna.org'),
 ]
 
 MANAGERS = ADMINS
