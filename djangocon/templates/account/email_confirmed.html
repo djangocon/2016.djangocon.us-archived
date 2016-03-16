@@ -6,14 +6,14 @@
 
 {% block body %}
 <div class="blog-header poster-wrapper ">
-  <h1>{% trans "Email confirmed" %}</h1>
+    <h1>{% trans "Email confirmed" %}</h1>
 </div>
 
 <div class="poster-wrapper">
-  <div class="container">
-    <div class="row">
-        <p>{% blocktrans with email=confirmation.email_address.email %}You have confirmed <b>{{ email }}</b>{% endblocktrans %}</p>
+    <div class="container">
+        <div class="row">
+            <p>{% blocktrans with email=confirmation.email_address.email %}You have confirmed <b>{{ email }}</b>{% endblocktrans %}</p>
+        </div>
     </div>
-  </div>
 </div>
 {% endblock %}
