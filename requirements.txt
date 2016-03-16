@@ -14,8 +14,9 @@ whitenoise==2.0.6
 git+https://github.com/pinax/symposion.git
 
 # DjangoCon custom requirements
+django-contact-form==1.2
 django-markitup==2.3.1
+fake-factory==0.5.6
+invoke==0.12.2
 pinax-blog==4.3.0
 Unipath==1.1
-invoke==0.12.2
-fake-factory==0.5.6

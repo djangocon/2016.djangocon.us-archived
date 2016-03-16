@@ -1,0 +1,32 @@
+{% extends "site_base.html" %}
+
+{% load bootstrap %}
+{% load cache %}
+{% load i18n %}
+{% load pinax_boxes_tags %}
+
+{% block head_title %}Contact Us{% endblock head_title %}
+{% block page_title %}Contact Us{% endblock page_title %}
+
+{% block body %}
+<div class="blog-header poster-wrapper ">
+  <h1>Contact Us</h1>
+</div>
+
+<div class="poster-wrapper">
+  <div class="container">
+    <div class="row">
+        <form method="POST" action="." class="form form-horizontal contact-form">
+            {% csrf_token %}
+            <fieldset>
+                {{ form|bootstrap }}
+            </fieldset>
+            <div class="form-actions">
+                <input class="btn btn-primary" type="submit" value="Submit" />
+            </div>
+        </form>
+    </form>
+    </div>
+  </div>
+</div>
+{% endblock body %}
