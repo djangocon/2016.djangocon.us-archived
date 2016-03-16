@@ -251,4 +251,4 @@ ADMINS = [
 MANAGERS = ADMINS
 
 SERVER_EMAIL = ''
-DEFAULT_FROM_EMAIL = "noreply@djangocon.us"
+DEFAULT_FROM_EMAIL = "DjangoCon US 2016 <noreply@djangocon.us>"
