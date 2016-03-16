@@ -5,13 +5,18 @@ from invoke import run, task
 def deploy(production=False):
     instance = 'primary' if production else 'staging'
     run('ec deploy --instance {instance}'.format(instance=instance))
-    #run('ec run --instance {instance} web -- python manage.py migrate'.format(instance=instance))
 
 
 @task
 def migrate(production=False):
     instance = 'primary' if production else 'staging'
     run('ec run --instance {instance} web -- python manage.py migrate'.format(instance=instance))
+
+
+@task
+def restart(production=False):
+    instance = 'primary' if production else 'staging'
+    run('ec services restart --instance {instance} web'.format(instance=instance))
 
 
 @task
