@@ -43,6 +43,16 @@
   }
 }
 
+.blue-header {
+  background: $blue;
+  h1, a {
+    color: $white;
+  }
+  a {
+    text-decoration: underline;
+  }
+}
+
 .logo-full {
   width: 300px;
   position: absolute;
