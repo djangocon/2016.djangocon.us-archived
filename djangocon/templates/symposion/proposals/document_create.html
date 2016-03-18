@@ -15,9 +15,7 @@
 
     <form method="POST" action="" enctype="multipart/form-data" class="form form-horizontal">
         {% csrf_token %}
-        <fieldset>
-            {{ form|bootstrap }}
-        </fieldset>
+        {{ form|bootstrap }}
         <div class="form-actions">
             <input class="btn btn-primary" type="submit" value="Upload" />
         </div>
