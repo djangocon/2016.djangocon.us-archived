@@ -38,6 +38,18 @@
   background-color: #fbfaf6;
   color: $blue;
   padding-top: 6em;
+
+  a {
+    position: relative;
+    &:before {
+      text-decoration: none;
+      content: '\21E2';
+      position: absolute;
+      font-size: 2em;
+      left: -19px;
+      top:-4px;
+    }
+  }
   @include media-breakpoint-up(md) {
     height: 200px;
   }
