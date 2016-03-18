@@ -12,42 +12,49 @@
 
 {% block body %}
 
-<div class="blog-header poster-wrapper ">
+<div class="blog-header poster-wrapper">
   <h1>{% trans "About Our Sponsors" %}</h1>
+  <a href="{% url "pages_page" "sponsors/prospectus/" %}" class="btn">Learn how to become a sponsor <span class="arrow"></span></a>
 </div>
 
 <div class="poster-wrapper">
   <div class="container">
-    <div class="row">
-
-    <a href="{% url "pages_page" "sponsors/prospectus/" %}" class="btn">Learn how to become a sponsor <span class="arrow"></span></a>
 
     {% sponsor_levels as levels %}
     {% for level in levels %}
-        {% if level.sponsors %}
-            <h3>{{ level.name }}</h3>
+      {% if level.sponsors %}
+        <div class="row sponsorship-level">
+          <h3>{{ level.name }}</h3>
+        </div>
+        <div class="row sponsorship-list">
+          {% for sponsor in level.sponsors %}
+            {% if sponsor.website_logo %}
+            {% if level.name == 'Gold' %}
+              <div class="col-md-4">
+            {% elif level.name == 'Silver' %}
+              <div class="col-md-3">
+            {% elif level.name == 'Bronze' %}
+              <div class="col-md-2">
+            {% endif %}
+                <div class="card sponsorship-card">
+                  <img class="card-img-top" src="{% thumbnail sponsor.website_logo '300x300' upscale='True' background='#fbfaf6' %}" alt="{{ sponsor.name }}">
+                  <div class="card-block">
+                    <h4 class="card-title"><a href="{{ sponsor.external_url }}">{{ sponsor.name }}</a></h4>
+                    <p class="card-text">{{ sponsor.listing_text|urlize|linebreaks }}</p>
+                    <p class="card-text"><small class="text-muted"><a href="{{ sponsor.external_url }}"> dsafsadf</a></small></p>
+                  </div>
+                </div>
+              </div>
+            {% if forloop.counter|divisibleby:3 or forloop.last %}
+              </div>
+            {% endif %}
 
-            {% for sponsor in level.sponsors %}
-                {% if sponsor.website_logo %}
-                    <div class="row">
-                        <div class="col-md-2">
-                            <h2>
-                                <a href="{{ sponsor.external_url }}">
-                                    <img src="{% thumbnail sponsor.website_logo '150x80' %}" alt="{{ sponsor.name }}" />
-                                </a>
-                            </h2>
-                        </div>
-                        <div class="col-md-10">
-                            <h5>{{ sponsor.name }}</h5>
-                            <p><a href="{{ sponsor.external_url }}">{{ sponsor.external_url }}</a></p>
-                            <p>{{ sponsor.listing_text|urlize|linebreaks }}</p>
-                        </div>
-                    </div>
-                {% endif %}
-            {% endfor %}
-        {% endif %}
+            {% endif %}
+          {% endfor %}
+
+      {% endif %}
     {% endfor %}
-    </div>
+
   </div>
 </div>
 {% endblock %}

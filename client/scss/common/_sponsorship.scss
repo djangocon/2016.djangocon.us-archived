@@ -1,0 +1,16 @@
+.sponsorship-level {
+  text-align: center;
+  padding: 1em 0 1em 0;
+}
+
+.sponsorship-list {
+  margin-bottom: 3em;
+
+  .sponsorship-card {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    border: 0px;
+    .card-img-top {
+      padding: 1em;
+    }
+  }
+}
