@@ -31,34 +31,51 @@ $(document).ready(function() {
   }
 
   function positionSheets(initial) {
-    if (initial) {
 
-      var intWidth = $(window).innerWidth();
-      var intHeight = $(window).innerHeight();
+    var windowWidth = $(window).width();
+    var intWidth = $(window).innerWidth();
+    var intHeight = $(window).innerHeight();
+    var staticDestY = 400;
+
+    if (initial) {
 
       var x = intWidth / 2;
       var y = intHeight / 2;
-
-      $('.sheet').each(function(index,el){
-        var orientation = $(el).attr('data-orientation');
-        if ( orientation === 'left' ) {
-          $(el).css({
-            'left': (x - $(el).width()/2) + 'px',
-            'top': 200 + 'px'
-          });
-        } else if ( orientation === 'right' ) {
-          $(el).css({
-            'right': (x - $(el).width()/2) + 'px',
-            'top': 200 + 'px'
-          });
-        }
-      });
-
+      if ( windowWidth > 1300 ) {
+        $('.sheet').each(function(index,el){
+          console.log(true);
+          var orientation = $(el).attr('data-orientation');
+          var destX = parseInt($(el).attr('data-posx'));
+          var destY = parseInt($(el).attr('data-posy'));
+          if ( orientation === 'left' ) {
+            $(el).css({
+              'left': destX + 'px',
+              'top': destY + 'px'
+            });
+          } else if ( orientation === 'right' ) {
+            $(el).css({
+              'right': destX + 'px',
+              'top': destY + 'px'
+            });
+          }
+        });
+      } else {
+        $('.sheet').each(function(index,el){
+          var orientation = $(el).attr('data-orientation');
+          if ( orientation === 'left' ) {
+            $(el).css({
+              'left': (x - $(el).width()/2) + 'px',
+              'top': staticDestY + 'px'
+            });
+          } else if ( orientation === 'right' ) {
+            $(el).css({
+              'right': (x - $(el).width()/2) + 'px',
+              'top': staticDestY + 'px'
+            });
+          }
+        });
+      }
     } else {
-
-      var windowWidth = $(window).width();
-      var intWidth = $(window).innerWidth();
-      var intHeight = $(window).innerHeight();
 
       var x = intWidth / 2;
       var y = intHeight / 2;
@@ -69,6 +86,7 @@ $(document).ready(function() {
 
         $('.sheet').each(function(index,el){
           var destX = parseInt($(el).attr('data-posx'));
+          var destY = parseInt($(el).attr('data-posy'));
           var orientation = $(el).attr('data-orientation');
           console.log(orientation)
           if ( orientation === 'left' ) {
@@ -78,11 +96,11 @@ $(document).ready(function() {
               var elWidth = $(el).width()/2;
               var path =  650 - elWidth - destX;
               var stepX = path / 300;
-              var posX = 120 + path - stepX * distance;
+              var posX = destX + path - stepX * distance;
             }
             $(el).css({
               'left': posX + 'px',
-              'top': 200 + 'px'
+              'top': destY + 'px'
             });
           } else if ( orientation === 'right' ) {
             if (windowWidth >= 1900) {
@@ -91,11 +109,11 @@ $(document).ready(function() {
               var elWidth = $(el).width()/2;
               var path =  650 - elWidth - destX;
               var stepX = path / 300;
-              var posX = 120 + path - stepX * distance;
+              var posX = destX + path - stepX * distance;
             }
             $(el).css({
               'right': posX + 'px',
-              'top': 200 + 'px'
+              'top': destY + 'px'
             });
           }
 
@@ -108,18 +126,30 @@ $(document).ready(function() {
           if ( orientation === 'left' ) {
             $(el).css({
               'left': (x - $(el).width()/2) + 'px',
-              'top': 200 + 'px'
+              'top': staticDestY + 'px'
             });
           } else if ( orientation === 'right' ) {
             $(el).css({
               'right': (x - $(el).width()/2) + 'px',
-              'top': 200 + 'px'
+              'top': staticDestY + 'px'
             });
           }
         });
 
       }
     }
+  }
+  function rotateSponsorshipCards() {
+    $('.sponsorship-card').each(function(index, el) {
+        var rotation = Math.floor(Math.random() * 16) - 8;
+        $(el).css({
+          'transform': 'rotate(' + rotation  + 'deg)',
+          'webkitTransform': 'rotate(' + rotation  + 'deg)',
+          'mozTransform': 'rotate(' + rotation  + 'deg)',
+          'msTransform': 'rotate(' + rotation  + 'deg)',
+          'oTransform': 'rotate(' + rotation  + 'deg)'
+        });
+    });
   }
 
   $(window).resize(function(e) {
@@ -128,6 +158,7 @@ $(document).ready(function() {
   });
 
   rotateSheets(true);
+  rotateSponsorshipCards()
   positionSheets(true);
 
 });
