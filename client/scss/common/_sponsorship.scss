@@ -1,6 +1,27 @@
 .sponsorship-level {
   text-align: center;
-  padding: 1em 0 1em 0;
+  padding: 1em 0 3em 0;
+  h3 {
+
+    &:after {
+      display: inline-block;
+      margin: 0 0 8px 20px;
+      height: 2px;
+      content: " ";
+      text-shadow: none;
+      background-color: $blue;
+      width: 30%;
+    }
+    &:before {
+      display: inline-block;
+      margin: 0 20px 8px 0;
+      height: 2px;
+      content: " ";
+      text-shadow: none;
+      background-color: $blue;
+      width: 30%;
+    }
+  }
 }
 
 .sponsorship-list {
