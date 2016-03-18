@@ -24,6 +24,7 @@ body {
   background-repeat: no-repeat;
   background-position: bottom left;
   color: $white;
+
   a, a:active, a:visited {
     color: #fff;
     text-decoration: underline;
@@ -81,6 +82,6 @@ body {
   background-size: 30px;
 }
 
-.home .stitches-divider  {
+.home .stitches-divider, .sponsorships .stitches-divider {
   background-image: url(../assets/img/stitch.png);
 }
