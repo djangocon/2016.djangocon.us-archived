@@ -94,9 +94,7 @@
 
             <form action="" method="POST" accept-charset="utf-8">
                 {% csrf_token %}
-                <fieldset>
-                    {{ message_form|bootstrap }}
-                </fieldset>
+                {{ message_form|bootstrap }}
                 <div class="actions">
                     <button type="submit" name="message_submit" class="btn btn-primary">{% trans 'Submit' %}</button>
                 </div>
