@@ -111,6 +111,7 @@ Contributor | Contributions
 [![Baptiste Mispelon](https://avatars.githubusercontent.com/u/6345?v=3&s=100)<br />Baptiste Mispelon](https://github.com/bmispelon) | [💻❓](https://github.com/djangocon/2016.djangocon.us/commits?author=bmispelon)
 [![Shawn Inman](https://avatars.githubusercontent.com/u/216237?v=3&s=100)<br />Shawn Inman](https://github.com/shawninman) | [💻❓](https://github.com/djangocon/2016.djangocon.us/commits?author=shawninman)
 [![Clay Wells](https://avatars.githubusercontent.com/u/812026?v=3&s=100)<br />Clay Wells](https://github.com/clayball) | [❓](https://github.com/djangocon/2016.djangocon.us/commits?author=clayball)
+[![Craig Bruce](https://avatars.githubusercontent.com/u/1503648?v=3&s=100)<br />Craig Bruce](https://github.com/craigbruce) | [❓](https://github.com/djangocon/2016.djangocon.us/commits?author=craigbruce)
 
 #### Emoji key
 
