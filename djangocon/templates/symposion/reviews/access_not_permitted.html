@@ -1,10 +1,20 @@
 {% extends "symposion/reviews/base.html" %}
 
 {% block body %}
-    <h1>Access Not Permitted</h1>
+<div class="small-header poster-wrapper">
+  <h1>Access Not Permitted</h1>
+</div>
 
-    <p>
-        Sorry, you do not have permission to access this page. If you
-        believe this is a bug, please contact us immediately.
-    </p>
+<div class="poster-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2 page-content">
+          <p>
+              Sorry, you do not have permission to access this page. If you
+              believe this is a bug, please contact us immediately.
+          </p>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
