@@ -95,3 +95,4 @@ if "GONDOR_SENDGRID_USER" in os.environ:
 
 
 SECRET_KEY = os.environ["SECRET_KEY"]
+DEFAULT_HTTP_PROTOCOL = 'https'
