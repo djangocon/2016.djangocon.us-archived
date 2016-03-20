@@ -7,12 +7,23 @@ a {
   color: $blue;
 }
 
+.arrow-link {
+  position: relative;
+  &:before {
+    text-decoration: none;
+    content: '\21E2';
+    position: absolute;
+    font-size: 1.5em;
+    left: -27px;
+    top: -7px;
+  }
+}
 
 // FOT DJANGO DBT
 
-[hidden] {
-  display: block !important;
-}
+// [hidden] {
+//   display: block !important;
+// }
 
 .search {
   margin-bottom: 2em;
