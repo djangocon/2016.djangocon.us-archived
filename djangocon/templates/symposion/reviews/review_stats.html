@@ -1,7 +1,15 @@
 {% extends "symposion/reviews/base.html" %}
 
 {% block body %}
-    <h1>Voting Status ({{ section_slug }})</h1>
+<div class="small-header poster-wrapper">
+  <h1>Voting Status ({{ section_slug }})</h1>
+</div>
+
+<div class="poster-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+
 
     {% if key %}
         <div class="breadcrumbs">
@@ -78,5 +86,8 @@
             </dd>
         </dl>
     {% endif %}
-
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
