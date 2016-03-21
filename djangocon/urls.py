@@ -6,6 +6,8 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.views.generic import TemplateView
 
+from djangocon.views import SponsorView
+
 
 urlpatterns = [
     url(r"^$", TemplateView.as_view(template_name="homepage.html"), name="home"),
@@ -21,6 +23,7 @@ urlpatterns += [
     url(r"^reviews/", include("symposion.reviews.urls")),
     url(r"^schedule/", include("symposion.schedule.urls")),
     url(r"^speaker/", include("symposion.speakers.urls")),
+    url(r'^sponsors/(?P<pk>[0-9]+)/detail/$', SponsorView.as_view(), name='sponsor_public_detail'),
     url(r"^sponsors/", include("symposion.sponsorship.urls")),
     url(r"^teams/", include("symposion.teams.urls")),
 ]
