@@ -5,6 +5,10 @@ var $ = require('jquery');
 global.jQuery = $;
 window.jQuery = window.$ = $;
 
+var Tether = require('tether');
+window.Tether = Tether;
+global.Tether = Tether;
+
 require('bootstrap');
 
 $(document).ready(function() {
