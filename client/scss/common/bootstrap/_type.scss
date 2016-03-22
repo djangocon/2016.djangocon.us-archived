@@ -10,6 +10,19 @@
   font-style: normal;
 }
 
+
+@import url("http://fast.fonts.net/t/1.css?apiType=css&projectid=59d67ea6-c9ee-4e4b-9993-40a9b28e0c96");
+@font-face{
+font-family:"OfficinaSerifITCW01-Boo_734540";
+src: url("../assets/fonts/d29a1003-aa62-4492-a4ab-3b649c7efccd.eot?#iefix");
+src: url("../assets/fonts/d29a1003-aa62-4492-a4ab-3b649c7efccd.eot?#iefix") format("eot"),
+     url("../assets/fonts/73586ea9-fb0d-422d-806c-ac63e6238c1d.woff2") format("woff2"),
+     url("../assets/fonts/d8999082-96b7-4355-bab1-d135f4e4bee7.woff") format("woff"),
+     url("../assets/fonts/e0a4e45b-0b2e-4b30-82d9-808d85415dc9.ttf") format("truetype"),
+     url("../assets/fonts/9e9b325c-b638-44e5-9889-91dd0d826f86.svg#9e9b325c-b638-44e5-9889-91dd0d826f86") format("svg");
+}
+
+
 * {
   font-weight: 300;
   backface-visibility: hidden;
