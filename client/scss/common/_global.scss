@@ -19,11 +19,17 @@ a {
   }
 }
 
+.page-content {
+  h1, h2, h3, h4 {
+    margin-bottom: 1em;
+  }
+}
+
 // FOT DJANGO DBT
 
-// [hidden] {
-//   display: block !important;
-// }
+[hidden] {
+  display: block !important;
+}
 
 .search {
   margin-bottom: 2em;
