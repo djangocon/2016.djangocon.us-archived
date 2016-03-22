@@ -48,6 +48,18 @@ Start the web server:
     $ ./manage.py runserver
 
 
+Feature flags
+-------------
+
+Flag | Description | Default
+:--- | :--- | :---
+`double_blind_reviews` | Turns on double-blind reviews | `True`
+
+To deploy:
+
+    $ ./manage.py waffle_flag double_blind_reviews --create --superuser
+
+
 Static files
 ------------
 
@@ -110,8 +122,9 @@ Contributor | Contributions
 [![Kenneth Love](https://avatars.githubusercontent.com/u/11908?v=3&s=100)<br />Kenneth Love](https://github.com/kennethlove) | [❓](https://github.com/djangocon/2016.djangocon.us/commits?author=kennethlove)
 [![Baptiste Mispelon](https://avatars.githubusercontent.com/u/6345?v=3&s=100)<br />Baptiste Mispelon](https://github.com/bmispelon) | [💻❓](https://github.com/djangocon/2016.djangocon.us/commits?author=bmispelon)
 [![Shawn Inman](https://avatars.githubusercontent.com/u/216237?v=3&s=100)<br />Shawn Inman](https://github.com/shawninman) | [💻❓](https://github.com/djangocon/2016.djangocon.us/commits?author=shawninman)
-[![Clay Wells](https://avatars.githubusercontent.com/u/812026?v=3&s=100)<br />Clay Wells](https://github.com/clayball) | [❓](https://github.com/djangocon/2016.djangocon.us/commits?author=clayball)
+[![Clay Wells](https://avatars.githubusercontent.com/u/812026?v=3&s=100)<br />Clay Wells](https://github.com/clayball) | [❓💻](https://github.com/djangocon/2016.djangocon.us/commits?author=clayball)
 [![Craig Bruce](https://avatars.githubusercontent.com/u/1503648?v=3&s=100)<br />Craig Bruce](https://github.com/craigbruce) | [❓](https://github.com/djangocon/2016.djangocon.us/commits?author=craigbruce)
+[![Sulabh Bista](https://avatars.githubusercontent.com/u/109486?v=3&s=100)<br />Sulabh Bista](https://github.com/sul4bh) | [💻](https://github.com/djangocon/2016.djangocon.us/commits?author=sul4bh)
 
 #### Emoji key
 

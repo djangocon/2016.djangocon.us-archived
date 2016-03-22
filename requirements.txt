@@ -16,6 +16,7 @@ git+https://github.com/pinax/symposion.git
 # DjangoCon custom requirements
 django-contact-form==1.2
 django-markitup==2.3.1
+django-waffle==0.10.1
 fake-factory==0.5.6
 invoke==0.12.2
 pinax-blog==4.3.0
