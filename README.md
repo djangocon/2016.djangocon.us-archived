@@ -48,6 +48,18 @@ Start the web server:
     $ ./manage.py runserver
 
 
+Feature flags
+-------------
+
+Flag | Description | Default
+:--- | :--- | :---
+`double_blind_reviews` | Turns on double-blind reviews | `True`
+
+To deploy:
+
+    $ ./manage.py waffle_flag double_blind_reviews --create --superuser
+
+
 Static files
 ------------
 
