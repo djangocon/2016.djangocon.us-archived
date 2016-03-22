@@ -22,7 +22,7 @@
                 <div class="btn-group">
                     {% if proposal.result.status == "accepted" %}
                         <a class="btn dropdown-toggle btn-success" data-toggle="dropdown" href="#">Accepted <span class="caret"></span></a>
-                        <div class="dropdown-menu pull-right" style="width: 200px; padding-left: 10px;">
+                        <div class="dropdown-menu pull-right">
                             <div class="btn-group">
                                 <input type="submit" name="result_submit" value="reject" class="btn btn-xs btn-danger" />
                                 <input type="submit" name="result_submit" value="standby" class="btn btn-xs" />
@@ -32,7 +32,7 @@
                     {% else %}
                         {% if proposal.result.status == "rejected" %}
                             <a class="btn dropdown-toggle btn-danger" data-toggle="dropdown" href="#">Rejected <span class="caret"></span></a>
-                            <div class="dropdown-menu pull-right" style="width: 200px; padding-left: 10px;">
+                            <div class="dropdown-menu pull-right">
                                 <div class="btn-group">
                                     <input type="submit" name="result_submit" value="accept" class="btn btn-xs btn-success" />
                                     <input type="submit" name="result_submit" value="standby" class="btn btn-xs" />
@@ -42,7 +42,7 @@
                         {% else %}
                             {% if proposal.result.status == "standby" %}
                                 <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Standby <span class="caret"></span></a>
-                                <div class="dropdown-menu pull-right" style="width: 200px; padding-left: 10px;">
+                                <div class="dropdown-menu pull-right">
                                     <div class="btn-group">
                                         <input type="submit" name="result_submit" value="accept" class="btn btn-xs btn-success" />
                                         <input type="submit" name="result_submit" value="reject" class="btn btn-xs btn-danger" />
@@ -51,7 +51,7 @@
                                 </div>
                             {% else %}
                                 <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Undecided <span class="caret"></span></a>
-                                <div class="dropdown-menu pull-right" style="width: 200px; padding-left: 10px;">
+                                <div class="dropdown-menu pull-right">
                                     <div class="btn-group">
                                         <input type="submit" name="result_submit" value="accept" class="btn btn-xs btn-success" />
                                         <input type="submit" name="result_submit" value="reject" class="btn btn-xs btn-danger" />
@@ -73,9 +73,9 @@
 
     <div class="tabbable">
         <ul class="nav nav-tabs">
-            <li class="active"><a href="#proposal-detail" data-toggle="tab">{% trans "Proposal Details" %}</a></li>
-            <li><a href="#proposal-reviews" data-toggle="tab">{% trans "Reviews" %} <span class="badge">{{ reviews|length }}</span></a></li>
-            <li><a href="#proposal-feedback" data-toggle="tab">{% trans "Speaker Feedback" %} <span class="badge">{{ proposal.messages.all|length }}</span></a></li>
+            <li class="nav-item"><a href="#proposal-detail" class="nav-link active" data-toggle="tab">{% trans "Proposal Details" %}</a></li>
+            <li class="nav-item"><a href="#proposal-reviews" class="nav-link" data-toggle="tab">{% trans "Reviews" %} <span class="badge">{{ reviews|length }}</span></a></li>
+            <li class="nav-item"><a href="#proposal-feedback" class="nav-link" data-toggle="tab">{% trans "Speaker Feedback" %} <span class="badge">{{ proposal.messages.all|length }}</span></a></li>
         </ul>
         <div class="tab-content">
             <div class="tab-pane active" id="proposal-detail">
