@@ -252,7 +252,9 @@ ADMINS = [
     ('DjangoCon US Errors', 'errors@defna.org'),
 ]
 
-MANAGERS = ADMINS
+MANAGERS = [
+    ('DjangoCon US', 'hello@djangocon.us'),
+]
 
 SERVER_EMAIL = ''
 DEFAULT_FROM_EMAIL = "DjangoCon US 2016 <noreply@djangocon.us>"
