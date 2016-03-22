@@ -7,6 +7,23 @@ form {
     margin-top: 1em
   }
 
+  label {
+    .required-field {
+      color: red;
+    }
+  }
+
+  fieldset.has-error {
+    input {
+      border-color: red;
+    }
+
+    .text-muted:first-of-type {
+      margin-top: 0.5em;
+      color: red;
+    }
+  }
+
 }
 
 
