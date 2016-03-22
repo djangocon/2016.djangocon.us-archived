@@ -28,7 +28,7 @@ urlpatterns += [
 # Pinax urls
 urlpatterns += [
     url(r"^boxes/", include("pinax.boxes.urls")),
-    url(r"^blog/", include("pinax.blog.urls")),
+    url(r"^blog/", include("pinax.blog.urls", namespace="pinax_blog")),
     url(r"^", include("pinax.pages.urls")),
 ]
 

@@ -3,6 +3,7 @@
 {% load i18n %}
 {% load account_tags %}
 {% load bootstrap %}
+{% load waffle_tags %}
 
 {% block head_title %}{{ proposal.title }}{% endblock %}
 
@@ -34,7 +35,10 @@
         {% endif %}
     </div>
 
-    <h3>#{{ proposal.number }}: {{ proposal.title }} ({{ proposal.speaker }}, Track: {{ proposal.track }})</h3>
+    <h3>
+        #{{ proposal.number }}: {{ proposal.title }}
+        {% flag double_blind_reviews %}({{ proposal.speaker }}){% endflag %}
+    </h3>
 
     <div class="tabbable">
         <ul class="nav nav-tabs">
