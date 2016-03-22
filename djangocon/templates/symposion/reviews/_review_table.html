@@ -1,9 +1,14 @@
 {% load i18n %}
+{% load waffle_tags %}
 
 <table class="table table-striped table-bordered table-reviews">
     <thead>
         <th>#</th>
-        <th>{% trans "Speaker / Title" %}</th>
+        {% flag double_blind_reviews %}
+            <th>{% trans "Speaker / Title" %}</th>
+        {% else %}
+            <th>{% trans "Title" %}</th>
+        {% endflag %}
         <th>{% trans "Category" %}</th>
         <th><i class="fa fa-comment-alt"></i></th>
         <th>{% trans "+1" %}</th>
@@ -19,11 +24,14 @@
                 <td>{{ proposal.number }}</td>
                 <td>
                     <a href="{% url "review_detail" proposal.pk %}">
-                        <small><strong>{{ proposal.speaker }}</strong></small>
-                        <br />
+                        {% flag double_blind_reviews %}
+                            <small><strong>{{ proposal.speaker }}</strong></small>
+                            <br />
+                        {% endflag %}
                         {{ proposal.title }}
                     </a>
                 </td>
+                <td>{{ proposal.kind }}</td>
                 <td>{{ proposal.comment_count }}</td>
                 <td>{{ proposal.plus_one }}</td>
                 <td>{{ proposal.plus_zero }}</td>
