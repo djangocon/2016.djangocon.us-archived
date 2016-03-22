@@ -121,6 +121,7 @@ MIDDLEWARE_CLASSES = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "reversion.middleware.RevisionMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "waffle.middleware.WaffleMiddleware",
     "django.contrib.redirects.middleware.RedirectFallbackMiddleware",
 ]
 
@@ -150,11 +151,14 @@ INSTALLED_APPS = [
     "reversion",
     "metron",
     "sitetree",
+    "waffle",
+    "markitup",
+
+    # pinax
     "pinax.boxes",
     "pinax.eventlog",
     "pinax.pages",
     "pinax.blog",
-    "markitup",
 
     # symposion
     "symposion",
