@@ -74,11 +74,16 @@
 }
 
 .logo-full {
-  width: 300px;
   position: absolute;
-  top: 5px;
   left: 50%;
-  margin-left: -161px;
+  width: 220px;
+  top: 38px;
+  margin-left: -110px;
+  @media (min-width: 1300px) {
+    width: 300px;
+    top: 5px;
+    margin-left: -161px;
+  }
 }
 
 .header-triangle, .white-header-triangle {
