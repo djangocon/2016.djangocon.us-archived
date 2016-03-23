@@ -2,17 +2,25 @@
   position: relative;
   margin-top: 60px;
   height: 300px;
-  background-image: url(../assets/img/header_bg.jpg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-image: url(../assets/img/header_bg_plain.jpg);
   background-repeat: no-repeat;
   background-position: center bottom;
   background-color: $blue;
   background-size: cover;
   border-top: $poster-border-width solid #fff;
   @include media-breakpoint-up(md) {
+    padding: 9em;
     height: 623px;
   }
 }
 
+.interim .header {
+  background-image: url(../assets/img/header_bg.jpg);
+}
 .small-header, .blog-header {
   display: flex;
   align-items: center;

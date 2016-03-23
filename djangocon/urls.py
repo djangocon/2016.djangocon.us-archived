@@ -8,7 +8,8 @@ from django.views.generic import TemplateView
 
 
 urlpatterns = [
-    url(r"^$", TemplateView.as_view(template_name="homepage.html"), name="home"),
+    url(r"^$", TemplateView.as_view(template_name="interim_homepage.html"), name="home"),
+    url(r"^homepage/", TemplateView.as_view(template_name="homepage.html"), name="finalhome"),
     url(r"^account/", include("account.urls")),
     url(r"^admin/", include(admin.site.urls)),
     url(r"^contact/", include("contact_form.urls")),

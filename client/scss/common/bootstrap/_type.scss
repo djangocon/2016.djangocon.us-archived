@@ -51,20 +51,6 @@ h4, h5, h6 {
   font-family: $font-family-serif;
 }
 
-.white-outline {
-  font-family: $font-family-brand;
-  text-shadow:1px 1px 0 #fff,
-  -1px -1px 0 #fff,
-  1px -1px 0 #fff,
-  -1px 1px 0 #fff,
-  0px 1px 0 #fff,
-  1px 0px 0 #fff,
-  0px -1px 0 #fff,
-  -1px 0px 0 #fff;
-  letter-spacing: 2px;
-  color: $red;
-}
-
 hr {
   margin-top: 3rem;
   margin-bottom: 3rem;

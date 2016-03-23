@@ -24,6 +24,23 @@ body {
   background-repeat: no-repeat;
   background-position: bottom left;
   color: $white;
+  h3,h4,h5 {
+    color: $white;
+  }
+
+  .white-outline {
+    font-family: $font-family-brand;
+    text-shadow:1px 1px 0 #fff,
+    -1px -1px 0 #fff,
+    1px -1px 0 #fff,
+    -1px 1px 0 #fff,
+    0px 1px 0 #fff,
+    1px 0px 0 #fff,
+    0px -1px 0 #fff,
+    -1px 0px 0 #fff;
+    letter-spacing: 2px;
+    color: $red;
+  }
 
   a, a:active, a:visited {
     color: #fff;
@@ -70,14 +87,29 @@ body {
   z-index: 0;
   width: 800px;
   height: 100%;
-  box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.25)
 }
 
 .postcard {
   width: 450px;
   height: 250px;
-  border: 5px solid white;
+  border: 10px solid white;
   background: white url(https://media1.giphy.com/media/wRe5uNvV91rsA/200.gif) no-repeat center;
+  background-size: 100%;
+}
+
+.franklin {
+  width: 600px;
+  height: 252px;
+  background: white url(../assets/img/franklin.jpg) no-repeat center;
+  background-size: 100%;
+}
+
+.stairs {
+  width: 400px;
+  height: 267px;
+  border: 10px solid white;
+  background: white url(../assets/img/stairs.jpg) no-repeat center;
   background-size: 100%;
 }
 
