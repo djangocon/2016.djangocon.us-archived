@@ -1,0 +1,21 @@
+
+{% for post in latestposts %}
+  {% if forloop.first %}
+    <div class="row">
+  {% endif %}
+    <div class="col-md-6">
+      <div class="card post-card">
+        <div class="card-block">
+          <h4 class="card-title">{{ post.title }}</h4>
+          <p class="card-text">{{ post.teaser_html|safe }}</p>
+          <a class="btn btn-primary" href="{{ post.get_absolute_url }}" class="post-link">read more...</a>
+        </div>
+      </div>
+    </div>
+  {% if forloop.counter|divisibleby:2 %}
+  </div>
+  <div class="row sponsorship-list">
+  {% elif forloop.last %}
+  </div>
+  {% endif %}
+{% endfor %}
