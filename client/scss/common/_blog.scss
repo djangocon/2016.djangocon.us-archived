@@ -1,0 +1,12 @@
+.post-card {
+  min-height: 250px;
+  color: $blue;
+  h4, a {
+    color: $blue;
+  }
+  .btn {
+    color: $white;
+    text-decoration: none;
+  }
+  text-align: left;
+}
