@@ -54,7 +54,6 @@
     }
     @include media-breakpoint-up(md) {
       height: 380px;
-
       .card-front, .card-back {
           position: absolute;
           top: 0;
@@ -91,10 +90,6 @@
     background: transparent;
     border: 0px;
 
-
-
-
-
     a {
       color: $blue;
       text-decoration: none;
@@ -103,5 +98,13 @@
     // .card-img-top {
     //   padding: 1em;
     // }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .diamond, .platinum {
+    img {
+      width: 60%
+    }
   }
 }

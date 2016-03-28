@@ -30,12 +30,12 @@
           {% for sponsor in level.sponsors %}
             {% if sponsor.website_logo %}
 
-              {% if level.name == 'Gold' %}
-                <div class="col-md-4">
-              {% elif level.name == 'Silver' %}
+              {% if level.name == 'Diamond' %}
+                <div class="col-md-6 diamond">
+              {% elif level.name == 'Platinum' %}
+                <div class="col-md-4 platinum">
+              {% else %}
                 <div class="col-md-3">
-              {% elif level.name == 'Bronze' %}
-                <div class="col-md-2">
               {% endif %}
                 <a class="card-link" href="{{ sponsor.external_url }}">
                 <div class="card sponsorship-card">
