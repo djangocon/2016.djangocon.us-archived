@@ -41,6 +41,10 @@
                 <div class="card sponsorship-card">
                     <div class="card-front">
                       <img class="card-img-top" src="{% thumbnail sponsor.website_logo '300x300' upscale='True' background='#fbfaf6' %}" alt="{{ sponsor.name }}">
+                      <!--
+                      sponsor.website_logo: {{ sponsor.website_logo }}
+                      sponsor.website_logo.url: {{ sponsor.website_logo.url }}
+                      -->
                       <div class="card-block">
                         <h4 class="card-title">{{ sponsor.name }}</h4>
                         <p class="card-text"><small class="text-muted"> {{ sponsor.external_url }}</small></p>
