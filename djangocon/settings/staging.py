@@ -1,6 +1,7 @@
 from .gondor import *  # noqa
 
 DEBUG = True
+THUMBNAIL_DEBUG = DEBUG
 
 CDN_URL = os.environ.get("CDN_URL", "/")
 STATIC_URL = CDN_URL + "site_media/static/"
