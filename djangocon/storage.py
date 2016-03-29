@@ -90,10 +90,6 @@ class GoogleCloudStorage(Storage):
         buf.seek(0)
         return buf
 
-    def get_available_name(self, name, max_length):
-        _, ext = os.path.splitext(name)
-        return str(uuid.uuid4()) + ext
-
     def _save(self, name, content):
         mimetype, _ = mimetypes.guess_type(name)
         if mimetype is None:
