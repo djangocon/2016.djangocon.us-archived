@@ -14,6 +14,7 @@ import dateutil.parser
 import httplib2
 
 from googleapiclient.discovery import build as discovery_build
+from googleapiclient.errors import HttpError
 from googleapiclient.http import MediaIoBaseUpload, MediaIoBaseDownload
 from oauth2client.client import SERVICE_ACCOUNT, GoogleCredentials
 from oauth2client.service_account import ServiceAccountCredentials
@@ -65,7 +66,13 @@ class GoogleCloudStorage(Storage):
         return req.execute()
 
     def get_gcs_object(self, name):
-        return self.client.objects().get(bucket=self.bucket, object=name).execute()
+        req = self.client.objects().get(bucket=self.bucket, object=name)
+        try:
+            return req.execute()
+        except HttpError as exc:
+            if exc.resp["status"] == "404":
+                return None
+            raise
 
     # Django Storage interface
 
