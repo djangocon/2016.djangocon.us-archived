@@ -3,6 +3,7 @@
 {% load static from staticfiles %}
 {% load i18n %}
 {% load pinax_boxes_tags %}
+{% load waffle_tags %}
 
 {% block head_title %}{% trans "DjangoCon US 2016" %}{% endblock %}
 
@@ -95,6 +96,16 @@
         </div>
       </div>
     </section>
+
+
+    {% switch "homepage_sponsorship_list" %}
+      <section class="sponsors">
+        <div class="col-md-8 col-md-offset-2"><h3>Our sponsors:</h3></div>
+        {% include "includes/sponsorship_list.html" %}
+      </section>
+    {% else %}
+    {% endswitch %}
+
   </div>
 </div>
 
