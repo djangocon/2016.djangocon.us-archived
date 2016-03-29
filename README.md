@@ -54,6 +54,7 @@ Feature flags
 Flag | Description | Default
 :--- | :--- | :---
 `double_blind_reviews` | Turns on double-blind reviews | `True`
+`homepage_sponsorship_list` | Turns on the sponsorship list on the homepage | `True`
 
 To deploy:
 
