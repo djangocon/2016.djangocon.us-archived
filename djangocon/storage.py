@@ -91,6 +91,14 @@ class GoogleCloudStorage(Storage):
 
 
 class ECGoogleCloudStorage(GoogleCloudStorage):
+    """
+    Custom subclass of GoogleCloudStorage to interact with Eldarion Cloud
+
+    To create:
+
+        ec instances env GCS_CREDENTIALS=$(cat key.json | base64) GCS_BUCKET=<bucket>
+
+    """
 
     def get_oauth_credentials(self):
         client_credentials = json.loads(base64.b64decode(os.environ["GCS_CREDENTIALS"]))
