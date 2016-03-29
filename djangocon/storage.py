@@ -8,6 +8,7 @@ from django.conf import settings
 from django.core.exceptions import ImproperlyConfigured
 from django.core.files.storage import Storage
 from django.utils.functional import SimpleLazyObject
+from django.utils.http import urlquote
 
 import dateutil.parser
 import httplib2
@@ -117,7 +118,7 @@ class GoogleCloudStorage(Storage):
             "url-template",
             "https://storage.googleapis.com/{bucket}/{name}"
         )
-        return url_template.format(bucket=self.bucket, name=name)
+        return urlquote(url_template.format(bucket=self.bucket, name=name))
 
     def accessed_time(self, name):
         return self.modified_time(name)
