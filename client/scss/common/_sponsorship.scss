@@ -33,6 +33,7 @@
   .sponsorship-card {
     position: relative;
     cursor: pointer;
+    transform-style: preserve-3d;
     @include media-breakpoint-up(sd) {
       height: 100%;
       .card-front, .card-back {
@@ -58,8 +59,8 @@
           position: absolute;
           top: 0;
           left: 0;
-          -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
+          -webkit-backface-visibility: hidden;
       }
       .card-back {
         padding: 2em;
