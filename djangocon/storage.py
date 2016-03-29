@@ -1,4 +1,5 @@
 import base64
+import io
 import json
 import mimetypes
 import os
@@ -9,10 +10,11 @@ from django.core.exceptions import ImproperlyConfigured
 from django.core.files.storage import Storage
 from django.utils.functional import SimpleLazyObject
 
+import dateutil.parser
 import httplib2
 
 from googleapiclient.discovery import build as discovery_build
-from googleapiclient.http import MediaIoBaseUpload
+from googleapiclient.http import MediaIoBaseUpload, MediaIoBaseDownload
 from oauth2client.client import SERVICE_ACCOUNT, GoogleCredentials
 from oauth2client.service_account import ServiceAccountCredentials
 
@@ -62,6 +64,25 @@ class GoogleCloudStorage(Storage):
     def execute_req(self, req):
         return req.execute()
 
+    def get_gcs_object(self, name):
+        return self.client.objects().get(bucket=self.bucket, object=name).execute()
+
+    # Django Storage interface
+
+    def _open(self, name, mode):
+        if mode != "rb":
+            raise ValueError("rb is the only acceptable mode for this backend")
+        # @@@ reading files from GCS is extremely inefficient; fix me
+        # however, for small files, who cares right? ;-)
+        req = self.client.objects().get_media(bucket=self.bucket, object=name)
+        buf = io.BytesIO()
+        media = MediaIoBaseDownload(buf, req)
+        done = False
+        while not done:
+            done = media.next_chunk()[1]
+        buf.seek(0)
+        return buf
+
     def get_available_name(self, name, max_length):
         _, ext = os.path.splitext(name)
         return str(uuid.uuid4()) + ext
@@ -79,8 +100,15 @@ class GoogleCloudStorage(Storage):
         self.execute_req(req)
         return name
 
-    def get_gcs_object(self, name):
-        return self.client.objects().get(bucket=self.bucket, object=name).execute()
+    def delete(self, name):
+        req = self.client.objects().delete(bucket=self.bucket, object=name)
+        self.execute_req(req)
+
+    def exists(self, name):
+        return self.get_gcs_object(name) is not None
+
+    def size(self, name):
+        return int(self.get_gcs_object(name)["size"])
 
     def url(self, name):
         url_template = _gcs_file_storage_settings().get(
@@ -88,6 +116,15 @@ class GoogleCloudStorage(Storage):
             "https://storage.googleapis.com/{bucket}/{name}"
         )
         return url_template.format(bucket=self.bucket, name=name)
+
+    def accessed_time(self, name):
+        return self.modified_time(name)
+
+    def created_time(self, name):
+        return dateutil.parser.parse(self.get_gcs_object(name)["timeCreated"])
+
+    def modified_time(self, name):
+        return dateutil.parser.parse(self.get_gcs_object(name)["updated"])
 
 
 class ECGoogleCloudStorage(GoogleCloudStorage):
