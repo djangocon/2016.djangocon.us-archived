@@ -3,7 +3,6 @@ buildpack: https://buildpack.gondor.io/python
 branches:
   master: primary
   development: staging
-  google-cloud-storage: google-cloud-storage
 deploy:
   services:
     - web
