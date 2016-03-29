@@ -118,7 +118,7 @@ class GoogleCloudStorage(Storage):
             "url-template",
             "https://storage.googleapis.com/{bucket}/{name}"
         )
-        return urlquote(url_template.format(bucket=self.bucket, name=name))
+        return url_template.format(bucket=self.bucket, name=urlquote(name))
 
     def accessed_time(self, name):
         return self.modified_time(name)
