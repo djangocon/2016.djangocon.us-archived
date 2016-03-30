@@ -72,7 +72,7 @@ Name | Type | Description | Default
 To deploy:
 
 ```bash
-$ ./manage.py waffle_flag double_blind_reviews --create --superuser
+$ ./manage.py flag double_blind_reviews --create --superuser
 $ ./manage.py switch homepage_sponsorship_list --create
 ```
 
