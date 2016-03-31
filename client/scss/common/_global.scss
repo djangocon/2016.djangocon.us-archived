@@ -31,8 +31,16 @@ section {
 }
 .page-content {
   h1, h2, h3, h4 {
-    margin-bottom: 1em;
+    margin-top: 2em;
+    margin-bottom: 0.825em;
+    &:nth-of-type(1) {
+      margin-top: 0;
+    }
   }
+  a {
+    text-decoration: underline;
+  }
+
 }
 
 // FOT DJANGO DBT
