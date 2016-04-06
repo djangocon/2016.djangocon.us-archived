@@ -14,6 +14,11 @@ urlpatterns = [
     url(r'^contact/', include('contact_form.urls')),
 ]
 
+# Speakers CSV URL
+urlpatterns += [
+    url(r'^speakers/download/', view=djangocon_views.get_speakers_csv, name='speakers_csv'),
+]
+
 # Symposion urls
 urlpatterns += [
     url(r'^dashboard/', symposion_views.dashboard, name='dashboard'),
