@@ -25,3 +25,7 @@ Unipath==1.1
 
 # Bootstrap 4 form styles
 git+https://github.com/djangocon/django-bootstrap-form.git
+
+tablib==0.11.2
+unidecode==0.4.19
+unicodecsv==0.14.1
