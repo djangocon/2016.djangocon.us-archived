@@ -1,13 +1,17 @@
-from django.shortcuts import render
-from symposion.schedule.models import Slot
-from django.contrib.sites.models import Site
-
-from django.core.urlresolvers import reverse
-from django.http import HttpResponse
+import csv
 import json
+
+from datetime import datetime
+from django.contrib.auth.decorators import login_required
+from django.contrib.sites.models import Site
+from django.core.urlresolvers import reverse
+from django.http import HttpResponse, HttpResponseForbidden
+from django.shortcuts import render
 from django.template.loader import render_to_string
 from pinax.blog.models import Post
-from datetime import datetime
+
+from symposion.schedule.models import Slot
+from symposion.speakers.models import Speaker
 
 
 def json_serializer(obj):
