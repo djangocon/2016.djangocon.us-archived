@@ -152,6 +152,7 @@ Contributor | Contributions
 [![](https://avatars.githubusercontent.com/u/5844587?v=3&s=100)<br />](https://github.com/Mariatta) | [❓](https://github.com/djangocon/2016.djangocon.us/commits?author=Mariatta)
 [![Bill Blanchard](https://avatars.githubusercontent.com/u/1261962?v=3&s=100)<br />Bill Blanchard](https://github.com/chromakey) | [💻](https://github.com/djangocon/2016.djangocon.us/commits?author=chromakey)
 [![](https://avatars.githubusercontent.com/u/5844587?v=3&s=100)<br />](https://github.com/Mariatta) | [💻](https://github.com/djangocon/2016.djangocon.us/commits?author=Mariatta)
+[![BERNARD pyc0d333 PARAH](https://avatars.githubusercontent.com/u/9025305?v=3&s=100)<br />BERNARD pyc0d333 PARAH](https://github.com/b3h3rkz) | [💻](https://github.com/djangocon/2016.djangocon.us/commits?author=b3h3rkz)
 
 #### Emoji key
 
