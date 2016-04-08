@@ -28,6 +28,23 @@ def homepage(request):
         'latestposts': Post.objects.published().order_by("published")[:10]})
 
 
+@login_required
+def get_speakers_csv(request):
+    if request.user.is_superuser:
+        response = HttpResponse(content_type='text/csv')
+        response['Content-Disposition'] = 'attachment; filename="Djangocon Speakers.csv"'
+
+        writer = csv.writer(response)
+        writer.writerow(['Name', 'Email'])
+
+        for speaker in Speaker.objects.all():
+            writer.writerow([speaker.name, speaker.email])
+
+        return response
+
+    return HttpResponseForbidden("Forbidden")
+
+
 def schedule_json(request):
     slots = Slot.objects.all().order_by("start")
     data = []

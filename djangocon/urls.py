@@ -27,6 +27,11 @@ urlpatterns += [
     url(r'^data/guidebook_speaker_export/', data_views.guidebook_speaker_export, name='guidebook_speaker_export'),
 ]
 
+# Speakers CSV URL
+urlpatterns += [
+    url(r'^speakers/download/', view=djangocon_views.get_speakers_csv, name='speakers_csv'),
+]
+
 # Symposion urls
 urlpatterns += [
     url(r'^dashboard/', symposion_views.dashboard, name='dashboard'),

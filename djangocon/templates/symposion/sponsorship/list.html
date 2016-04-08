@@ -28,7 +28,6 @@
         </div>
         <div class="row sponsorship-list">
           {% for sponsor in level.sponsors %}
-            {% if sponsor.website_logo %}
 
               {% if level.name == 'Diamond' %}
                 <div class="col-md-6 diamond">
@@ -38,13 +37,11 @@
                 <div class="col-md-3">
               {% endif %}
                 <a class="card-link" href="{{ sponsor.external_url }}">
-                <div class="card sponsorship-card">
+                  <div class="card sponsorship-card">
                     <div class="card-front">
-                      <img class="card-img-top" src="{% thumbnail sponsor.website_logo '300x300' upscale='True' background='#fbfaf6' %}" alt="{{ sponsor.name }}">
-                      <!--
-                      sponsor.website_logo: {{ sponsor.website_logo }}
-                      sponsor.website_logo.url: {{ sponsor.website_logo.url }}
-                      -->
+                      {% if sponsor.sponsor_logo and sponsor.website_logo %}
+                        <img class="card-img-top" src="{% thumbnail sponsor.website_logo '300x300' upscale='True' background='#fbfaf6' %}" alt="{{ sponsor.name }}">
+                      {% endif %}
                       <div class="card-block">
                         <h4 class="card-title">{{ sponsor.name }}</h4>
                         <p class="card-text"><small class="text-muted"> {{ sponsor.external_url }}</small></p>
@@ -52,13 +49,12 @@
                     </div>
                     <div class="card-back">
                       <h5>About {{ sponsor.name }}:</h5>
-                      <p class="card-text">{{ sponsor.annotation|truncatewords:100 }}</p>
+                      <p class="card-text">{{ sponsor.listing_text|truncatewords:100 }}</p>
                     </div>
 
-                </div>
+                  </div>
                 </a>
               </div>
-            {% endif %}
 
           {% if forloop.counter|divisibleby:3 %}
             </div>
