@@ -49,7 +49,6 @@ def data_home(request):
 
 @user_passes_test(lambda user: user.is_superuser)
 def proposal_export(request):
-    print request
     content_type = 'text/csv'
     response = HttpResponse(content_type=content_type)
     response['Content-Disposition'] = 'attachment; filename="proposal_export.csv"'
@@ -102,7 +101,6 @@ def proposal_export(request):
 
 @user_passes_test(lambda user: user.is_superuser)
 def speaker_export(request):
-    print request
     content_type = 'text/csv'
     response = HttpResponse(content_type=content_type)
     response['Content-Disposition'] = 'attachment; filename="speaker_export.csv"'
