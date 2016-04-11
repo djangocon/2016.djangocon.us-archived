@@ -1,12 +1,12 @@
 import tablib
 import unicodecsv
-from django.shortcuts import render
 
 from django.contrib.auth.decorators import user_passes_test
-from django.contrib.sites.shortcuts import get_current_site
 from django.contrib.sites.models import Site
+from django.contrib.sites.shortcuts import get_current_site
 from django.core.urlresolvers import reverse, reverse_lazy
 from django.http import HttpResponse
+from django.shortcuts import render
 from symposion.proposals.models import ProposalBase
 from symposion.reviews.models import ProposalResult
 from symposion.schedule.models import Slot
@@ -25,6 +25,10 @@ def data_home(request):
                 {
                     'name': 'Export Proposals',
                     'url': reverse_lazy('proposal_export')
+                },
+                {
+                    'name': 'Export Speakers',
+                    'url': reverse_lazy('speaker_export')
                 },
                 {
                     'name': 'Schedule Guidebook',
@@ -92,6 +96,30 @@ def proposal_export(request):
             proposal.result.minus_one,
             'https://{0}{1}'.format(domain, reverse('review_detail',
                                                     args=[proposal.pk])),
+        ])
+    return response
+
+
+@user_passes_test(lambda user: user.is_superuser)
+def speaker_export(request):
+    print request
+    content_type = 'text/csv'
+    response = HttpResponse(content_type=content_type)
+    response['Content-Disposition'] = 'attachment; filename="speaker_export.csv"'
+
+    writer = unicodecsv.writer(response, quoting=unicodecsv.QUOTE_ALL)
+    writer.writerow([
+        'id',
+        'name',
+        'email'
+    ])
+
+    speakers = Speaker.objects.all().order_by('id')
+    for speaker in speakers:
+        writer.writerow([
+            speaker.id,
+            speaker.name,
+            speaker.email,
         ])
     return response
 

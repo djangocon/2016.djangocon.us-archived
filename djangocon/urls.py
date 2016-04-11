@@ -22,14 +22,10 @@ urlpatterns = [
 urlpatterns += [
     url(r'^data/$', data_views.data_home, name='data_home'),
     url(r'^data/proposal_export/', data_views.proposal_export, name='proposal_export'),
+    url(r'^data/speaker_export/', data_views.speaker_export, name='speaker_export'),
     url(r'^data/schedule_guidebook/', data_views.schedule_guidebook, name='schedule_guidebook'),
     url(r'^data/guidebook_sponsor_export/', data_views.guidebook_sponsor_export, name='guidebook_sponsor_export'),
     url(r'^data/guidebook_speaker_export/', data_views.guidebook_speaker_export, name='guidebook_speaker_export'),
-]
-
-# Speakers CSV URL
-urlpatterns += [
-    url(r'^speakers/download/', view=djangocon_views.get_speakers_csv, name='speakers_csv'),
 ]
 
 # Symposion urls
