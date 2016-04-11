@@ -32,12 +32,12 @@ $(document).ready(function() {
 
   function rotateSheets(initial) {
     var windowWidth = $(window).width();
-    if ( windowWidth > 1300 && windowWidth < 1600 || initial === true && windowWidth > 1300 ) {
+    if ( windowWidth > 1400 && windowWidth < 1600 || initial === true && windowWidth > 1400 ) {
       $('.sheet').each(function(index,el){
-        var step = $(el).attr('data-degree') / 300;
-        var distance = windowWidth - 1300;
+        var step = $(el).attr('data-degree') / 200;
+        var distance = windowWidth - 1400;
         if (initial && windowWidth >= 1600) {
-          var distance = 300;
+          var distance = 200;
         }
         var rotation = step * distance;
         $(el).css({
@@ -53,9 +53,9 @@ $(document).ready(function() {
 
   function positionSheets(initial) {
 
+    var animationDistance = 300;
     var windowWidth = $(window).width();
     var windowHeight = $(window).innerHeight();
-    var staticDestY = 400;
     var pageWidth = 1300;
     var maxPageWidth = 1900;
 
@@ -84,13 +84,13 @@ $(document).ready(function() {
         } else {
           if ( orientation === 'left' ) {
             $(el).css({
-              'left': (x - $(el).width()/2) + 'px',
-              'top': staticDestY + 'px'
+              'left': 0 + 'px',
+              'top': destY + 'px'
             });
           } else if ( orientation === 'right' ) {
             $(el).css({
-              'right': (x - $(el).width()/2) + 'px',
-              'top': staticDestY + 'px'
+              'right': pageWidth + 'px',
+              'top': destY + 'px'
             });
           }
         }
@@ -103,8 +103,8 @@ $(document).ready(function() {
             if (windowWidth >= maxPageWidth) {
               var posX = destX;
             } else {
-              var path =  650 - elWidth - destX;
-              var stepX = path / 300;
+              var path = destX;
+              var stepX = path / animationDistance;
               var posX = destX + path - stepX * distance;
             }
             $(el).css({
@@ -115,8 +115,8 @@ $(document).ready(function() {
             if (windowWidth >= maxPageWidth) {
               var posX = destX;
             } else {
-              var path =  650 - elWidth - destX;
-              var stepX = path / 300;
+              var path = destX;
+              var stepX = path / animationDistance;
               var posX = destX + path - stepX * distance;
             }
             $(el).css({
@@ -128,13 +128,13 @@ $(document).ready(function() {
         } else {
           if ( orientation === 'left' ) {
             $(el).css({
-              'left': (x - $(el).width()/2) + 'px',
-              'top': staticDestY + 'px'
+              'left': 0 + 'px',
+              'top': destY + 'px'
             });
           } else if ( orientation === 'right' ) {
             $(el).css({
-              'right': (x - $(el).width()/2) + 'px',
-              'top': staticDestY + 'px'
+              'right': 0 + 'px',
+              'top': destY + 'px'
             });
           }
         }
