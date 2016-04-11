@@ -16,3 +16,28 @@
     color: $blue;
   }
 }
+
+.blog-categories {
+  ul {
+    padding-left: 0;
+  }
+  li {
+    list-style: none;
+    margin-left: 0;
+  }
+}
+
+.post-list {
+  .post {
+    margin-bottom: 3em;
+    h2 {
+      margin-bottom: 0;
+    }
+    .post-meta {
+      display: block;
+      font-size: 0.8em;
+      margin-bottom: 1em
+    }
+  }
+}
+
