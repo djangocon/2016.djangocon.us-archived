@@ -149,6 +149,10 @@ Contributor | Contributions
 [![Clay Wells](https://avatars.githubusercontent.com/u/812026?v=3&s=100)<br />Clay Wells](https://github.com/clayball) | [❓💻](https://github.com/djangocon/2016.djangocon.us/commits?author=clayball)
 [![Craig Bruce](https://avatars.githubusercontent.com/u/1503648?v=3&s=100)<br />Craig Bruce](https://github.com/craigbruce) | [❓](https://github.com/djangocon/2016.djangocon.us/commits?author=craigbruce)
 [![Sulabh Bista](https://avatars.githubusercontent.com/u/109486?v=3&s=100)<br />Sulabh Bista](https://github.com/sul4bh) | [💻](https://github.com/djangocon/2016.djangocon.us/commits?author=sul4bh)
+[![](https://avatars.githubusercontent.com/u/5844587?v=3&s=100)<br />](https://github.com/Mariatta) | [❓](https://github.com/djangocon/2016.djangocon.us/commits?author=Mariatta)
+[![Bill Blanchard](https://avatars.githubusercontent.com/u/1261962?v=3&s=100)<br />Bill Blanchard](https://github.com/chromakey) | [💻](https://github.com/djangocon/2016.djangocon.us/commits?author=chromakey)
+[![](https://avatars.githubusercontent.com/u/5844587?v=3&s=100)<br />](https://github.com/Mariatta) | [💻](https://github.com/djangocon/2016.djangocon.us/commits?author=Mariatta)
+[![BERNARD pyc0d333 PARAH](https://avatars.githubusercontent.com/u/9025305?v=3&s=100)<br />BERNARD pyc0d333 PARAH](https://github.com/b3h3rkz) | [💻](https://github.com/djangocon/2016.djangocon.us/commits?author=b3h3rkz)
 
 #### Emoji key
 

@@ -55,7 +55,6 @@ class TalkProposalForm(ProposalForm):
         widgets = {
             "abstract": MarkItUpWidget(),
             "additional_notes": MarkItUpWidget(),
-            "special_requirements": MarkItUpWidget(),
         }
 
 
@@ -75,5 +74,4 @@ class TutorialProposalForm(ProposalForm):
         widgets = {
             "abstract": MarkItUpWidget(),
             "additional_notes": MarkItUpWidget(),
-            "special_requirements": MarkItUpWidget(),
         }
