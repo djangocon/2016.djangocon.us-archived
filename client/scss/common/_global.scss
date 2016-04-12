@@ -1,5 +1,6 @@
 body {
   overflow-x: hidden;
+  position: relative;
 }
 
 * {
@@ -40,7 +41,6 @@ section {
   a {
     text-decoration: underline;
   }
-
 }
 
 // FOT DJANGO DBT

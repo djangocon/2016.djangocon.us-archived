@@ -18,13 +18,13 @@
     {% endblock %}
   </head>
 
-  <body class="poster-bg {% block body_class %}{% endblock %}">
+  <body class="poster-bg  loading {% block body_class %}{% endblock %}">
 
     {% block nav %}
       {% sitetree_menu from "main" include "trunk" %}
     {% endblock %}
 
-    {% include "includes/sheets.html" %}
+    {% include "includes/cards.html" %}
 
     {% include "_messages.html" %}
 
@@ -36,7 +36,6 @@
 
     </div>
 
-    {% markitup_media "no-jquery" %}
 
     {% block extra_js %}
 

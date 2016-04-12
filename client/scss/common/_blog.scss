@@ -33,11 +33,24 @@
     h2 {
       margin-bottom: 0;
     }
-    .post-meta {
-      display: block;
-      font-size: 0.8em;
-      margin-bottom: 1em
-    }
   }
 }
 
+.post-meta {
+  display: block;
+  font-size: 0.8em;
+  margin-bottom: 1em
+}
+
+.post-detail {
+  h1, h2, h3, h4 {
+    margin-top: 2em;
+    margin-bottom: 0.825em;
+    // &:nth-of-type(1) {
+    //   margin-top: 0;
+    // }
+  }
+  ul {
+    padding-left: 1.2em;
+  }
+}

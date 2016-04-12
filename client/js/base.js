@@ -32,12 +32,12 @@ $(document).ready(function() {
 
   function rotateSheets(initial) {
     var windowWidth = $(window).width();
-    if ( windowWidth > 1400 && windowWidth < 1600 || initial === true && windowWidth > 1400 ) {
-      $('.sheet').each(function(index,el){
-        var step = $(el).attr('data-degree') / 200;
-        var distance = windowWidth - 1400;
+    if ( windowWidth > 1300 && windowWidth < 1600 || initial === true && windowWidth > 1300 ) {
+      $('.t-card').each(function(index,el){
+        var step = $(el).attr('data-degree') / 300;
+        var distance = windowWidth - 1300;
         if (initial && windowWidth >= 1600) {
-          var distance = 200;
+          var distance = 300;
         }
         var rotation = step * distance;
         $(el).css({
@@ -59,7 +59,7 @@ $(document).ready(function() {
     var pageWidth = 1300;
     var maxPageWidth = 1900;
 
-    $('.sheet').each(function(index,el){
+    $('.t-card').each(function(index,el){
       var x = windowWidth / 2;
       var orientation = $(el).attr('data-orientation');
       var destX = parseInt($(el).attr('data-posx'));
@@ -166,4 +166,7 @@ $(document).ready(function() {
   rotateSponsorshipCards()
   positionSheets(true);
 
+  window.onload = function() {
+    $('body').removeClass('loading');
+  }
 });
