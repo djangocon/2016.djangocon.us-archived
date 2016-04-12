@@ -4,7 +4,11 @@
 
 {% block head_title %}{{ team.name }}{% endblock %}
 
-{% block body_outer %}
+{% block body %}
+<div class="poster-wrapper">
+  <div class="container">
+    <div class="row">
+
     <div class="pull-right">
     {% if can_join %}
         <form method="post" action="{% url "team_join" team.slug %}">
@@ -96,4 +100,8 @@
             </form>
         {% endif %}
     {% endif %}
+
+    </div>
+  </div>
+</div>
 {% endblock %}
