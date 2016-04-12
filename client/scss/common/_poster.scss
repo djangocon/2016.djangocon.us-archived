@@ -213,15 +213,29 @@ body {
 
 .scotch {
   position: absolute;
+  background-image: url(../assets/img/scotch-br.png);
+  width: 199px;
+  height: 144px;
+  display: none;
+  @media (min-width: 1300px) {
+    display: block;
+  }
   &.scotch-bl {
-    bottom: 0;
-    left: 0;
+    bottom: -50px;
+    left: -50px;
+    transform: scaleX(-1);
   }
   &.scotch-br {
     bottom: -50px;
     right: -70px;
-    width: 199px;
-    height: 144px;
-    background-image: url(../assets/img/scotch-br.png);
+  }
+  &.scotch-tl {
+    top: -50px;
+    left: -80px;
+  }
+  &.scotch-tr {
+    top: -50px;
+    right: -70px;
+    transform: scaleX(-1);
   }
 }
