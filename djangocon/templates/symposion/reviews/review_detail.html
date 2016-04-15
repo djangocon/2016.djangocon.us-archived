@@ -124,8 +124,8 @@
                     <h5>Review Comments</h5>
                     {% for review in reviews %}
                         <div class="review-box">
-                            <div class="vote pull-left">
-                                <span>{{ review.vote }}</span>
+                            <div class="vote">
+                                <span class="label label-pill label-primary">{{ review.vote }}</span>
                             </div>
                             {% if is_manager %}
                                 <div class="pull-right">
@@ -137,8 +137,8 @@
                             {% endif %}
                             <div class="review-content">
                                 <b>{% user_display review.user %}</b>
-                                {{ review.submitted_at|timesince }} ago <br />
-                                {{ review.comment|safe }}
+                                <span class"muted"> {{ review.submitted_at|timesince }} ago </span>
+                                <p>{{ review.comment|safe }}</p>
                             </div>
                         </div>
                     {% endfor %}
