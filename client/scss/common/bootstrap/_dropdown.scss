@@ -1,4 +1,4 @@
-.dropdown-menu {
+.main-nav .dropdown-menu {
   position: absolute;
   top: 100%;
   left: -20px;
@@ -30,6 +30,9 @@
   }
 }
 
+.main-nav .open  .dropdown-menu {
+  display: block;
+}
 
 // Dividers (basically an `<hr>`) within the dropdown
 .dropdown-divider {
@@ -39,7 +42,7 @@
 // Links, buttons, and more within the dropdown menu
 //
 // `<button>`-specific styles are denoted with `// For <button>s`
-.dropdown-item {
+.main-nav .dropdown-item {
   display: block;
   width: 100%; // For `<button>`s
   padding: 3px 20px;

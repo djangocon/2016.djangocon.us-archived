@@ -5,14 +5,35 @@ var $ = require('jquery');
 global.jQuery = $;
 window.jQuery = window.$ = $;
 
+var Tether = require('tether');
+window.Tether = Tether;
+global.Tether = Tether;
+
 require('bootstrap');
 
 $(document).ready(function() {
 
+ function logPosition(position) {
+    // position will be between 0 and 100
+
+    var minp = 0;
+    var maxp = 300;
+
+    // The result should be between 0 an 300
+    var minv = Math.log(0.1);
+    var maxv = Math.log(300);
+
+    // calculate adjustment factor
+    var scale = (maxv-minv) / (maxp-minp);
+    console.log( (Math.log(position)-minv) / scale + minp);
+
+    // return Math.exp(minv + scale*(position-minp));
+  }
+
   function rotateSheets(initial) {
     var windowWidth = $(window).width();
     if ( windowWidth > 1300 && windowWidth < 1600 || initial === true && windowWidth > 1300 ) {
-      $('.sheet').each(function(index,el){
+      $('.t-card').each(function(index,el){
         var step = $(el).attr('data-degree') / 300;
         var distance = windowWidth - 1300;
         if (initial && windowWidth >= 1600) {
@@ -32,21 +53,23 @@ $(document).ready(function() {
 
   function positionSheets(initial) {
 
+    var animationDistance = 300;
     var windowWidth = $(window).width();
-    var intWidth = $(window).innerWidth();
-    var intHeight = $(window).innerHeight();
-    var staticDestY = 400;
+    var windowHeight = $(window).innerHeight();
+    var pageWidth = 1300;
+    var maxPageWidth = 1900;
 
-    if (initial) {
+    $('.t-card').each(function(index,el){
+      var x = windowWidth / 2;
+      var orientation = $(el).attr('data-orientation');
+      var destX = parseInt($(el).attr('data-posx'));
+      var destY = parseInt($(el).attr('data-posy'));
+      var distance = (windowWidth - pageWidth) / 2;
+      var elWidth = $(el).width()/2;
 
-      var x = intWidth / 2;
-      var y = intHeight / 2;
-      if ( windowWidth > 1300 ) {
-        $('.sheet').each(function(index,el){
-          console.log(true);
-          var orientation = $(el).attr('data-orientation');
-          var destX = parseInt($(el).attr('data-posx'));
-          var destY = parseInt($(el).attr('data-posy'));
+      if (initial) {
+
+        if ( windowWidth > pageWidth ) {
           if ( orientation === 'left' ) {
             $(el).css({
               'left': destX + 'px',
@@ -58,44 +81,30 @@ $(document).ready(function() {
               'top': destY + 'px'
             });
           }
-        });
-      } else {
-        $('.sheet').each(function(index,el){
-          var orientation = $(el).attr('data-orientation');
+        } else {
           if ( orientation === 'left' ) {
             $(el).css({
-              'left': (x - $(el).width()/2) + 'px',
-              'top': staticDestY + 'px'
+              'left': 0 + 'px',
+              'top': destY + 'px'
             });
           } else if ( orientation === 'right' ) {
             $(el).css({
-              'right': (x - $(el).width()/2) + 'px',
-              'top': staticDestY + 'px'
+              'right': pageWidth + 'px',
+              'top': destY + 'px'
             });
           }
-        });
-      }
-    } else {
+        }
 
-      var x = intWidth / 2;
-      var y = intHeight / 2;
+      } else {
 
-      if ( windowWidth > 1300 ) {
+        if ( windowWidth > pageWidth ) {
 
-        var distance = (windowWidth - 1300) / 2;
-
-        $('.sheet').each(function(index,el){
-          var destX = parseInt($(el).attr('data-posx'));
-          var destY = parseInt($(el).attr('data-posy'));
-          var orientation = $(el).attr('data-orientation');
-          console.log(orientation)
           if ( orientation === 'left' ) {
-            if (windowWidth >= 1900) {
+            if (windowWidth >= maxPageWidth) {
               var posX = destX;
             } else {
-              var elWidth = $(el).width()/2;
-              var path =  650 - elWidth - destX;
-              var stepX = path / 300;
+              var path = destX;
+              var stepX = path / animationDistance;
               var posX = destX + path - stepX * distance;
             }
             $(el).css({
@@ -103,12 +112,11 @@ $(document).ready(function() {
               'top': destY + 'px'
             });
           } else if ( orientation === 'right' ) {
-            if (windowWidth >= 1900) {
+            if (windowWidth >= maxPageWidth) {
               var posX = destX;
             } else {
-              var elWidth = $(el).width()/2;
-              var path =  650 - elWidth - destX;
-              var stepX = path / 300;
+              var path = destX;
+              var stepX = path / animationDistance;
               var posX = destX + path - stepX * distance;
             }
             $(el).css({
@@ -117,28 +125,23 @@ $(document).ready(function() {
             });
           }
 
-        });
-
-      } else {
-
-        $('.sheet').each(function(index,el){
-          var orientation = $(el).attr('data-orientation');
+        } else {
           if ( orientation === 'left' ) {
             $(el).css({
-              'left': (x - $(el).width()/2) + 'px',
-              'top': staticDestY + 'px'
+              'left': 0 + 'px',
+              'top': destY + 'px'
             });
           } else if ( orientation === 'right' ) {
             $(el).css({
-              'right': (x - $(el).width()/2) + 'px',
-              'top': staticDestY + 'px'
+              'right': 0 + 'px',
+              'top': destY + 'px'
             });
           }
-        });
-
+        }
       }
-    }
+    });
   }
+
   function rotateSponsorshipCards() {
     $('.sponsorship-card').each(function(index, el) {
         var rotation = Math.floor(Math.random() * 16) - 8;
@@ -152,6 +155,8 @@ $(document).ready(function() {
     });
   }
 
+
+
   $(window).resize(function(e) {
     rotateSheets();
     positionSheets();
@@ -161,4 +166,7 @@ $(document).ready(function() {
   rotateSponsorshipCards()
   positionSheets(true);
 
+  window.onload = function() {
+    $('body').removeClass('loading');
+  }
 });

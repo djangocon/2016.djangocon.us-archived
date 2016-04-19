@@ -97,12 +97,12 @@ TEMPLATES = [
             "debug": DEBUG,
             "context_processors": [
                 "django.contrib.auth.context_processors.auth",
-                "django.core.context_processors.debug",
-                "django.core.context_processors.i18n",
-                "django.core.context_processors.media",
-                "django.core.context_processors.static",
-                "django.core.context_processors.tz",
-                "django.core.context_processors.request",
+                "django.template.context_processors.debug",
+                "django.template.context_processors.i18n",
+                "django.template.context_processors.media",
+                "django.template.context_processors.static",
+                "django.template.context_processors.tz",
+                "django.template.context_processors.request",
                 "django.contrib.messages.context_processors.messages",
                 "account.context_processors.account",
                 "pinax_theme_bootstrap.context_processors.theme",
@@ -121,6 +121,7 @@ MIDDLEWARE_CLASSES = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "reversion.middleware.RevisionMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "waffle.middleware.WaffleMiddleware",
     "django.contrib.redirects.middleware.RedirectFallbackMiddleware",
 ]
 
@@ -150,11 +151,14 @@ INSTALLED_APPS = [
     "reversion",
     "metron",
     "sitetree",
+    "waffle",
+    "markitup",
+
+    # pinax
     "pinax.boxes",
     "pinax.eventlog",
     "pinax.pages",
     "pinax.blog",
-    "markitup",
 
     # symposion
     "symposion",
@@ -210,6 +214,7 @@ ACCOUNT_EMAIL_AUTHENTICATION = False
 ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 2
 ACCOUNT_EMAIL_CONFIRMATION_REQUIRED = False
 ACCOUNT_EMAIL_VERIFICATION = False
+ACCOUNT_LOGIN_URL = LOGIN_URL = '/account/login/'
 ACCOUNT_LOGIN_REDIRECT_URL = "dashboard"
 ACCOUNT_LOGOUT_REDIRECT_URL = "home"
 ACCOUNT_OPEN_SIGNUP = True
@@ -248,7 +253,9 @@ ADMINS = [
     ('DjangoCon US Errors', 'errors@defna.org'),
 ]
 
-MANAGERS = ADMINS
+MANAGERS = [
+    ('DjangoCon US', 'hello@djangocon.us'),
+]
 
 SERVER_EMAIL = ''
 DEFAULT_FROM_EMAIL = "DjangoCon US 2016 <noreply@djangocon.us>"

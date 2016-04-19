@@ -3,6 +3,7 @@
 {% load static from staticfiles %}
 {% load i18n %}
 {% load pinax_boxes_tags %}
+{% load waffle_tags %}
 
 {% block head_title %}{% trans "DjangoCon US 2016" %}{% endblock %}
 
@@ -11,40 +12,102 @@
 {% block body %}
 
 <div class="header poster-wrapper ">
-    <div class="header-triangle"></div>
+  <div class="scotch scotch-tl"></div>
+  <div class="scotch scotch-tr"></div>
+  <img class="" src="{% static "assets/img/head_note.svg" %}">
+  <div class="header-triangle"></div>
 </div>
 
 <div class="poster-wrapper blue-wrapper interim-teaser">
   <div class="container">
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3"><h1 class="white-outline">DjangoCon US 2016</h1></div>
-    </div>
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3"><h3>We are pleased to announce that the DjangoCon US 2016 conference will take place in: <br><br><strong class="white-outline">Philadelphia, Pennsylvania</strong><br><br> from: <br><br><strong class="white-outline">July 17-22, 2016</strong><br><br> at:<br><br> <strong class="white-outline">The Wharton School at the University of Pennsylvania</strong></h3><br><br></div>
-    </div>
-    <div class="row">
-            <div class="col-md-2 col-md-offset-3"><h4 class="white-outline">July 17: Tutorials</h4></div>
-            <div class="col-md-2 "><h4 class="white-outline">July 18-20: Talks</h4></div>
-            <div class="col-md-2 "><h4 class="white-outline">July 21-22: Sprints</h4></div>
-    </div>
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <br>
-        <br>
-        <p>
-        We have a lot of amazing things planned that we’ll announce over the next few weeks. <br><br><strong>Until then, here’s what you can do to help:</strong>
-        </p>
-        <p>
-        Mark your calendars and help us spread the word!
-        Start thinking about topics for when our Call for Proposals is announced.
-        </p>
-        <p>
-        Watch this space, <a href="http://www.twitter.com/DjangoCon">@DjangoCon</a> on Twitter, or follow the discussions on the djangocon-organizers list.
-        Sponsor the event!
-        Want to help by joining our organizers?
-        Start working on those proposals, and we hope we'll see you at DjangoCon US!</p>
+    <section>
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2"><h1 class="white-outline">DjangoCon.US 2016</h1></div>
       </div>
-    </div>
+
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <h3>DjangoCon US is coming to The City of Siblingly Love!</h3>
+          <p>DjangoCon is an international community conference for the community by the community,
+          held each year in North America, about the Django web framework.</p>
+
+          <p>We’ve got something for everyone, from the person who develops Django applications for a living to the person who just tinkers in their spare time.
+          DjangoCon is a great place to learn, exchange ideas, and meet great people. Our team is making sure that participating in DjangoCon is easy for you!
+          <br><a href="/diversity/">Read more about how we’re making the conference accessible and affordable</a>.</p>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="row">
+        <hr>
+        <div class="col-md-8 col-md-offset-2"><h3>Just the facts: </h3></div>
+        <div class="col-md-4"><h4 class="white-outline">Tutorials</h4><h5>July 17:</h5><p> 1 day, 6 tutorials, and as many new facts as you can cram into your head! </p></div>
+        <div class="col-md-4"><h4 class="white-outline">Talks</h4><h5>July 18-20:</h5><p> We’re recruiting new speakers for a wide range of talks. There will be something for everybody! <a href="/speaking/">Submit your talk today</a>!</p></div>
+        <div class="col-md-4"><h4 class="white-outline">Sprints</h4><h5>July 21-22:</h5><p> Make your first contribution to the Django source code! We’ll have mentors on hand to help you through your first commit.</p></div>
+        <div class="col-md-8 col-md-offset-2"><br><h5>We’ve also got some secret events up our sleeve, so stay tuned!</h5> </div>
+      </div>
+    </section>
+    {% comment %}
+    <section>
+      <div class="row">
+        <hr>
+        <div class="col-md-8 col-md-offset-2"><h3>DjangoCon US (9th year) text bla bla bla...</h3></div>
+        <div class="col-md-6">
+          <h5>Code of Conduct</h5>
+          <h5>Child care</h5>
+          <h5>Dietary requirements</h5>
+          <h5>Zero Carbon catering</h5>
+          <h5>Venue accessibility</h5>
+          <h5>Program</h5>
+        </div>
+        <div class="col-md-6">
+          <h5>Quiet Room</h5>
+          <h5>Speaker Mentors</h5>
+          <h5>Job fair</h5>
+          <h5>Commitment to Diversity</h5>
+          <h5>Financial Aid</h5>
+        </div>
+      </div>
+    </section>
+    {% endcomment %}
+    <section>
+      <div class="row">
+        <hr>
+        <div class="col-md-8 col-md-offset-2"><h3>Welcome to Philadelphia! </h3></div>
+        <div class="col-md-8 col-md-offset-2">
+          The birthplace of America is a perfect place to make your first commit, give your first talk, or attend your first Django conference! <a href="https://www.wharton.upenn.edu/philadelphia-campus/">The Wharton School of Business</a> is working with us to make this event accessible, fun, and delicious.
+          Philadelphia’s rich history, amazing sports teams, quintessentially American cuisine, and classic architecture make it a perfect backdrop to a week spent learning about code.
+          The City of Siblingly Love, and all the DjangoCon organizers, welcome you!
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="row">
+        <hr>
+        <div class="col-md-8 col-md-offset-2"><h3>News</h3></div>
+      </div>
+      {% include "includes/news_teasers.html"%}
+    </section>
+    <section class="newsletter">
+      <div class="row">
+      <hr>
+        <div class="col-md-8 col-md-offset-2"><h3>We’ve got a mailing list!</h3></div>
+        <div class="col-md-8 col-md-offset-2">
+          <p>Sign up for our mailing list and be the first to know when the CFP opens, when the schedule is posted, and when anything else potentially interesting happens! <br>We promise not to spam you, sell your data, or blow up your inbox.</p>
+          {% include "includes/mailchimp.html" %}
+        </div>
+      </div>
+    </section>
+
+
+    {% switch "homepage_sponsorship_list" %}
+      <section class="sponsors">
+        <div class="col-md-8 col-md-offset-2"><h3>Our sponsors:</h3></div>
+        {% include "includes/sponsorship_list.html" %}
+      </section>
+    {% else %}
+    {% endswitch %}
+
   </div>
 </div>
 

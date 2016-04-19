@@ -19,34 +19,62 @@ Make sure you are using a virtual environment of some sort (e.g. `virtualenv` or
 
 Create a database (defaults to Postgres):
 
-    $ createdb djangocon2016
+```bash
+$ createdb djangocon2016
+```
 
 Install requirements:
 
-    $ pip install -r requirements.txt
+```bash
+$ pip install -r requirements.txt
+```
 
 Create a local settings file and set your `DJANGO_SETTINGS_MODULE` to use it:
 
-    $ cp djangocon/settings/local.py.example djangocon/settings/local.py
+```bash
+$ cp djangocon/settings/local.py.example djangocon/settings/local.py
 
-    $ export DJANGO_SETTINGS_MODULE=djangocon.settings.local
+$ export DJANGO_SETTINGS_MODULE=djangocon.settings.local
+```
 
 Sync models to database:
 
-    $ ./manage.py migrate
+```bash
+$ ./manage.py migrate
+```
 
 Load default fixtures into database:
 
-    $ ./manage.py loaddata fixtures/*
+```bash
+$ ./manage.py loaddata fixtures/*
+```
 
 Create a superuser account to access the admin:
 
-    $ ./manage.py createsuperuser
+```bash
+$ ./manage.py createsuperuser
+```
 
 Start the web server:
 
-    $ ./manage.py runserver
+```bash
+$ ./manage.py runserver
+```
 
+Feature flags
+-------------
+
+Name | Type | Description | Default
+:--- | :--- | :--- | :---
+`double_blind_reviews` | Flag | Turns on double-blind reviews | `True`
+`homepage_sponsorship_list` | Switch | Turns on the sponsorship list on the homepage | `True`
+
+To deploy:
+
+```bash
+$ ./manage.py flag double_blind_reviews --create --superuser
+$ ./manage.py switch homepage_sponsorship_list --create
+```
 
 Static files
 ------------
@@ -54,23 +82,31 @@ Static files
 The static file compilation is done with Node dependencies. On a Mac install
 node via Homebrew:
 
-    $ brew install node
+```bash
+$ brew install node
+```
 
 Install all node dev dependencies:
 
-    $ npm install
+```bash
+$ npm install
+```
 
 To compile all static files simply run:
 
-    $ make all
+```bash
+$ make all
+```
 
 #### Static files during development
 
 You can watch for changes of CSS and JS files and have them re-compiled
 on-the-fly. Run each command in a separate shell.
 
-    $ make js watch=1
-    $ make css watch=1
+```bash
+$ make js watch=1
+$ make css watch=1
+```
 
 #### How static files are treated
 
@@ -110,8 +146,13 @@ Contributor | Contributions
 [![Kenneth Love](https://avatars.githubusercontent.com/u/11908?v=3&s=100)<br />Kenneth Love](https://github.com/kennethlove) | [❓](https://github.com/djangocon/2016.djangocon.us/commits?author=kennethlove)
 [![Baptiste Mispelon](https://avatars.githubusercontent.com/u/6345?v=3&s=100)<br />Baptiste Mispelon](https://github.com/bmispelon) | [💻❓](https://github.com/djangocon/2016.djangocon.us/commits?author=bmispelon)
 [![Shawn Inman](https://avatars.githubusercontent.com/u/216237?v=3&s=100)<br />Shawn Inman](https://github.com/shawninman) | [💻❓](https://github.com/djangocon/2016.djangocon.us/commits?author=shawninman)
-[![Clay Wells](https://avatars.githubusercontent.com/u/812026?v=3&s=100)<br />Clay Wells](https://github.com/clayball) | [❓](https://github.com/djangocon/2016.djangocon.us/commits?author=clayball)
+[![Clay Wells](https://avatars.githubusercontent.com/u/812026?v=3&s=100)<br />Clay Wells](https://github.com/clayball) | [❓💻](https://github.com/djangocon/2016.djangocon.us/commits?author=clayball)
 [![Craig Bruce](https://avatars.githubusercontent.com/u/1503648?v=3&s=100)<br />Craig Bruce](https://github.com/craigbruce) | [❓](https://github.com/djangocon/2016.djangocon.us/commits?author=craigbruce)
+[![Sulabh Bista](https://avatars.githubusercontent.com/u/109486?v=3&s=100)<br />Sulabh Bista](https://github.com/sul4bh) | [💻](https://github.com/djangocon/2016.djangocon.us/commits?author=sul4bh)
+[![](https://avatars.githubusercontent.com/u/5844587?v=3&s=100)<br />](https://github.com/Mariatta) | [❓](https://github.com/djangocon/2016.djangocon.us/commits?author=Mariatta)
+[![Bill Blanchard](https://avatars.githubusercontent.com/u/1261962?v=3&s=100)<br />Bill Blanchard](https://github.com/chromakey) | [💻](https://github.com/djangocon/2016.djangocon.us/commits?author=chromakey)
+[![](https://avatars.githubusercontent.com/u/5844587?v=3&s=100)<br />](https://github.com/Mariatta) | [💻](https://github.com/djangocon/2016.djangocon.us/commits?author=Mariatta)
+[![BERNARD pyc0d333 PARAH](https://avatars.githubusercontent.com/u/9025305?v=3&s=100)<br />BERNARD pyc0d333 PARAH](https://github.com/b3h3rkz) | [💻](https://github.com/djangocon/2016.djangocon.us/commits?author=b3h3rkz)
 
 #### Emoji key
 

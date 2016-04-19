@@ -96,3 +96,6 @@ if "GONDOR_SENDGRID_USER" in os.environ:
 
 SECRET_KEY = os.environ["SECRET_KEY"]
 DEFAULT_HTTP_PROTOCOL = 'https'
+
+DEFAULT_FILE_STORAGE = "djangocon.storage.ECGoogleCloudStorage"
+THUMBNAIL_DEFAULT_STORAGE = DEFAULT_FILE_STORAGE

@@ -3,13 +3,23 @@
 {% load bootstrap %}
 
 {% block body %}
+<div class="small-header poster-wrapper">
+  <h1>Bulk Accept</h1>
+</div>
 
-    <h1>Bulk Accept</h1>
-    <form action="" method="POST" class="uniForm" accept-charset="utf-8">
-        {% csrf_token %}
-        {{ form|bootstrap }}
-        <div class="form-actions">
-            <input class="btn btn-primary" type="submit" name="submit" value="submit" />
-        </div>
-    </form>
+<div class="poster-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <form action="" method="POST" class="uniForm" accept-charset="utf-8">
+            {% csrf_token %}
+            {{ form|bootstrap }}
+            <div class="form-actions">
+                <input class="btn btn-primary" type="submit" name="submit" value="submit" />
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}

@@ -17,6 +17,7 @@
     "jquery": "^2.2.0",
     "node-sass": "^3.4.2",
     "postcss-cli": "^2.5.0",
+    "tether": "^1.2.0",
     "uglifyjs": "^2.4.10"
   },
   "devDependencies": {

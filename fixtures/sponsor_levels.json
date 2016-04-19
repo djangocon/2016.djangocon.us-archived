@@ -5,9 +5,9 @@
         "fields": {
             "conference": 1,
             "description": "",
-            "cost": 10000,
+            "cost": 4000,
             "name": "Gold",
-            "order": 0
+            "order": 300
         }
     },
     {
@@ -16,9 +16,9 @@
         "fields": {
             "conference": 1,
             "description": "",
-            "cost": 5000,
+            "cost": 2000,
             "name": "Silver",
-            "order": 1
+            "order": 400
         }
     },
     {
@@ -27,9 +27,31 @@
         "fields": {
             "conference": 1,
             "description": "",
-            "cost": 2000,
+            "cost": 1000,
             "name": "Bronze",
-            "order": 2
+            "order": 500
+        }
+    },
+    {
+        "pk": 4,
+        "model": "symposion_sponsorship.sponsorlevel",
+        "fields": {
+            "conference": 1,
+            "description": "",
+            "cost": 8000,
+            "name": "Platinum",
+            "order": 200
+        }
+    },
+    {
+        "pk": 5,
+        "model": "symposion_sponsorship.sponsorlevel",
+        "fields": {
+            "conference": 1,
+            "description": "",
+            "cost": 16000,
+            "name": "Diamond",
+            "order": 100
         }
     }
 ]

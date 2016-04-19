@@ -11,33 +11,33 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>{% block head_title %}{% endblock %}</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
-    <script type="text/javascript" src="//fast.fonts.net/jsapi/fe2c8273-c030-4484-aefe-d70b479707e7.js"></script>
+    <script type="text/javascript" src="//fast.fonts.net/jsapi/59d67ea6-c9ee-4e4b-9993-40a9b28e0c96.js"></script>
     <script src="{% static 'js/base.js' %}"></script>
 
     {% block extra_css %}
     {% endblock %}
   </head>
 
-  <body class="poster-bg {% block body_class %}{% endblock %}">
+  <body class="poster-bg  loading {% block body_class %}{% endblock %}">
 
     {% block nav %}
       {% sitetree_menu from "main" include "trunk" %}
     {% endblock %}
 
-    {% include "includes/sheets.html" %}
+    {% include "includes/cards.html" %}
+
+    {% include "_messages.html" %}
 
     <div class="poster-shadow">
 
-      {% include "_messages.html" %}
       {% block body %}
       {% endblock %}
       {% include "includes/footer.html" %}
 
     </div>
 
-    {% markitup_media "no-jquery" %}
 
-    {% block extra_js %}
+    {% block extra_script %}
 
     {% endblock %}
 

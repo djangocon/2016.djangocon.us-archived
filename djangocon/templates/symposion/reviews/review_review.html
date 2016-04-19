@@ -1,11 +1,20 @@
 {% extends "site_base.html" %}
 
 {% load bootstrap %}
+{% load waffle_tags %}
 
 {% block body_class %}review{% endblock %}
 
 {% block body %}
-    <h1>Proposal Review</h1>
+<div class="small-header poster-wrapper">
+  <h1>Proposal Review</h1>
+</div>
+
+<div class="poster-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+
 
     <div class="proposal">
         <h2>{{ proposal.title }}</h2>
@@ -29,20 +38,24 @@
 
         <p><b>Audience level</b>: {{ proposal.get_audience_level_display }}</p>
 
-        <p><b>Submitting speaker</b>: {{ proposal.speaker }}</p> {# @@@ bio? #}
+        {% flag double_blind_reviews %}
+            <p><b>Submitting speaker</b>: {{ proposal.speaker }}</p> {# @@@ bio? #}
+        {% endflag %}
 
-        {% if proposal.additional_speakers.all %}
-            <p><b>Additional speakers</b>:</p>
-            <ul>
-            {% for speaker in proposal.additional_speakers.all %}
-                {% if speaker.user %}
-                    <li><b>{{ speaker.name }}</b> &mdash; {{ speaker.email }}</li>
-                {% else %}
-                    <li>{{ speaker.email }} &mdash; pending invitation</li>
-                {% endif %}
-            {% endfor %}
-            </ul>
-        {% endif %}
+        {% flag double_blind_reviews %}
+            {% if proposal.additional_speakers.all %}
+                <p><b>Additional speakers</b>:</p>
+                <ul>
+                {% for speaker in proposal.additional_speakers.all %}
+                    {% if speaker.user %}
+                        <li><b>{{ speaker.name }}</b> &mdash; {{ speaker.email }}</li>
+                    {% else %}
+                        <li>{{ speaker.email }} &mdash; pending invitation</li>
+                    {% endif %}
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endflag %}
 
         <h3>Additional Notes (private from submitter)</h3>
         <div class="additional_notes">
@@ -73,5 +86,8 @@
             </div>
         </fieldset>
     </form>
-
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}

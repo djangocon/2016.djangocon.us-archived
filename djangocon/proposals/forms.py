@@ -14,6 +14,14 @@ class ProposalForm(forms.ModelForm):
             )
         return value
 
+    def __init__(self, *args, **kwargs):
+        super(ProposalForm, self).__init__(*args, **kwargs)
+        for f in self.fields.values():
+            if not f.required:
+                continue
+            f.widget.attrs.setdefault('required', True)
+            f.label = '{} *'.format(f.label)
+
 
 class OpenSpaceProposalForm(ProposalForm):
 
@@ -47,7 +55,6 @@ class TalkProposalForm(ProposalForm):
         widgets = {
             "abstract": MarkItUpWidget(),
             "additional_notes": MarkItUpWidget(),
-            "special_requirements": MarkItUpWidget(),
         }
 
 
@@ -67,5 +74,4 @@ class TutorialProposalForm(ProposalForm):
         widgets = {
             "abstract": MarkItUpWidget(),
             "additional_notes": MarkItUpWidget(),
-            "special_requirements": MarkItUpWidget(),
         }

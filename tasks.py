@@ -2,6 +2,15 @@ from invoke import run, task
 
 
 @task
+def create_feature_flags(production=False):
+    """Creates/updates feature flags and switches."""
+
+    instance = 'primary' if production else 'staging'
+    run('ec run --instance {instance} web -- python manage.py flag double_blind_reviews --create --superuser'.format(instance=instance))
+    run('ec run --instance {instance} web -- python manage.py switch homepage_sponsorship_list off --create'.format(instance=instance))
+
+
+@task
 def deploy(production=False):
     """Deploy code to staging or primary (production)."""
 

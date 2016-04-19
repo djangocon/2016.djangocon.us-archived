@@ -1,0 +1,40 @@
+{% extends "site_base.html" %}
+
+{% load static from staticfiles %}
+{% load i18n %}
+{% load pinax_boxes_tags %}
+{% load waffle_tags %}
+
+{% block head_title %}{% trans "DjangoCon US 2016" %}{% endblock %}
+
+
+{% block body %}
+    <div class="poster-shadow">
+        <div class="small-header poster-wrapper">
+            <h1>List of downloadable CSV data files</h1>
+        </div>
+
+        <div class="poster-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9 col-md-offset-2 page-content">
+                        <p>
+                            This page lists the downloadable CSV data files. For use by superuser only.
+                        </p>
+                        <div class="list-group">
+                            {% for downloadable in downloadables %}
+                                <a href="{{ downloadable.url }}" class="list-group-item">
+                                    {{ downloadable.name }}
+                                </a>
+                                {% empty %}
+                                <a href="#" class="list-group-item disabled">Nothing to download</a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

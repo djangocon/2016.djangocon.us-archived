@@ -1,7 +1,7 @@
 {% load sitetree %}
 {% load static from staticfiles %}
 
-<nav class="navbar navbar-dark bg-faded">
+<nav class="navbar navbar-dark bg-faded main-nav">
   <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
     &#9776;
   </button>
@@ -25,6 +25,7 @@
     </ul>
 
     <ul class="nav navbar-nav pull-sm-right">
+      <li class="nav-item"><a href="https://defna.ticketbud.com/djangocon-us-2016" class="btn btn-primary btn-ticket">Buy Tickets</a></li>
     {% if user.is_authenticated %}
       <li class="nav-item"><a href="{% url 'dashboard' %}" class="btn btn-primary">Dashboard</a></li>
       <li class="nav-item"><a href="{% url 'account_logout' %}" class="btn btn-primary">Logout</a></li>

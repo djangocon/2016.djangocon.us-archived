@@ -1,0 +1,51 @@
+{% load sponsorship_tags %}
+{% load thumbnail %}
+{% load i18n %}
+{% load static from staticfiles %}
+
+    {% sponsor_levels as levels %}
+    {% for level in levels %}
+      {% if level.sponsors %}
+        <div class="row sponsorship-level">
+          <h3 class="white-outline">{{ level.name }}</h3>
+        </div>
+        <div class="row sponsorship-list">
+          {% for sponsor in level.sponsors %}
+            {% if sponsor.website_logo %}
+
+              {% if level.name == 'Diamond' %}
+                <div class="col-md-6 diamond">
+              {% elif level.name == 'Platinum' %}
+                <div class="col-md-4 platinum">
+              {% else %}
+                <div class="col-md-3">
+              {% endif %}
+                <a class="card-link" href="{{ sponsor.external_url }}">
+                <div class="card sponsorship-card">
+                    <div class="card-front">
+                      <img class="card-img-top" src="{% thumbnail sponsor.website_logo '300x300' upscale='True' background='#fbfaf6' %}" alt="{{ sponsor.name }}">
+                      <div class="card-block">
+                        <h4 class="card-title">{{ sponsor.name }}</h4>
+                        <p class="card-text"><small class="text-muted"> {{ sponsor.external_url }}</small></p>
+                      </div>
+                    </div>
+                    <div class="card-back">
+                      <h5>About {{ sponsor.name }}:</h5>
+                      <p class="card-text">{{ sponsor.annotation|truncatewords:100 }}</p>
+                    </div>
+
+                </div>
+                </a>
+              </div>
+            {% endif %}
+
+          {% if forloop.counter|divisibleby:3 %}
+            </div>
+            <div class="row sponsorship-list">
+          {% elif forloop.last %}
+            </div>
+          {% endif %}
+        {% endfor %}
+
+      {% endif %}
+    {% endfor %}

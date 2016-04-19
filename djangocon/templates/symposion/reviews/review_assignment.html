@@ -1,32 +1,43 @@
 {% extends "symposion/reviews/base.html" %}
 
 {% block body %}
-    <h1>Review Assignments</h1>
+<div class="small-header poster-wrapper">
+  <h1>Review Assignments</h1>
+</div>
 
-    {% if assignments %}
-        <table>
-            <tr>
-                <th>Proposal</th>
-                <th>Opted out</th>
-                <th>Opt out</th>
-            </tr>
-            {% for assignment in assignments %}
+<div class="poster-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+
+        {% if assignments %}
+            <table>
                 <tr>
-                    <td>
-                        <a href="{% url review_detail assignment.proposal.pk %}">
-                            {{ assignment.proposal.title }}
-                        </a>
-                    </td>
-                    <td>
-                        <form method="post" action="{% url "review_assignment_opt_out" assignment.pk %}">
-                            {% csrf_token %}
-                            <input type="submit" value="Opt-out" />
-                        </form>
-                    </td>
+                    <th>Proposal</th>
+                    <th>Opted out</th>
+                    <th>Opt out</th>
                 </tr>
-            {% endfor %}
-        </table>
-    {% else %}
-        <p>You do not have any assignments.</p>
-    {% endif %}
+                {% for assignment in assignments %}
+                    <tr>
+                        <td>
+                            <a href="{% url review_detail assignment.proposal.pk %}">
+                                {{ assignment.proposal.title }}
+                            </a>
+                        </td>
+                        <td>
+                            <form method="post" action="{% url "review_assignment_opt_out" assignment.pk %}">
+                                {% csrf_token %}
+                                <input type="submit" value="Opt-out" />
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p>You do not have any assignments.</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}

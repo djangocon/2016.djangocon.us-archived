@@ -3,9 +3,19 @@
 {% load i18n %}
 {% load bootstrap %}
 {% load account_tags %}
+{% load waffle_tags %}
+{% load staticfiles %}
 
 
 {% block body %}
+<div class="small-header poster-wrapper">
+  <h1>Review</h1>
+</div>
+
+<div class="poster-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
     {% if request.user.is_staff %}
         <div class="pull-right">
             <form class="result-form form-inline" method="POST" action="">
@@ -13,7 +23,7 @@
                 <div class="btn-group">
                     {% if proposal.result.status == "accepted" %}
                         <a class="btn dropdown-toggle btn-success" data-toggle="dropdown" href="#">Accepted <span class="caret"></span></a>
-                        <div class="dropdown-menu pull-right" style="width: 200px; padding-left: 10px;">
+                        <div class="dropdown-menu pull-right">
                             <div class="btn-group">
                                 <input type="submit" name="result_submit" value="reject" class="btn btn-xs btn-danger" />
                                 <input type="submit" name="result_submit" value="standby" class="btn btn-xs" />
@@ -23,7 +33,7 @@
                     {% else %}
                         {% if proposal.result.status == "rejected" %}
                             <a class="btn dropdown-toggle btn-danger" data-toggle="dropdown" href="#">Rejected <span class="caret"></span></a>
-                            <div class="dropdown-menu pull-right" style="width: 200px; padding-left: 10px;">
+                            <div class="dropdown-menu pull-right">
                                 <div class="btn-group">
                                     <input type="submit" name="result_submit" value="accept" class="btn btn-xs btn-success" />
                                     <input type="submit" name="result_submit" value="standby" class="btn btn-xs" />
@@ -33,7 +43,7 @@
                         {% else %}
                             {% if proposal.result.status == "standby" %}
                                 <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Standby <span class="caret"></span></a>
-                                <div class="dropdown-menu pull-right" style="width: 200px; padding-left: 10px;">
+                                <div class="dropdown-menu pull-right">
                                     <div class="btn-group">
                                         <input type="submit" name="result_submit" value="accept" class="btn btn-xs btn-success" />
                                         <input type="submit" name="result_submit" value="reject" class="btn btn-xs btn-danger" />
@@ -42,7 +52,7 @@
                                 </div>
                             {% else %}
                                 <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Undecided <span class="caret"></span></a>
-                                <div class="dropdown-menu pull-right" style="width: 200px; padding-left: 10px;">
+                                <div class="dropdown-menu pull-right">
                                     <div class="btn-group">
                                         <input type="submit" name="result_submit" value="accept" class="btn btn-xs btn-success" />
                                         <input type="submit" name="result_submit" value="reject" class="btn btn-xs btn-danger" />
@@ -57,13 +67,16 @@
         </div>
     {% endif %}
 
-    <h3>#{{ proposal.number }}: {{ proposal.title }} ({{ proposal.speaker }})</h3>
+    <h3>
+        #{{ proposal.number }}: {{ proposal.title }}
+        {% flag double_blind_reviews %}({{ proposal.speaker }}){% endflag %}
+    </h3>
 
     <div class="tabbable">
         <ul class="nav nav-tabs">
-            <li class="active"><a href="#proposal-detail" data-toggle="tab">{% trans "Proposal Details" %}</a></li>
-            <li><a href="#proposal-reviews" data-toggle="tab">{% trans "Reviews" %} <span class="badge">{{ reviews|length }}</span></a></li>
-            <li><a href="#proposal-feedback" data-toggle="tab">{% trans "Speaker Feedback" %} <span class="badge">{{ proposal.messages.all|length }}</span></a></li>
+            <li class="nav-item"><a href="#proposal-detail" class="nav-link active" data-toggle="tab">{% trans "Proposal Details" %}</a></li>
+            <li class="nav-item"><a href="#proposal-reviews" class="nav-link" data-toggle="tab">{% trans "Reviews" %} <span class="badge">{{ reviews|length }}</span></a></li>
+            <li class="nav-item"><a href="#proposal-feedback" class="nav-link" data-toggle="tab">{% trans "Speaker Feedback" %} <span class="badge">{{ proposal.messages.all|length }}</span></a></li>
         </ul>
         <div class="tab-content">
             <div class="tab-pane active" id="proposal-detail">
@@ -111,8 +124,8 @@
                     <h5>Review Comments</h5>
                     {% for review in reviews %}
                         <div class="review-box">
-                            <div class="vote pull-left">
-                                <span>{{ review.vote }}</span>
+                            <div class="vote">
+                                <span class="label label-pill label-primary">{{ review.vote }}</span>
                             </div>
                             {% if is_manager %}
                                 <div class="pull-right">
@@ -124,8 +137,8 @@
                             {% endif %}
                             <div class="review-content">
                                 <b>{% user_display review.user %}</b>
-                                {{ review.submitted_at|timesince }} ago <br />
-                                {{ review.comment|safe }}
+                                <span class"muted"> {{ review.submitted_at|timesince }} ago </span>
+                                <p>{{ review.comment|safe }}</p>
                             </div>
                         </div>
                     {% endfor %}
@@ -163,19 +176,30 @@
             </div>
         </div>
     </div>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
 
 {% block extra_script %}
-    <script src="{{ STATIC_URL }}symposion/js/jquery.history.js"></script>
+    <script src="//cdn.jsdelivr.net/history.js/1.7.1/history.js"></script>
+    <script src="//cdn.jsdelivr.net/history.js/1.7.1/history.html4.js"></script>
+    <script src="//cdn.jsdelivr.net/history.js/1.7.1/history.adapter.jquery.js"></script>
     <script type="text/javascript">
         $(function() {
-            var History = window.History;
+            History.Adapter.bind(window,'statechange',function(){ // Note: We are using statechange instead of popstate
+                var State = History.getState(); // Note: We are using History.getState() instead of event.state
+            });
 
+            if (History.getHash()) {
+                $(".nav-tabs a[href='" + location.hash + "']").click();
+            }
             $(window).bind("anchorchange", function() {
                 $(".nav-tabs a[href='" + location.hash + "']").click();
             });
 
-            $('#.nav-tabs a[data-toggle="tab"]').on('shown', function (e) {
+            $('.nav-tabs a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
                 if (History.enabled) {
                     History.pushState(null, null, $(e.target).attr("href"));
                 }
