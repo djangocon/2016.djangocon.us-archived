@@ -142,7 +142,7 @@ Contributor | Contributions
 [![Andrew Pinkham](https://avatars.githubusercontent.com/u/2659203?v=3&s=100)<br />Andrew Pinkham](https://github.com/jambonrose) | [📖❓](https://github.com/djangocon/2016.djangocon.us/commits?author=jambonrose)
 [![Brian Rosner](https://avatars.githubusercontent.com/u/124?v=3&s=100)<br />Brian Rosner](https://github.com/brosner) | [💻](https://github.com/djangocon/2016.djangocon.us/commits?author=brosner)
 [![Kojo Idrissa](https://avatars.githubusercontent.com/u/5251109?v=3&s=100)<br />Kojo Idrissa](https://github.com/kojoidrissa) | [❓](https://github.com/djangocon/2016.djangocon.us/commits?author=kojoidrissa)
-[![Timothy Allen](https://avatars.githubusercontent.com/u/68164?v=3&s=100)<br />Timothy Allen](https://github.com/FlipperPA) | [❓](https://github.com/djangocon/2016.djangocon.us/commits?author=FlipperPA)
+[![Timothy Allen](https://avatars.githubusercontent.com/u/68164?v=3&s=100)<br />Timothy Allen](https://github.com/FlipperPA) | [❓💻](https://github.com/djangocon/2016.djangocon.us/commits?author=FlipperPA)
 [![Kenneth Love](https://avatars.githubusercontent.com/u/11908?v=3&s=100)<br />Kenneth Love](https://github.com/kennethlove) | [❓](https://github.com/djangocon/2016.djangocon.us/commits?author=kennethlove)
 [![Baptiste Mispelon](https://avatars.githubusercontent.com/u/6345?v=3&s=100)<br />Baptiste Mispelon](https://github.com/bmispelon) | [💻❓](https://github.com/djangocon/2016.djangocon.us/commits?author=bmispelon)
 [![Shawn Inman](https://avatars.githubusercontent.com/u/216237?v=3&s=100)<br />Shawn Inman](https://github.com/shawninman) | [💻❓](https://github.com/djangocon/2016.djangocon.us/commits?author=shawninman)
