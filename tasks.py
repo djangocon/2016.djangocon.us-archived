@@ -43,8 +43,8 @@ def restart(production=False):
 
 
 @task
-def update_local_db():
-    """Copy production database to local machine (testing only)."""
+def update_local_db(production=False):
+    """Copy production database to local machine (for testing only)."""
 
-    # run('dropdb -h localhost djangocon2015; createdb -h localhost djangocon2015 && gondor sqldump primary | ./manage.py dbshell')
-    run('ec run db -- pg_dump --no-owner --no-acl > dump.sql')
+    instance = 'primary' if production else 'staging'
+    run('dropdb -h localhost djangocon2016; createdb -h localhost djangocon2016 && ec run --instance {instance} db -- pg_dump --no-owner --no-acl | ./manage.py dbshell'.format(instance=instance))
