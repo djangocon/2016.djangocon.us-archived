@@ -18,7 +18,11 @@
 <div class="poster-wrapper">
   <div class="container">
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-2">
+          {% include "symposion/reviews/_sidebar.html" %}
+      </div>
+
+      <div class="col-md-10">
 
         <ul class="nav nav-pills">
             <li{% if status == 'accepted' %} class="active"{% endif %}><a href="{% url "result_notification" section_slug 'accepted' %}">accepted</a>
