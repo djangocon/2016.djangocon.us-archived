@@ -62,7 +62,10 @@
 
     <h3>
         #{{ proposal.number }}: {{ proposal.title }}
-        {% flag double_blind_reviews %}({{ proposal.speaker }}){% endflag %}
+        {# If the `double_blind_reviews` flag is set to True then show the speaker's name. #}
+        {% flag double_blind_reviews %}
+            ({{ proposal.speaker }})
+        {% endflag %}
     </h3>
 
     <div class="tabbable">
@@ -129,7 +132,16 @@
                                 </div>
                             {% endif %}
                             <div class="review-content">
-                                <b>{% user_display review.user %}</b>
+                                {% if request.user == review.user %}
+                                    {# If you submitted the review then show your name #}
+                                    <b>{% user_display review.user %}</b>
+                                {% else %}
+                                    {# If the `double_blind_reviews` flag is set to True, then show the review's name. #}
+                                    {% flag double_blind_reviews %}
+                                        <b>{% user_display review.user %}</b>
+                                    {% endflag %}
+                                {% endif %}
+
                                 <span class"muted"> {{ review.submitted_at|timesince }} ago </span>
                                 <p>{{ review.comment|safe }}</p>
                             </div>
@@ -143,8 +155,22 @@
                     {% for message in review_messages %}
                         <div class="comment-box">
                             <div class="commment-content">
-                                <b>{% user_display message.user %}</b>
-                                {{ message.submitted_at|timesince }} ago <br />
+                                {% if request.user == message.user %}
+                                    {# If you submitted the message then show your name #}
+                                    <b>{% user_display message.user %}</b>
+                                {% else %}
+                                    {# If the `double_blind_reviews` flag is set to True then show the messages submitter's name. #}
+                                    {% flag double_blind_reviews %}
+                                        <b>{% user_display message.user %}</b>
+                                    {% else %}
+                                        {# Flag Author messages to avoid confussion #}
+                                        {% if proposal.speaker.user == message.user %}
+                                            <b>(Author)</b>
+                                        {% endif %}
+                                    {% endflag %}
+                                {% endif %}
+
+                                <em>{{ message.submitted_at|timesince }} ago </em><br>
                                 {{ message.message|safe }}
                             </div>
                         </div>
