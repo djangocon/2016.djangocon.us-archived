@@ -1,29 +1,15 @@
 {% extends "symposion/reviews/base.html" %}
 
-{% block reviews %}
-<div class="small-header poster-wrapper">
-  <h1>{{ section }}</h1>
-</div>
+{% block review_heading %}{{ section }}{% endblock review_heading %}
 
-<div class="poster-wrapper">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-2">
-          {% include "symposion/reviews/_sidebar.html" %}
-      </div>
+{% block content %}
+  {% if reviewed == 'all_reviews' %}
+  <h4>All proposals</h4>
+  {% elif reviewed == 'user_reviewed' %}
+  <h4>Proposals you have reviewed</h4>
+  {% else %}
+  <h4>Proposals you have not yet reviewed</h4>
+  {% endif %}
 
-      <div class="col-md-10">
-        {% if reviewed == 'all_reviews' %}
-        <h4>All proposals</h4>
-        {% elif reviewed == 'user_reviewed' %}
-        <h4>Proposals you have reviewed</h4>
-        {% else %}
-        <h4>Proposals you have not yet reviewed</h4>
-        {% endif %}
-
-        {% include "symposion/reviews/_review_table.html" %}
-      </div>
-    </div>
-  </div>
-</div>
+  {% include "symposion/reviews/_review_table.html" %}
 {% endblock %}

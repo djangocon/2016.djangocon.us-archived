@@ -1,19 +1,8 @@
 {% extends "symposion/reviews/base.html" %}
 
-{% block reviews %}
-<div class="small-header poster-wrapper">
-  <h1>Voting Status ({{ section_slug }})</h1>
-</div>
+{% block review_heading %}Voting Status ({{ section_slug }}){% endblock review_heading %}
 
-<div class="poster-wrapper">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-2">
-          {% include "symposion/reviews/_sidebar.html" %}
-      </div>
-
-      <div class="col-md-10">
-
+{% block content %}
     {% if key %}
         <div class="breadcrumbs">
             <a href="{% url "review_status" section_slug "positive" %}">Positive</a> |
@@ -89,8 +78,4 @@
             </dd>
         </dl>
     {% endif %}
-      </div>
-    </div>
-  </div>
-</div>
 {% endblock %}

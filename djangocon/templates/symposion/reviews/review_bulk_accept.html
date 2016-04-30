@@ -2,28 +2,14 @@
 
 {% load bootstrap %}
 
-{% block reviews %}
-<div class="small-header poster-wrapper">
-  <h1>Bulk Accept</h1>
-</div>
+{% block review_heading %}Bulk Accept{% endblock review_heading %}
 
-<div class="poster-wrapper">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-2">
-          {% include "symposion/reviews/_sidebar.html" %}
-      </div>
-
-      <div class="col-md-10">
-        <form action="" method="POST" class="uniForm" accept-charset="utf-8">
-            {% csrf_token %}
-            {{ form|bootstrap }}
-            <div class="form-actions">
-                <input class="btn btn-primary" type="submit" name="submit" value="submit" />
-            </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
+{% block content %}
+    <form action="" method="POST" class="uniForm" accept-charset="utf-8">
+        {% csrf_token %}
+        {{ form|bootstrap }}
+        <div class="form-actions">
+            <input class="btn btn-primary" type="submit" name="submit" value="submit" />
+        </div>
+    </form>
 {% endblock %}

@@ -4,22 +4,11 @@
 {% load bootstrap %}
 {% load account_tags %}
 {% load waffle_tags %}
-{% load staticfiles %}
+{% load staticfiles %
 
+{% block review_heading %}Review{% endblock review_heading %}
 
-{% block reviews %}
-<div class="small-header poster-wrapper">
-  <h1>Review</h1>
-</div>
-
-<div class="poster-wrapper">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-2">
-          {% include "symposion/reviews/_sidebar.html" %}
-      </div>
-
-      <div class="col-md-10">
+{% block content %}
     {% if request.user.is_staff %}
         <div class="pull-right">
             <form class="result-form form-inline" method="POST" action="">
@@ -180,10 +169,6 @@
             </div>
         </div>
     </div>
-      </div>
-    </div>
-  </div>
-</div>
 {% endblock %}
 
 {% block extra_script %}
