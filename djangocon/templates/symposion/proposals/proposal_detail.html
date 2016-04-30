@@ -38,7 +38,9 @@
 
     <h3>
         #{{ proposal.number }}: {{ proposal.title }}
-        {% flag double_blind_reviews %}({{ proposal.speaker }}){% endflag %}
+        {% flag double_blind_reviews %}
+            ({{ proposal.speaker }})
+        {% endflag %}
     </h3>
 
     <div class="tabbable">
@@ -88,7 +90,12 @@
             {% for message in proposal.messages.all %}
                 <div class="review-box">
                     <div class="comment">{{ message.message|safe }}</div>
-                    <div class="dateline"><b>{% user_display message.user %}</b> {{ message.submitted_at|timesince }} ago</div>
+                    <div class="dateline">
+                        {% flag double_blind_reviews %}
+                            <b>{% user_display message.user %}</b>
+                            {{ message.submitted_at|timesince }} ago
+                        {% endflag %}
+                    </div>
                 </div>
                 <div class="clear"></div>
             {% endfor %}
