@@ -241,7 +241,7 @@ PINAX_PAGES_HOOKSET = "djangocon.hooks.PinaxPagesHookSet"
 PINAX_BOXES_HOOKSET = "djangocon.hooks.PinaxBoxesHookSet"
 
 # adjust for number of reviews currenly about 1/5 (default: 3)
-SYMPOSION_VOTE_THRESHOLD = 4
+SYMPOSION_VOTE_THRESHOLD = 5
 
 MARKITUP_SET = "markitup/sets/markdown"
 MARKITUP_FILTER = ["symposion.markdown_parser.parse", {}]
