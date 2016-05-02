@@ -99,6 +99,3 @@ DEFAULT_HTTP_PROTOCOL = 'https'
 
 DEFAULT_FILE_STORAGE = "djangocon.storage.ECGoogleCloudStorage"
 THUMBNAIL_DEFAULT_STORAGE = DEFAULT_FILE_STORAGE
-
-# Fix document downloads
-USE_X_ACCEL_REDIRECT = True
