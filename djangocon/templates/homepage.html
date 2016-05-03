@@ -27,49 +27,59 @@
 
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
-          <h3>DjangoCon US is coming to The City of Siblingly Love!</h3>
-          <p>DjangoCon is an international community conference for the community by the community,
-          held each year in North America, about the Django web framework.</p>
+          {% box "homepage_about" %}
+          {% comment %}
+            <h3>DjangoCon US is coming to The City of Siblingly Love!</h3>
+            <p>DjangoCon is an international community conference for the community by the community,
+            held each year in North America, about the Django web framework.</p>
 
-          <p>We’ve got something for everyone, from the person who develops Django applications for a living to the person who just tinkers in their spare time.
-          DjangoCon is a great place to learn, exchange ideas, and meet great people. Our team is making sure that participating in DjangoCon is easy for you!
-          <br><a href="/diversity/">Read more about how we’re making the conference accessible and affordable</a>.</p>
+            <p>We’ve got something for everyone, from the person who develops Django applications for a living to the person who just tinkers in their spare time.
+            DjangoCon is a great place to learn, exchange ideas, and meet great people. Our team is making sure that participating in DjangoCon is easy for you!
+            <br>
+            <a href="/diversity/">Read more about how we’re making the conference accessible and affordable</a>.</p>
+          {% endcomment %}
         </div>
       </div>
     </section>
     <section>
       <div class="row">
-        <hr>
-        <div class="col-md-8 col-md-offset-2"><h3>Just the facts: </h3></div>
-        <div class="col-md-4"><h4 class="white-outline">Tutorials</h4><h5>July 17:</h5><p> 1 day, 6 tutorials, and as many new facts as you can cram into your head! </p></div>
-        <div class="col-md-4"><h4 class="white-outline">Talks</h4><h5>July 18-20:</h5><p> Thank you to everyone who submitted a talk proposal! Want to help review the proposals? <a href="/dashboard/">Create an account</a> and join the review team!</p></div>
-        <div class="col-md-4"><h4 class="white-outline">Sprints</h4><h5>July 21-22:</h5><p> Make your first contribution to the Django source code! We’ll have mentors on hand to help you through your first commit.</p></div>
-        <div class="col-md-8 col-md-offset-2"><br><h5>We’ve also got some secret events up our sleeve, so stay tuned!</h5> </div>
+        {% box "homepage_events" %}
+        {% comment %}
+          <hr>
+          <div class="col-md-8 col-md-offset-2"><h3>Just the facts: </h3></div>
+          <div class="col-md-4"><h4 class="white-outline">Tutorials</h4><h5>July 17:</h5><p> 1 day, 6 tutorials, and as many new facts as you can cram into your head! </p></div>
+          <div class="col-md-4"><h4 class="white-outline">Talks</h4><h5>July 18-20:</h5><p> Thank you to everyone who submitted a talk proposal! Want to help review the proposals? <a href="/dashboard/">Create an account</a> and join the review team!</p></div>
+          <div class="col-md-4"><h4 class="white-outline">Sprints</h4><h5>July 21-22:</h5><p> Make your first contribution to the Django source code! We’ll have mentors on hand to help you through your first commit.</p></div>
+          <div class="col-md-8 col-md-offset-2"><br><h5>We’ve also got some secret events up our sleeve, so stay tuned!</h5> </div>
+        {% endcomment %}
       </div>
     </section>
     {% comment %}
+    {% endcomment %}
     <section>
       <div class="row">
-        <hr>
-        <div class="col-md-8 col-md-offset-2"><h3>DjangoCon US (9th year) text bla bla bla...</h3></div>
-        <div class="col-md-6">
-          <h5>Code of Conduct</h5>
-          <h5>Child care</h5>
-          <h5>Dietary requirements</h5>
-          <h5>Zero Carbon catering</h5>
-          <h5>Venue accessibility</h5>
-          <h5>Program</h5>
-        </div>
-        <div class="col-md-6">
-          <h5>Quiet Room</h5>
-          <h5>Speaker Mentors</h5>
-          <h5>Job fair</h5>
-          <h5>Commitment to Diversity</h5>
-          <h5>Financial Aid</h5>
-        </div>
+        {% box "homepage_features" %}
+        {% comment %}
+          <hr>
+          <div class="col-md-8 col-md-offset-2"><h3>DjangoCon US (9th year) text bla bla bla...</h3></div>
+          <div class="col-md-6">
+            <h5>Code of Conduct</h5>
+            <h5>Child care</h5>
+            <h5>Dietary requirements</h5>
+            <h5>Zero Carbon catering</h5>
+            <h5>Venue accessibility</h5>
+            <h5>Program</h5>
+          </div>
+          <div class="col-md-6">
+            <h5>Quiet Room</h5>
+            <h5>Speaker Mentors</h5>
+            <h5>Job fair</h5>
+            <h5>Commitment to Diversity</h5>
+            <h5>Financial Aid</h5>
+          </div>
+        {% endcomment %}
       </div>
     </section>
-    {% endcomment %}
     <section>
       <div class="row">
         <hr>
