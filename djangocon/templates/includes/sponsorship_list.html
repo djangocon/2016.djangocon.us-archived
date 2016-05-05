@@ -3,6 +3,7 @@
 {% load i18n %}
 {% load static from staticfiles %}
 
+
 {% sponsor_levels as levels %}
 {% for level in levels %}
   {% if level.sponsors %}
@@ -37,11 +38,14 @@
 
           {% if forloop.counter|divisibleby:3 and level.name == 'Diamond' and not forloop.last or forloop.counter|divisibleby:3 and level.name == 'Platinum' and not forloop.last%}
             </div>
+            </div>
             <div class="row sponsorship-list">
           {% elif forloop.counter|divisibleby:4 and not level.name == 'Diamond' and not forloop.last or  forloop.counter|divisibleby:4 and not level.name == 'Platinum' and not forloop.last%}
             </div>
+            </div>
             <div class="row sponsorship-list">
           {% elif forloop.last %}
+            </div>
             </div>
           {% endif %}
 
@@ -50,3 +54,4 @@
   </div>
   {% endif %}
 {% endfor %}
+
