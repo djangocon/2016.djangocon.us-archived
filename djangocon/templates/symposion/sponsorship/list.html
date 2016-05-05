@@ -20,10 +20,10 @@
 <div class="poster-wrapper blue-wrapper">
   <div class="container">
 
-
     {% sponsor_levels as levels %}
     {% for level in levels %}
       {% if level.sponsors %}
+
         <div class="row sponsorship-level">
           <h3 class="white-outline">{{ level.name }}</h3>
         </div>
@@ -52,26 +52,21 @@
                 <div class="card-caption">
                   <p class="card-text">{{ sponsor.annotation|truncatewords:100 }}</p>
                 </div>
+              </div>
 
               {% if forloop.counter|divisibleby:3 and level.name == 'Diamond' and not forloop.last or forloop.counter|divisibleby:3 and level.name == 'Platinum' and not forloop.last%}
-                </div>
                 </div>
                 <div class="row sponsorship-list">
               {% elif forloop.counter|divisibleby:4 and not level.name == 'Diamond' and not forloop.last or  forloop.counter|divisibleby:4 and not level.name == 'Platinum' and not forloop.last%}
                 </div>
-                </div>
                 <div class="row sponsorship-list">
               {% elif forloop.last %}
                 </div>
-                </div>
               {% endif %}
-
             {% endif %}
         {% endfor %}
-      </div>
       {% endif %}
     {% endfor %}
-
 
   </div>
 </div>
