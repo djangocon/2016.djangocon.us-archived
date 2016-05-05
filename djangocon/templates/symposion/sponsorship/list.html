@@ -53,10 +53,10 @@
                   <p class="card-text">{{ sponsor.annotation|truncatewords:100 }}</p>
                 </div>
 
-              {% if forloop.counter|divisibleby:3 and level.name == 'Diamond' or forloop.counter|divisibleby:3 and level.name == 'Platinum' %}
+              {% if forloop.counter|divisibleby:3 and level.name == 'Diamond' and not forloop.last or forloop.counter|divisibleby:3 and level.name == 'Platinum' and not forloop.last%}
                 </div>
                 <div class="row sponsorship-list">
-              {% elif forloop.counter|divisibleby:4 and not level.name == 'Diamond' or  forloop.counter|divisibleby:4 and not level.name == 'Platinum'%}
+              {% elif forloop.counter|divisibleby:4 and not level.name == 'Diamond' and not forloop.last or  forloop.counter|divisibleby:4 and not level.name == 'Platinum' and not forloop.last%}
                 </div>
                 <div class="row sponsorship-list">
               {% elif forloop.last %}
@@ -68,6 +68,7 @@
       </div>
       {% endif %}
     {% endfor %}
+
 
   </div>
 </div>
