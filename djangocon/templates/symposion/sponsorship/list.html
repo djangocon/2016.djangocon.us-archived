@@ -20,6 +20,7 @@
 <div class="poster-wrapper blue-wrapper">
   <div class="container">
 
+
     {% sponsor_levels as levels %}
     {% for level in levels %}
       {% if level.sponsors %}
@@ -28,42 +29,43 @@
         </div>
         <div class="row sponsorship-list">
           {% for sponsor in level.sponsors %}
+            {% if sponsor.website_logo %}
 
               {% if level.name == 'Diamond' %}
-                <div class="col-md-6 diamond">
+                <div class="col-md-4 diamond">
               {% elif level.name == 'Platinum' %}
                 <div class="col-md-4 platinum">
               {% else %}
                 <div class="col-md-3">
               {% endif %}
+
                 <a class="card-link" href="{{ sponsor.external_url }}">
                   <div class="card sponsorship-card">
-                    <div class="card-front">
-                      {% if sponsor.sponsor_logo and sponsor.website_logo %}
-                        <img class="card-img-top" src="{% thumbnail sponsor.website_logo '300x300' upscale='True' background='#fbfaf6' %}" alt="{{ sponsor.name }}">
-                      {% endif %}
-                      <div class="card-block">
-                        <h4 class="card-title">{{ sponsor.name }}</h4>
-                        <p class="card-text"><small class="text-muted"> {{ sponsor.external_url }}</small></p>
-                      </div>
+                    <img class="card-img-top" src="{% thumbnail sponsor.website_logo '300x300' upscale='True' background='#fbfaf6' %}" alt="{{ sponsor.name }}">
+                    <div class="card-block">
+                      <h4 class="card-title">{{ sponsor.name }}</h4>
+                      <p class="card-text"><small class="text-muted"> {{ sponsor.external_url }}</small></p>
                     </div>
-                    <div class="card-back">
-                      <h5>About {{ sponsor.name }}:</h5>
-                      <p class="card-text">{{ sponsor.listing_text|truncatewords:100 }}</p>
-                    </div>
-
                   </div>
                 </a>
-              </div>
 
-          {% if forloop.counter|divisibleby:3 %}
-            </div>
-            <div class="row sponsorship-list">
-          {% elif forloop.last %}
-            </div>
-          {% endif %}
+                <div class="card-caption">
+                  <p class="card-text">{{ sponsor.annotation|truncatewords:100 }}</p>
+                </div>
+
+              {% if forloop.counter|divisibleby:3 and level.name == 'Diamond' or forloop.counter|divisibleby:3 and level.name == 'Platinum' %}
+                </div>
+                <div class="row sponsorship-list">
+              {% elif forloop.counter|divisibleby:4 and not level.name == 'Diamond' or  forloop.counter|divisibleby:4 and not level.name == 'Platinum'%}
+                </div>
+                <div class="row sponsorship-list">
+              {% elif forloop.last %}
+                </div>
+              {% endif %}
+
+            {% endif %}
         {% endfor %}
-
+      </div>
       {% endif %}
     {% endfor %}
 
