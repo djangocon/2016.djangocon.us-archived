@@ -49,9 +49,16 @@
                   </div>
                 </a>
 
-                <div class="card-caption">
-                  <p class="card-text">{{ sponsor.annotation|truncatewords:100 }}</p>
-                </div>
+                {% if level.name == 'Diamond' or level.name == 'Platinum' %}
+                  <div class="card-caption">
+                    <p class="card-text">{{ sponsor.annotation|truncatewords:100 }}</p>
+                  </div>
+                {% if level.name == 'Gold'  %}
+                  <div class="card-caption">
+                    <p class="card-text">{{ sponsor.annotation|truncatewords:70 }}</p>
+                  </div>
+                {% endif %}
+
               </div>
 
               {% if forloop.counter|divisibleby:3 and level.name == 'Diamond' and not forloop.last or forloop.counter|divisibleby:3 and level.name == 'Platinum' and not forloop.last%}
