@@ -64,12 +64,14 @@ def proposal_export(request):
         'audience_level',
         'kind',
         'recording_release',
+        'status',
         'comment_count',
+        'score',
         'plus_one',
         'plus_zero',
         'minus_zero',
         'minus_one',
-        'review_detail'
+        'review_detail',
     ])
 
     proposals = ProposalBase.objects.all().select_subclasses().order_by('id')
@@ -81,14 +83,16 @@ def proposal_export(request):
 
         writer.writerow([
             proposal.id,
-            proposal._meta.module_name,
+            proposal.kind,
             proposal.speaker,
             proposal.speaker.email,
             proposal.title,
             proposal.get_audience_level_display(),
             proposal.kind,
             proposal.recording_release,
+            proposal.status,
             proposal.result.comment_count,
+            proposal.result.score,
             proposal.result.plus_one,
             proposal.result.plus_zero,
             proposal.result.minus_zero,
