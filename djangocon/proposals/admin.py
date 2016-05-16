@@ -5,7 +5,7 @@ from . import models
 
 def mark_proposal_as_accepted(modeladmin, request, queryset):
     for proposal in queryset:
-        proposal.result.accepted = True
+        # proposal.result.accepted = True
         proposal.result.status = 'accepted'
         proposal.result.save()
 mark_proposal_as_accepted.short_description = "Mark selected proposal as accepted"
@@ -13,7 +13,7 @@ mark_proposal_as_accepted.short_description = "Mark selected proposal as accepte
 
 def mark_proposal_as_rejected(modeladmin, request, queryset):
     for proposal in queryset:
-        proposal.result.accepted = False
+        # proposal.result.accepted = False
         proposal.result.status = 'rejected'
         proposal.result.save()
 mark_proposal_as_rejected.short_description = "Mark selected proposal as rejected"
@@ -21,7 +21,7 @@ mark_proposal_as_rejected.short_description = "Mark selected proposal as rejecte
 
 def mark_proposal_as_standby(modeladmin, request, queryset):
     for proposal in queryset:
-        proposal.result.accepted = None
+        # proposal.result.accepted = None
         proposal.result.status = 'standby'
         proposal.result.save()
 mark_proposal_as_standby.short_description = "Mark selected proposal as standby"
@@ -29,7 +29,7 @@ mark_proposal_as_standby.short_description = "Mark selected proposal as standby"
 
 def mark_proposal_as_undecided(modeladmin, request, queryset):
     for proposal in queryset:
-        proposal.result.accepted = None
+        # proposal.result.accepted = None
         proposal.result.status = 'undecided'
         proposal.result.save()
 mark_proposal_as_undecided.short_description = "Mark selected proposal as undecided"
