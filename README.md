@@ -154,6 +154,7 @@ Contributor | Contributions
 [![](https://avatars.githubusercontent.com/u/5844587?v=3&s=100)<br />](https://github.com/Mariatta) | [💻](https://github.com/djangocon/2016.djangocon.us/commits?author=Mariatta)
 [![BERNARD pyc0d333 PARAH](https://avatars.githubusercontent.com/u/9025305?v=3&s=100)<br />BERNARD pyc0d333 PARAH](https://github.com/b3h3rkz) | [💻](https://github.com/djangocon/2016.djangocon.us/commits?author=b3h3rkz)
 [![John Speno](https://avatars.githubusercontent.com/u/47321?v=3&s=100)<br />John Speno](https://github.com/JohnSpeno) | [💻](https://github.com/djangocon/2016.djangocon.us/commits?author=JohnSpeno)
+[![Rich Jones](https://avatars.githubusercontent.com/u/139987?v=3&s=100)<br />Rich Jones](https://github.com/Miserlou) | [❓](https://github.com/djangocon/2016.djangocon.us/commits?author=Miserlou)
 
 #### Emoji key
 
