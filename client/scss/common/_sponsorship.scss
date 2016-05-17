@@ -40,6 +40,12 @@
     color: $blue;
     border-radius: 1em;
     cursor: pointer;
+    .card-text {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
     h4,h5,h6 {
       color: $blue;
     }
