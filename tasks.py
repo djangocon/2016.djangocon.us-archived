@@ -23,7 +23,7 @@ def migrate(production=False):
     """Migrate staging or primary (production) database."""
 
     instance = 'primary' if production else 'staging'
-    run('ec run --instance {instance} web -- python manage.py migrate'.format(instance=instance))
+    run('ec run --instance {instance} web -- python manage.py migrate --no-input'.format(instance=instance))
 
 
 @task
