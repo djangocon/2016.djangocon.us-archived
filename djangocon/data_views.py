@@ -31,15 +31,19 @@ def data_home(request):
                     'url': reverse_lazy('speaker_export')
                 },
                 {
-                    'name': 'Schedule Guidebook',
+                    'name': 'Export Sponsors (for Mailchimp)',
+                    'url': reverse_lazy('sponsors_raw')
+                },
+                {
+                    'name': 'Guidebook: Schedule Export',
                     'url': reverse_lazy('schedule_guidebook')
                 },
                 {
-                    'name': 'Guidebook Speaker Export',
+                    'name': 'Guidebook: Speaker Export',
                     'url': reverse_lazy('guidebook_speaker_export')
                 },
                 {
-                    'name': 'Guidebook Sponsor Export',
+                    'name': 'Guidebook: Sponsor Export',
                     'url': reverse_lazy('guidebook_sponsor_export')
                 },
             ]

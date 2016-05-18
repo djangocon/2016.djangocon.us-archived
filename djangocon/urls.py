@@ -2,6 +2,7 @@ from django.conf import settings
 from django.conf.urls import include, url
 from django.conf.urls.static import static
 from django.contrib import admin
+from django.views.generic import TemplateView
 
 from symposion import views as symposion_views
 from djangocon import views as djangocon_views
@@ -37,6 +38,12 @@ urlpatterns += [
     url(r'^speaker/', include('symposion.speakers.urls')),
     url(r'^sponsors/', include('symposion.sponsorship.urls')),
     url(r'^teams/', include('symposion.teams.urls')),
+]
+
+# Extra views
+urlpatterns += [
+    url(r'^sponsors/raw/$',
+        TemplateView.as_view(template_name='sponsorship_raw.html'), name='sponsors_raw'),
 ]
 
 # Pinax urls
