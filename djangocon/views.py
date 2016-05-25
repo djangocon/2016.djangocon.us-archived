@@ -34,8 +34,7 @@ def schedule_json(request):
     data = []
     slot_data = {}
     for slot in slots:
-        if slot.kind.label in ["talk", "tutorial", "plenary"] and slot.content and slot.content.proposal.kind.slug in [
-            "talk", "tutorial"]:
+        if slot.kind.label in ["talk", "tutorial", "plenary"] and slot.content and slot.content.proposal.kind.slug in ["talk", "tutorial"]:
             if hasattr(slot.content.proposal, "recording_release"):
                 slot_data = {
                     "name": slot.content.title,
