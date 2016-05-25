@@ -1,3 +1,4 @@
+import os
 import tablib
 import unicodecsv
 
@@ -7,6 +8,7 @@ from django.contrib.sites.shortcuts import get_current_site
 from django.core.urlresolvers import reverse, reverse_lazy
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.utils.text import slugify
 from symposion.proposals.models import ProposalBase
 from symposion.reviews.models import ProposalResult
 from symposion.schedule.models import Slot
@@ -45,6 +47,10 @@ def data_home(request):
                 {
                     'name': 'Guidebook: Sponsor Export',
                     'url': reverse_lazy('guidebook_sponsor_export')
+                },
+                {
+                    'name': 'Ticketbud: Sponsor Export',
+                    'url': reverse_lazy('ticketbud_sponsor_export')
                 },
             ]
         }
@@ -210,6 +216,58 @@ def guidebook_sponsor_export(request):
                 Site.objects.get_current().domain,
                 sponsor.website_logo.url
             )
+        ])
+
+    return response
+
+
+@user_passes_test(lambda user: user.is_superuser)
+def ticketbud_sponsor_export(request):
+    # This should be stored in settings or the DB. This will do for now.
+    SPONSOR_PLANS = {
+        'diamond': 8,
+        'platinum': 8,
+        'gold': 4,
+        'silver': 2,
+        'bronze': 1,
+    }
+
+    content_type = 'text/csv'
+    response = HttpResponse(content_type=content_type)
+    response['Content-Disposition'] = 'attachment; filename="ticketbud_sponsor.csv"'
+
+    # Set this environment variable to format the access code
+    ticket_hash_code = os.environ.get('DJANGOCON_SPONSOR_HASH', '{sponsor_name}-{level_name}-{sponsor_id}')
+
+    writer = unicodecsv.writer(response, quoting=unicodecsv.QUOTE_ALL)
+    writer.writerow([
+        'code',
+        'price_off',
+        'percent_off',
+        'usage_limit',
+        'start_time',
+        'end_time',
+        'times_used',
+        'savings',
+    ])
+
+    sponsors = Sponsor.objects.filter(active=True).order_by('level__order', 'name')
+
+    for sponsor in sponsors:
+        access_code = ticket_hash_code.format(
+            sponsor_id=sponsor.id,
+            sponsor_name=slugify(sponsor.name),
+            level_name=slugify(sponsor.level.name)
+        )
+        writer.writerow([
+            access_code,
+            0,
+            0,
+            SPONSOR_PLANS.get(sponsor.level.name.lower(), 0),
+            None,
+            None,
+            None,
+            0
         ])
 
     return response

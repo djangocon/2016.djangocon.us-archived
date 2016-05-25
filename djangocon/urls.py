@@ -27,6 +27,7 @@ urlpatterns += [
     url(r'^data/schedule_guidebook/', data_views.schedule_guidebook, name='schedule_guidebook'),
     url(r'^data/guidebook_sponsor_export/', data_views.guidebook_sponsor_export, name='guidebook_sponsor_export'),
     url(r'^data/guidebook_speaker_export/', data_views.guidebook_speaker_export, name='guidebook_speaker_export'),
+    url(r'^data/ticketbud_sponsor_export/', data_views.ticketbud_sponsor_export, name='ticketbud_sponsor_export'),
 ]
 
 # Symposion urls
