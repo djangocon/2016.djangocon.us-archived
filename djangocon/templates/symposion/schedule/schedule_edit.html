@@ -19,18 +19,22 @@
   </div>
   <div class="poster-wrapper">
     <div class="container">
-      <div class="row">
+
         {% for timetable in days %}
-            <h2>{{ timetable.day.date }}</h2>
+          <div class="row">
+            <div class="timetable-header"><h2>{{ timetable.day.date }}</h2></div>
             {% include "symposion/schedule/_edit_grid.html" %}
+          </div>
         {% endfor %}
 
-        <form id="schedule-builder" action="." method="post" enctype="multipart/form-data">{% csrf_token %}
-          {{ form.as_p }}
-          <input type="submit" name="submit" value="Submit" />
-          <input type="submit" id="delete" name="delete" value="Delete Schedule" />
-        </form>
-        <div class="modal fade" id="slotEditModal"></div>
+        <div class="row">
+          <form id="schedule-builder" action="." method="post" enctype="multipart/form-data">{% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" name="submit" value="Submit" />
+            <input type="submit" id="delete" name="delete" value="Delete Schedule" />
+          </form>
+          <div class="modal fade" id="slotEditModal"></div>
+        </div>
       </div>
     </div>
   </div>
