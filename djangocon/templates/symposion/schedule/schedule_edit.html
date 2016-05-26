@@ -14,25 +14,27 @@
 {% endblock %}
 
 {% block body %}
-<div class="small-header poster-wrapper">
-    <h1>Schedule Edit</h1>
-</div>
-<div class="poster-wrapper">
-  <div class="container">
-    <div class="row">
-    {% for timetable in days %}
-        <h2>{{ timetable.day.date }}</h2>
-        {% include "symposion/schedule/_edit_grid.html" %}
-    {% endfor %}
-    <form id="schedule-builder" action="." method="post" enctype="multipart/form-data">{% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" name="submit" value="Submit" />
-        <input type="submit" id="delete" name="delete" value="Delete Schedule" />
-    </form>
-    <div class="modal fade hide in" id="slotEditModal"></div>
+  <div class="small-header poster-wrapper">
+      <h1>Schedule Edit</h1>
+  </div>
+  <div class="poster-wrapper">
+    <div class="container">
+      <div class="row">
+        {% for timetable in days %}
+            <h2>{{ timetable.day.date }}</h2>
+            {% include "symposion/schedule/_edit_grid.html" %}
+        {% endfor %}
+
+        <form id="schedule-builder" action="." method="post" enctype="multipart/form-data">{% csrf_token %}
+          {{ form.as_p }}
+          <input type="submit" name="submit" value="Submit" />
+          <input type="submit" id="delete" name="delete" value="Delete Schedule" />
+        </form>
+        <div class="modal fade" id="slotEditModal"></div>
+      </div>
     </div>
   </div>
-</div>
+
 {% endblock %}
 
 {% block extra_script %}
