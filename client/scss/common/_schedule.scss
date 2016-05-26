@@ -3,3 +3,22 @@
   text-align: center;
   padding-bottom: 1em;
 }
+
+.table td, .table th {
+  vertical-align: center;
+}
+
+th {
+  font-family: $font-family-brand;
+  color: $white;
+}
+
+.table thead th {
+  border-bottom: 1px solid #eceeef;
+  background: $blue;
+}
+
+tbody {
+  // tr:nth-child(even) {background: #CCC}
+  tr:nth-child(even) {background: #f6f5f1}
+}
