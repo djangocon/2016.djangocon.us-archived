@@ -17,6 +17,30 @@ from symposion.sponsorship.models import Sponsor
 from unidecode import unidecode
 
 
+# TODO: This should be stored in settings or the DB. This will do for now.
+SPONSOR_PLANS = {
+    'diamond': 8,
+    'platinum': 8,
+    'gold': 4,
+    'silver': 2,
+    'bronze': 1,
+}
+
+
+def get_access_code(sponsor):
+    """Given a sponsor we'll create an access code."""
+
+    # Set this environment variable to format the access code
+    ticket_hash_code = os.environ.get('DJANGOCON_SPONSOR_HASH', '{sponsor_name}-{level_name}-{sponsor_id}')
+
+    access_code = ticket_hash_code.format(
+        sponsor_id=sponsor.id,
+        sponsor_name=slugify(sponsor.name),
+        level_name=slugify(sponsor.level.name)
+    )
+    return access_code
+
+
 @user_passes_test(lambda user: user.is_superuser)
 def data_home(request):
     return render(
@@ -239,6 +263,7 @@ def mailchimp_sponsor_export(request):
         'Full Name',
         'First Name',
         'Last Name',
+        'Access Code',
     ])
 
     sponsors = Sponsor.objects.filter(active=True).order_by('level__order', 'name')
@@ -250,6 +275,7 @@ def mailchimp_sponsor_export(request):
             sponsor.contact_name,
             sponsor.contact_name.split(' ')[0],
             sponsor.contact_name.split(' ')[-1],
+            get_access_code(sponsor),
         ])
 
     return response
@@ -257,21 +283,9 @@ def mailchimp_sponsor_export(request):
 
 @user_passes_test(lambda user: user.is_superuser)
 def ticketbud_sponsor_export(request):
-    # This should be stored in settings or the DB. This will do for now.
-    SPONSOR_PLANS = {
-        'diamond': 8,
-        'platinum': 8,
-        'gold': 4,
-        'silver': 2,
-        'bronze': 1,
-    }
-
     content_type = 'text/csv'
     response = HttpResponse(content_type=content_type)
     response['Content-Disposition'] = 'attachment; filename="ticketbud_sponsor.csv"'
-
-    # Set this environment variable to format the access code
-    ticket_hash_code = os.environ.get('DJANGOCON_SPONSOR_HASH', '{sponsor_name}-{level_name}-{sponsor_id}')
 
     writer = unicodecsv.writer(response, quoting=unicodecsv.QUOTE_ALL)
     writer.writerow([
@@ -288,13 +302,8 @@ def ticketbud_sponsor_export(request):
     sponsors = Sponsor.objects.filter(active=True).order_by('level__order', 'name')
 
     for sponsor in sponsors:
-        access_code = ticket_hash_code.format(
-            sponsor_id=sponsor.id,
-            sponsor_name=slugify(sponsor.name),
-            level_name=slugify(sponsor.level.name)
-        )
         writer.writerow([
-            access_code,
+            get_access_code(sponsor),
             0,
             0,
             SPONSOR_PLANS.get(sponsor.level.name.lower(), 0),
