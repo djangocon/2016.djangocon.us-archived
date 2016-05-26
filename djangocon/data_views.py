@@ -1,3 +1,4 @@
+import os
 import tablib
 import unicodecsv
 
@@ -7,12 +8,37 @@ from django.contrib.sites.shortcuts import get_current_site
 from django.core.urlresolvers import reverse, reverse_lazy
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.utils.text import slugify
 from symposion.proposals.models import ProposalBase
 from symposion.reviews.models import ProposalResult
 from symposion.schedule.models import Slot
 from symposion.speakers.models import Speaker
 from symposion.sponsorship.models import Sponsor
 from unidecode import unidecode
+
+
+# TODO: This should be stored in settings or the DB. This will do for now.
+SPONSOR_PLANS = {
+    'diamond': 8,
+    'platinum': 8,
+    'gold': 4,
+    'silver': 2,
+    'bronze': 1,
+}
+
+
+def get_access_code(sponsor):
+    """Given a sponsor we'll create an access code."""
+
+    # Set this environment variable to format the access code
+    ticket_hash_code = os.environ.get('DJANGOCON_SPONSOR_HASH', '{sponsor_name}-{level_name}-{sponsor_id}')
+
+    access_code = ticket_hash_code.format(
+        sponsor_id=sponsor.id,
+        sponsor_name=slugify(sponsor.name),
+        level_name=slugify(sponsor.level.name)
+    )
+    return access_code
 
 
 @user_passes_test(lambda user: user.is_superuser)
@@ -31,10 +57,6 @@ def data_home(request):
                     'url': reverse_lazy('speaker_export')
                 },
                 {
-                    'name': 'Export Sponsors (for Mailchimp)',
-                    'url': reverse_lazy('sponsors_raw')
-                },
-                {
                     'name': 'Guidebook: Schedule Export',
                     'url': reverse_lazy('schedule_guidebook')
                 },
@@ -45,6 +67,18 @@ def data_home(request):
                 {
                     'name': 'Guidebook: Sponsor Export',
                     'url': reverse_lazy('guidebook_sponsor_export')
+                },
+                {
+                    'name': 'Mailchimp: Sponsor Export',
+                    'url': reverse_lazy('mailchimp_sponsor_export')
+                },
+                {
+                    'name': 'Mailchimp: Export Sponsors (Markdown/HTML)',
+                    'url': reverse_lazy('sponsors_raw')
+                },
+                {
+                    'name': 'Ticketbud: Sponsor Export',
+                    'url': reverse_lazy('ticketbud_sponsor_export')
                 },
             ]
         }
@@ -210,6 +244,73 @@ def guidebook_sponsor_export(request):
                 Site.objects.get_current().domain,
                 sponsor.website_logo.url
             )
+        ])
+
+    return response
+
+
+@user_passes_test(lambda user: user.is_superuser)
+def mailchimp_sponsor_export(request):
+    content_type = 'text/csv'
+    response = HttpResponse(content_type=content_type)
+    response['Content-Disposition'] = 'attachment; filename="mailchimp_sponsor.csv"'
+
+    writer = unicodecsv.writer(response, quoting=unicodecsv.QUOTE_ALL)
+    writer.writerow([
+        'Email Address',
+        'Company',
+        'Sponsor Tier',
+        'Full Name',
+        'First Name',
+        'Last Name',
+        'Access Code',
+    ])
+
+    sponsors = Sponsor.objects.filter(active=True).order_by('level__order', 'name')
+    for sponsor in sponsors:
+        writer.writerow([
+            sponsor.contact_email,
+            sponsor.name,
+            sponsor.level.name,
+            sponsor.contact_name,
+            sponsor.contact_name.split(' ')[0],
+            sponsor.contact_name.split(' ')[-1],
+            get_access_code(sponsor),
+        ])
+
+    return response
+
+
+@user_passes_test(lambda user: user.is_superuser)
+def ticketbud_sponsor_export(request):
+    content_type = 'text/csv'
+    response = HttpResponse(content_type=content_type)
+    response['Content-Disposition'] = 'attachment; filename="ticketbud_sponsor.csv"'
+
+    writer = unicodecsv.writer(response, quoting=unicodecsv.QUOTE_NONE)
+    writer.writerow([
+        'code',
+        'price_off',
+        'percent_off',
+        'usage_limit',
+        'start_time',
+        'end_time',
+        'times_used',
+        'savings',
+    ])
+
+    sponsors = Sponsor.objects.filter(active=True).order_by('level__order', 'name')
+
+    for sponsor in sponsors:
+        writer.writerow([
+            get_access_code(sponsor),
+            0,
+            0,
+            SPONSOR_PLANS.get(sponsor.level.name.lower(), 0),
+            None,
+            None,
+            None,
+            0
         ])
 
     return response
