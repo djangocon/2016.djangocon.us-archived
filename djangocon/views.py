@@ -26,7 +26,8 @@ def duration(start, end):
 
 def homepage(request):
     return render(request, "homepage.html", {
-        'latestposts': Post.objects.published().order_by("published")[:4]})
+        'latestposts': Post.objects.published().order_by('-published')[:6]
+    })
 
 
 def schedule_json(request):
