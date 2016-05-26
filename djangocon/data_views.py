@@ -287,7 +287,7 @@ def ticketbud_sponsor_export(request):
     response = HttpResponse(content_type=content_type)
     response['Content-Disposition'] = 'attachment; filename="ticketbud_sponsor.csv"'
 
-    writer = unicodecsv.writer(response, quoting=unicodecsv.QUOTE_ALL)
+    writer = unicodecsv.writer(response, quoting=unicodecsv.QUOTE_NONE)
     writer.writerow([
         'code',
         'price_off',
