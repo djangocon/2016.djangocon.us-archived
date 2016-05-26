@@ -33,10 +33,6 @@ def data_home(request):
                     'url': reverse_lazy('speaker_export')
                 },
                 {
-                    'name': 'Export Sponsors (for Mailchimp)',
-                    'url': reverse_lazy('sponsors_raw')
-                },
-                {
                     'name': 'Guidebook: Schedule Export',
                     'url': reverse_lazy('schedule_guidebook')
                 },
@@ -47,6 +43,14 @@ def data_home(request):
                 {
                     'name': 'Guidebook: Sponsor Export',
                     'url': reverse_lazy('guidebook_sponsor_export')
+                },
+                {
+                    'name': 'Mailchimp: Sponsor Export',
+                    'url': reverse_lazy('mailchimp_sponsor_export')
+                },
+                {
+                    'name': 'Mailchimp: Export Sponsors (Markdown/HTML)',
+                    'url': reverse_lazy('sponsors_raw')
                 },
                 {
                     'name': 'Ticketbud: Sponsor Export',
@@ -216,6 +220,36 @@ def guidebook_sponsor_export(request):
                 Site.objects.get_current().domain,
                 sponsor.website_logo.url
             )
+        ])
+
+    return response
+
+
+@user_passes_test(lambda user: user.is_superuser)
+def mailchimp_sponsor_export(request):
+    content_type = 'text/csv'
+    response = HttpResponse(content_type=content_type)
+    response['Content-Disposition'] = 'attachment; filename="mailchimp_sponsor.csv"'
+
+    writer = unicodecsv.writer(response, quoting=unicodecsv.QUOTE_ALL)
+    writer.writerow([
+        'Email Address',
+        'Company',
+        'Sponsor Tier',
+        'Full Name',
+        'First Name',
+        'Last Name',
+    ])
+
+    sponsors = Sponsor.objects.filter(active=True).order_by('level__order', 'name')
+    for sponsor in sponsors:
+        writer.writerow([
+            sponsor.contact_email,
+            sponsor.name,
+            sponsor.level.name,
+            sponsor.contact_name,
+            sponsor.contact_name.split(' ')[0],
+            sponsor.contact_name.split(' ')[-1],
         ])
 
     return response
