@@ -1,5 +1,5 @@
 #!/bin/bash
 
-set -e
+set -xeuf -o pipefail
 npm install
 make collect
