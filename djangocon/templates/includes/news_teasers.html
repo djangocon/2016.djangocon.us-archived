@@ -3,7 +3,7 @@
   {% if forloop.first %}
     <div class="row">
   {% endif %}
-    <div class="col-md-6">
+    <div class="col-md-4">
       <div class="card post-card">
         <div class="card-block">
           <h4 class="card-title">{{ post.title }}</h4>
@@ -12,7 +12,7 @@
         </div>
       </div>
     </div>
-  {% if forloop.counter|divisibleby:2 %}
+  {% if forloop.counter|divisibleby:3 %}
   </div>
   <div class="row">
   {% elif forloop.last %}
