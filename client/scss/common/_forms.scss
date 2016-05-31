@@ -2,24 +2,19 @@ form {
   legend {
     padding: 0 0 1em 0.75rem;
   }
-
   .help-block {
     margin-top: 1em
   }
-
   fieldset.has-error {
     input {
       border-color: red;
     }
-
     .text-muted:first-of-type {
       margin-top: 0.5em;
       color: red;
     }
   }
-
 }
-
 
 .form-group {
   .text-muted {

@@ -63,14 +63,9 @@
   }
 
   &.diamond, &.platinum {
-
     .card-link {
       padding-left: 2em;
       padding-right: 2em;
-    }
-
-    img {
-
     }
   }
 }
@@ -81,12 +76,10 @@
 }
 
 @include media-breakpoint-up(md) {
-
   .diamond, .platinum {
     img {
       margin-top: 3em;
       width: 60%
     }
   }
-
 }
