@@ -35,7 +35,8 @@
 <div class="poster-wrapper">
   <div class="container">
     <div class="row">
-    {% cache 600 "schedule-list" schedule.section.name %}
+    {# TODO: Re-add before deploying into production #}
+    {# cache 600 "schedule-list" schedule.section.name #}
         {% for presentation in presentations %}
             <div class="row">
                 <div class="col-md-8 presentation well">
@@ -53,7 +54,7 @@
                 </div>
             </div>
         {% endfor %}
-    {% endcache %}
+    {# endcache #}
     </div>
   </div>
 </div>
