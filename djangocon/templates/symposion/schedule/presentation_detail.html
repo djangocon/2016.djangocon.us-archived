@@ -8,41 +8,38 @@
 
 {% block body %}
 
-<div class="blog-header poster-wrapper ">
-  <h1>{{ sponsor.name }} ({{ sponsor.level }})</h1>
+<div class="small-header poster-wrapper presentation-header">
+  <h1>{{ presentation.title }}</h1>
+  <h2>
+    {% for speaker in presentation.speakers %}
+      <a href="{% url "speaker_profile" speaker.pk %}">{{ speaker }}</a>{% if not forloop.last %}, {% endif %}
+    {% endfor %}
+  </h2>
+
+  {% if presentation.slot %}
+    <span class="presentation-date">
+      {{ presentation.slot.day.date|date:"l" }}
+      {{ presentation.slot.start}}&ndash;{{ presentation.slot.end }}
+    </h4>
+  {% endif %}
 </div>
 
-<div class="poster-wrapper">
+<div class="poster-wrapper presentation-content">
   <div class="container">
     <div class="row">
+      <div class="presentation-level">Audience level: <span class="label label-pill label-level">{{ presentation.proposal.get_audience_level_display }}</span></div>
+    </div>
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 page-content">
+        <h3>Description</h3>
+        <div class="description">{{ presentation.description }}</div>
 
-    {% if presentation.slot %}
-        <h4>
-            {{ presentation.slot.day.date|date:"l" }}
-            {{ presentation.slot.start}}&ndash;{{ presentation.slot.end }}
-        </h4>
-    {% endif %}
-    <h2>{{ presentation.title }}</h2>
-
-    <h4>
-        {% for speaker in presentation.speakers %}
-            <a href="{% url "speaker_profile" speaker.pk %}">{{ speaker }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}
-    </h4>
-
-    <dl class="dl-horizontal">
-        <dt>Audience level:</dt>
-        <dd style="margin-bottom: 0;">{{ presentation.proposal.get_audience_level_display }}</dd>
-    </dl>
-
-    <h3>Description</h3>
-
-    <div class="description">{{ presentation.description }}</div>
-
-    <h3>Abstract</h3>
-
-    <div class="abstract">{{ presentation.abstract|safe }}</div>
+        <h3>Abstract</h3>
+        <div class="abstract">{{ presentation.abstract|safe }}</div>
+      </div>
     </div>
   </div>
 </div>
+
 
 {% endblock %}

@@ -65,7 +65,6 @@ tbody {
       margin-top: 2rem;
       padding-right: 0.8em;
       padding-left: 0.8em;
-      background: $red;
     }
   }
   // background: $blue;
@@ -75,9 +74,33 @@ tbody {
   // }
 }
 
+.label-level {
+  background: $red;
+}
+
 .schedule-card-footer {
   padding: 0.2rem 0rem 0.1rem 0rem;
   font-family: $font-family-brand;
   background: #5d7eb1;
   color: $white;
+}
+
+.presentation-header {
+  height: auto;
+  text-align: center;
+  .presentation-date {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+  }
+  a:before {
+    content: '';
+  }
+}
+
+.presentation-content {
+  text-align: center;
+}
+
+.presentation-level {
+  margin-bottom: 2rem;
 }

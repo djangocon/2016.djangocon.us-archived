@@ -26,7 +26,7 @@
               <h4 class="card-title"><a href="{% url 'schedule_presentation_detail' slot.content.pk %}">{{ slot.content.title }}</a></h4>
               <p class="speaker">{{ slot.content.speakers|join:", " }}</p>
               {% if slot.content.proposal.audience_level != 4 %}
-                <span class="label label-pill label-primary">{{ slot.content.proposal.get_audience_level_display }} Level</span>
+                <span class="label label-pill label-level">{{ slot.content.proposal.get_audience_level_display }} Level</span>
               {% endif %}
             {% else %}
               {% if slot.content_override.raw %}
