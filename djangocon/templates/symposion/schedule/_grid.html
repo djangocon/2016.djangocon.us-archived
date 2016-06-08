@@ -29,19 +29,22 @@
                 <span class="label label-pill label-level">{{ slot.content.proposal.get_audience_level_display }} Level</span>
               {% endif %}
             {% else %}
-              {% if slot.content_override.raw %}
-                {{ slot.content_override.rendered|safe }}
+              {% if slot.content_override %}
+                {{ slot.content_override_html|safe }}
               {% else %}
               {% endif %}
             {% endif %}
 
           </div>
 
-          {% if slot.content or slot.content_override.raw %}
-              <div class="schedule-card-footer card-footer text-muted">
-                until {{ slot.end|time:"h:i A" }}
-              </div>
-          {% endif %}
+          {% comment %}
+            {# These should all be slot.end - 5 minutes #}
+            {% if slot.content or slot.content_override.raw %}
+                <div class="schedule-card-footer card-footer text-muted">
+                  until {{ slot.end|time:"h:i A" }}
+                </div>
+            {% endif %}
+          {% endcomment %}
 
         </div>
 
