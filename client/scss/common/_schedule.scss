@@ -1,7 +1,18 @@
+.schedule-wrapper {
+  background: $blue;
+  .card {
+    background: $blue;
+    border: 1px solid transparent;
+  }
+}
+
 .timetable-header {
   width: 100%;
   text-align: center;
   padding-bottom: 1em;
+  h2 {
+    color: $white;
+  }
 }
 
 .table td, .table th {
@@ -21,4 +32,52 @@ th {
 tbody {
   // tr:nth-child(even) {background: #CCC}
   tr:nth-child(even) {background: #f6f5f1}
+}
+
+.time-table-time {
+  text-align: center;
+  background: $blue;
+  margin-top: 2rem;
+  padding: 0.2rem 1.4rem 0.1rem 1.4rem;
+  font-family: $font-family-brand;
+  color: $white;
+}
+
+.card-block {
+  background: #f9f9f9; /* Old browsers */
+  background: -moz-linear-gradient(-45deg, #f9f9f9 0%, #ffffff 36%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(-45deg, #f9f9f9 0%,#ffffff 36%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg, #f9f9f9 0%,#ffffff 36%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f9f9', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+.card-group.last {
+  margin-bottom: 3rem
+}
+
+.card-tutorial, .card-talk, .card-keynote, .card-lightning {
+  .schedule-block {
+    min-height: 13rem;
+    .speaker {
+      margin-bottom: 0;
+    }
+    .label-pill {
+      margin-top: 2rem;
+      padding-right: 0.8em;
+      padding-left: 0.8em;
+      background: $red;
+    }
+  }
+  // background: $blue;
+  // color: $white;
+  // a {
+  //   color: $white;
+  // }
+}
+
+.schedule-card-footer {
+  padding: 0.2rem 0rem 0.1rem 0rem;
+  font-family: $font-family-brand;
+  background: #5d7eb1;
+  color: $white;
 }

@@ -16,7 +16,7 @@
   <h1>Conference Schedule</h1>
 </div>
 
-<div class="poster-wrapper">
+<div class="poster-wrapper schedule-wrapper">
   <div class="container">
     <div class="row">
 
@@ -29,10 +29,12 @@
     {% for section in sections %}
         {# TODO: Re-add before deploying into production #}
         {# cache 600 "schedule-table" section.schedule.section #}
-            {% for timetable in section.days %}
-                <h3>{{ section.schedule.section.name }} — {{ timetable.day.date }}</h3>
-                {% include "symposion/schedule/_grid.html" %}
-            {% endfor %}
+          {% for timetable in section.days %}
+            <div class="row">
+              <div class="timetable-header"><h2>{{ section.schedule.section.name }} — {{ timetable.day.date }}</h2></div>
+            </div>
+            {% include "symposion/schedule/_grid.html" %}
+          {% endfor %}
         {# endcache #}
     {% endfor %}
 

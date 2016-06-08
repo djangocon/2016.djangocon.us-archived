@@ -24,7 +24,7 @@
     {# TODO: Re-add before deploying into production #}
     {# cache 600 "schedule-table" schedule.section #}
         {% for timetable in days %}
-        <div class="row">
+          <div class="row">
           <div class="timetable-header"><h2>{{ timetable.day.date }}</h2></div>
             {% include "symposion/schedule/_grid.html" %}
           </div>
