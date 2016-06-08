@@ -29,8 +29,8 @@
                 <span class="label label-pill label-primary">{{ slot.content.proposal.get_audience_level_display }} Level</span>
               {% endif %}
             {% else %}
-              {% if slot.content_override.raw %}
-                {{ slot.content_override.rendered|safe }}
+              {% if slot.content_override %}
+                {{ slot.content_override_html|safe }}
               {% else %}
               {% endif %}
             {% endif %}
