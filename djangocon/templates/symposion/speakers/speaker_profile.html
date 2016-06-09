@@ -2,6 +2,8 @@
 
 {% load i18n %}
 {% load thumbnail %}
+{% load markitup_tags %}
+
 {% block head_title %}{{ speaker.name }}{% endblock %}
 
 {% block body %}
@@ -9,12 +11,14 @@
   <h1>{% trans "Our Speakers" %}</h1>
 </div>
 
-<div class="poster-wrapper">
+<div class="poster-wrapper speaker-profile">
   <div class="container">
     <div class="row">
         <div class="col-md-3">
+
         {% if speaker.photo %}
-          <div class="card">
+
+          <div class="card speaker-photo">
             <img class="card-img-top" src="{% thumbnail speaker.photo  '218x240' crop %}" alt="{{ speaker.name }}">
             <div class="card-block">
               <h4 class="card-title">{{ speaker.name }}</h4>
@@ -25,16 +29,17 @@
             &nbsp;
           {% endif %}
         </div>
+
         <div class="col-md-6 col-md-offset-1">
             {% if speaker.user == request.user or request.user.is_staff %}
                 <a class="btn btn-default pull-right" href="{% url "speaker_edit" speaker.pk %}">Edit</a>
             {% endif %}
             <h1>{{ speaker.name }}</h1>
-            <div class="bio">{{ speaker.biography|safe }}</div>
+            <div class="bio">{{ speaker.biography|render_markup|safe }}</div>
 
-            <h3>Presentations</h3>
+            <h3>Presentations:</h3>
             {% for presentation in presentations %}
-                <h3><a href="{% url "schedule_presentation_detail" presentation.pk %}">{{ presentation.title }}</a></h3>
+                <h4><a href="{% url "schedule_presentation_detail" presentation.pk %}">{{ presentation.title }}</a></h4>
                 {% if presentation.slot %}
                     <p>
                         {{ presentation.slot.day.date|date:"l" }}
