@@ -1,6 +1,7 @@
 {% extends "site_base.html" %}
 
 {% load sitetree %}
+{% load markitup_tags %}
 
 {% block head_title %}Presentation: {{ presentation.title }}{% endblock %}
 
@@ -35,7 +36,7 @@
         <div class="description">{{ presentation.description }}</div>
 
         <h3>Abstract</h3>
-        <div class="abstract">{{ presentation.abstract|safe }}</div>
+        <div class="abstract">{{ presentation.abstract|render_markup|safe}}</div>
       </div>
     </div>
   </div>

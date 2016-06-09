@@ -99,6 +99,10 @@ tbody {
 
 .presentation-content {
   text-align: center;
+  li {
+    color: $blue;
+    list-style: none;
+  }
 }
 
 .presentation-level {
