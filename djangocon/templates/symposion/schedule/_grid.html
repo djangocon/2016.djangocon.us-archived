@@ -1,5 +1,5 @@
 {% load pinax_boxes_tags %}
-{# load core_tags #}
+{% load core_tags %}
 
 {% regroup timetable.slots_qs by start as slots %}
 
@@ -10,7 +10,7 @@
   </div>
 
   <div class="card-group {% if forloop.last %} last{% endif %}">
-    {% for slot in slot_group.list %}
+    {% for slot in slot_group.list|sort_by_m2m:"rooms.name" %}
 
         <div class="card text-xs-center card-{{ slot.kind }} {% for room in slot.rooms %}{{ room.name|slugify}} {% endfor %}">
           <div class="card-header">
