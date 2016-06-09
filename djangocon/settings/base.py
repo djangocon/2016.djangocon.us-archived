@@ -172,6 +172,7 @@ INSTALLED_APPS = [
 
     # project
     "djangocon",
+    "djangocon.core",
     "djangocon.proposals"
 ]
 
