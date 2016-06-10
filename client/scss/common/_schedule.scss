@@ -98,14 +98,24 @@ tbody {
 }
 
 .presentation-content {
-  text-align: center;
+  // text-align: center;
+  h1,h2, h3, h4, h5 {
+    text-align: center;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
   li {
     color: $blue;
     list-style: none;
+    margin: 0;
   }
 }
 
 .presentation-level {
+  text-align: center;
   margin-bottom: 2rem;
 }
 
