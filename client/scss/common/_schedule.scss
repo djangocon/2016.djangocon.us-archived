@@ -4,6 +4,13 @@
     background: $blue;
     border: 1px solid transparent;
   }
+  #content_schedule_bottom {
+    color: $white;
+    a {
+     color: $white;
+      text-decoration: underline;
+    }
+  }
 }
 
 .timetable-header {
@@ -72,14 +79,6 @@ tbody {
   // a {
   //   color: $white;
   // }
-}
-
-#content_schedule_bottom {
-  color: $white;
-  a {
-    color: $white;
-    text-decoration: underline;
-  }
 }
 
 .label-level {
