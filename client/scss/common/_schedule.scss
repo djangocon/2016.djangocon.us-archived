@@ -1,8 +1,19 @@
+.conference-schedule {
+  .stitches-divider {
+    background-image: url(../assets/img/stitch.png);
+  }
+}
 .schedule-wrapper {
   background: $blue;
   .card {
     background: $blue;
     border: 1px solid transparent;
+  }
+  .content-box {
+    color: #fff;
+    a {
+      color: #fff;
+    }
   }
 }
 
