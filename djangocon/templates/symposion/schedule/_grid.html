@@ -37,14 +37,12 @@
 
           </div>
 
-          {% comment %}
-            {# These should all be slot.end - 5 minutes #}
-            {% if slot.content or slot.content_override.raw %}
-                <div class="schedule-card-footer card-footer text-muted">
-                  until {{ slot.end|time:"h:i A" }}
-                </div>
-            {% endif %}
-          {% endcomment %}
+          {# These should all be slot.end - 5 minutes #}
+          {% if slot.content or slot.content_override.raw %}
+              <div class="schedule-card-footer card-footer text-muted">
+                until {{ slot.end|time:"h:i A" }}
+              </div>
+          {% endif %}
 
         </div>
 
