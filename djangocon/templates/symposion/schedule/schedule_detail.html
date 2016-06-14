@@ -21,6 +21,8 @@
 <div class="poster-wrapper schedule-wrapper">
   <div class="container">
 
+    {% box "schedule_top" %}
+
     {% cache 600 "schedule-table" schedule.section %}
         {% for timetable in days %}
           <div class="row">
