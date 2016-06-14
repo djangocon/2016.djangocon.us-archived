@@ -81,11 +81,6 @@ tbody {
       padding-left: 0.8em;
     }
   }
-  // background: $blue;
-  // color: $white;
-  // a {
-  //   color: $white;
-  // }
 }
 
 .label-level {
@@ -118,13 +113,11 @@ tbody {
   }
 
   ul {
-    margin: 0;
+    margin: 1rem;
     padding: 0;
   }
   li {
     color: $blue;
-    list-style: none;
-    margin: 0;
   }
 }
 
