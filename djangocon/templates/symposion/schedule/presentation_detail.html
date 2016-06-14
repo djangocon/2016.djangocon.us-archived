@@ -1,7 +1,8 @@
 {% extends "site_base.html" %}
 
-{% load sitetree %}
 {% load markitup_tags %}
+{% load pinax_boxes_tags %}
+{% load sitetree %}
 
 {% block head_title %}Presentation: {{ presentation.title }}{% endblock %}
 
@@ -39,8 +40,11 @@
         <div class="abstract">{{ presentation.abstract|render_markup|safe}}</div>
       </div>
     </div>
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 page-content">
+      {% box "presentation_bottom" %}
+      </div>
+    </div>
   </div>
 </div>
-
-
 {% endblock %}
