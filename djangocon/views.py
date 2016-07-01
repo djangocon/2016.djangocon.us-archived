@@ -48,8 +48,8 @@ def schedule_json(request):
                     "license": "",
                     "contact": [s.email for s in slot.content.speakers()] if request.user.is_staff else [
                         "redacted"],
-                    "abstract": slot.content.abstract.raw,
-                    "description": slot.content.description.raw,
+                    "abstract": slot.content.abstract,
+                    "description": slot.content.description,
                     "conf_key": slot.pk,
                     "conf_url": "https://%s%s" % (
                         Site.objects.get_current().domain,
@@ -61,7 +61,7 @@ def schedule_json(request):
                 }
         elif slot.kind.label == "lightning":
             slot_data = {
-                "name": slot.content_override.raw if slot.content_override else "Lightning Talks",
+                "name": slot.content_override if slot.content_override else "Lightning Talks",
                 "room": ", ".join(room["name"] for room in slot.rooms.values()),
                 "start": datetime.combine(slot.day.date, slot.start).isoformat(),
                 "end": datetime.combine(slot.day.date, slot.end).isoformat(),

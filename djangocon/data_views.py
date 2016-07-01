@@ -182,11 +182,11 @@ def schedule_guidebook(request):
         # authors = slot.content.speakers() if hasattr(slot.content, 'speakers') else []
 
         if slot.content_override:
-            name = slot.content_override.raw
+            name = slot.content_override
         else:
             name = slot.content.title if hasattr(slot.content, 'title') else ''
 
-        description = slot.content.description.raw if hasattr(slot.content, 'description') else ''
+        description = slot.content.description if hasattr(slot.content, 'description') else ''
         description = unidecode(description)
         description = description.replace('\r', '')
         description = description.replace('\n', '<br>')
