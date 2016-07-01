@@ -347,7 +347,7 @@ def guidebook_speaker_export(request):
         writer.writerow([
             speaker.name,
             '',
-            unidecode(speaker.biography.rendered),
+            unidecode(speaker.biography),
             '',
             photo_url,
         ])
