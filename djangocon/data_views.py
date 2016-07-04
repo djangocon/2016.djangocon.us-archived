@@ -240,10 +240,7 @@ def guidebook_sponsor_export(request):
             sponsor.level.name,
             sponsor.listing_text,
             '',
-            'https://{0}{1}'.format(
-                Site.objects.get_current().domain,
-                sponsor.website_logo.url
-            )
+            sponsor.website_logo.url
         ])
 
     return response
@@ -337,10 +334,7 @@ def guidebook_speaker_export(request):
     for speaker in speakers:
 
         if hasattr(speaker.photo, 'url'):
-            photo_url = 'https://{0}{1}'.format(
-                Site.objects.get_current().domain,
-                speaker.photo.url
-            )
+            photo_url = speaker.photo.url
         else:
             photo_url = ''
 
