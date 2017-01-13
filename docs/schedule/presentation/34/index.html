@@ -1,0 +1,288 @@
+
+
+
+
+
+
+<!DOCTYPE html> <html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Presentation: Websockets: Intro to messaging.</title>
+    <link rel="stylesheet" type="text/css" href="../../../site_media/static/css/base.1ad9e4fe2573.css">
+    <script type="text/javascript" src="https://fast.fonts.net/jsapi/59d67ea6-c9ee-4e4b-9993-40a9b28e0c96.js"></script>
+    <script src="../../../site_media/static/js/base.b42d272d1dab.js"></script>
+
+    
+    
+  </head>
+
+  <body class="poster-bg loading ">
+
+    
+      
+
+
+<nav class="navbar navbar-dark bg-faded main-nav">
+  <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
+    &#9776;
+  </button>
+  <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
+    <img class="logo-full hidden-sm-down" src="../../../site_media/static/assets/img/logo-full.59a2e37afda6.png" alt="DjangoCon US logo">
+    <ul class="nav navbar-nav">
+      
+        
+          <li class="nav-item">
+            <a class="nav-link" href="../../../index.html"  >Home</a>
+        
+          </li>
+      
+        
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle " href="index.html#"  data-toggle="dropdown" href="index.html#" role="button" aria-haspopup="true" aria-expanded="false">About</a>
+            <div class="dropdown-menu">
+              
+
+
+  <a class="dropdown-item" href="../../../about/index.html"  >About DjangoCon US</a>
+
+  <a class="dropdown-item" href="../../../venue/index.html"  >Venue</a>
+
+  <a class="dropdown-item" href="../../../coc/index.html"  >Code of Conduct</a>
+
+  <a class="dropdown-item" href="../../../diversity/index.html"  >Diversity</a>
+
+  <a class="dropdown-item" href="../../../financialaid.1.html"  >Financial Aid</a>
+
+  <a class="dropdown-item" href="../../../philadelphia.1.html"  >Philadelphia</a>
+
+  <a class="dropdown-item" href="../../../volunteers.1.html"  >Volunteers</a>
+
+  <a class="dropdown-item" href="../../../organizers/index.html"  >DjangoCon US Organizers</a>
+
+
+            </div>
+        
+          </li>
+      
+        
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle " href="index.html#"  data-toggle="dropdown" href="index.html#" role="button" aria-haspopup="true" aria-expanded="false">Schedule</a>
+            <div class="dropdown-menu">
+              
+
+
+  <a class="dropdown-item" href="../../tutorials/index.html"  >Tutorial Schedule</a>
+
+  <a class="dropdown-item" href="../../general-sessions/index.html"  >Talk Schedule</a>
+
+  <a class="dropdown-item" href="../../../sprints/index.html"  >Sprints</a>
+
+  <a class="dropdown-item" href="../../../orientation/index.html"  >Day 1 Orientation</a>
+
+  <a class="dropdown-item" href="../../../reception/index.html"  >Opening Reception/Bowling Night</a>
+
+  <a class="dropdown-item" href="https://djangogirls.org/philadelphia/"  >DjangoGirls Philly Workshop</a>
+
+  <a class="dropdown-item" href="http://www.meetup.com/phlpug/events/231214177/"  >PGDay Philly</a>
+
+  <a class="dropdown-item" href="../../../games/index.html"  >Philly Scavenger Hunt</a>
+
+
+            </div>
+        
+          </li>
+      
+        
+          <li class="nav-item">
+            <a class="nav-link" href="../../../tickets/index.html"  >Tickets</a>
+        
+          </li>
+      
+        
+          <li class="nav-item">
+            <a class="nav-link" href="../../../speaking/index.html"  >Speaking</a>
+        
+          </li>
+      
+        
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle " href="index.html#"  data-toggle="dropdown" href="index.html#" role="button" aria-haspopup="true" aria-expanded="false">Sponsors</a>
+            <div class="dropdown-menu">
+              
+
+
+  <a class="dropdown-item" href="../../../sponsors/information/index.html"  >Become a Sponsor</a>
+
+  <a class="dropdown-item" href="../../../sponsors/index.html"  >DjangoCon US Sponsors</a>
+
+
+            </div>
+        
+          </li>
+      
+        
+          <li class="nav-item">
+            <a class="nav-link" href="../../../blog/index.html"  >News</a>
+        
+          </li>
+      
+
+    </ul>
+
+    <ul class="nav navbar-nav pull-sm-right">
+      <li class="nav-item"><a href="https://defna.ticketbud.com/djangocon-us-2016" class="btn btn-primary btn-ticket">Buy Tickets</a></li>
+    
+      <li class="nav-item"><a href="../../../account/signup/index.html" class="btn btn-primary">Register</a></li>
+      <li class="nav-item"><a href="../../../account/login/index.html" class="btn btn-primary">Login</a></li>
+    
+    </ul>
+  </div>
+</nav>
+    
+
+    
+
+<div class="set baseball"></div>
+<div class="set bat"></div>
+
+<div class="t-card score-card" data-degree="10" data-orientation="right" data-posx="80" data-posy="800"></div>
+
+<div class="t-card card-independence-hall" data-degree="9" data-orientation="right" data-posx="30" data-posy="730"></div>
+<div class="t-card card-cheese-steak" data-degree="-14" data-orientation="right" data-posx="30" data-posy="500"></div>
+<div class="t-card card-stairs" data-degree="22" data-orientation="left" data-posx="90" data-posy="240"></div>
+<div class="t-card card-franklin" data-degree="-19" data-orientation="right" data-posx="20" data-posy="150"></div>
+<div class="t-card card-beer" data-degree="19" data-orientation="left" data-posx="20" data-posy="750"></div>
+<div class="t-card card-liberty-bell" data-degree="12" data-orientation="right" data-posx="150" data-posy="270"></div>
+<div class="t-card card-phanatic" data-degree="-14" data-orientation="left" data-posx="30" data-posy="500"><img src="../../../site_media/static/assets/img/cards/card-mask-phanatic.0b7f83256f67.png"></div>
+<div class="t-card card-pretzel" data-degree="-6" data-orientation="left" data-posx="150" data-posy="870"></div>
+
+<div class="t-card love-sticker" data-degree="-10" data-orientation="left" data-posx="40" data-posy="110"></div>
+<div class="t-card django-sticker" data-degree="10" data-orientation="right" data-posx="20" data-posy="400"></div>
+
+
+    
+
+
+
+    <div class="poster-shadow">
+
+      
+
+<div class="small-header poster-wrapper presentation-header">
+  <h1>Websockets: Intro to messaging.</h1>
+  <h2>
+    
+      <a href="../../../speaker/profile/57/index.html">Josue Balandrano Coronel</a>
+    
+  </h2>
+
+  
+    <span class="presentation-date">
+      Monday
+      1:30 p.m.&ndash;2:20 p.m.
+    </h4>
+  
+</div>
+
+<div class="poster-wrapper presentation-content">
+  <div class="container">
+    <div class="row">
+      <div class="presentation-level">Audience level: <span class="label label-pill label-level">Novice</span></div>
+    </div>
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 page-content">
+        <h3>Description</h3>
+        <div class="description">Websockets (WS) are used across the web in this modern age, and they work great. The downside of WS is that the server needs to perpetually keep a connection open to the client if the client is available. I will be explaining the inner workings of WS as well as the different current implementations for Django. I will explain the idea behind Django-Channels and how it can be used.</div>
+
+        <h3>Abstract</h3>
+        <div class="abstract"><p>Today’s web applications demand information to be delivered immediately after it is available. This is a huge step from where everything started, simple HTTP blocking requests. In order to solve this Server Side Events (SSE) and Websockets (WS) were created. SSE works from the server to the client only and it uses the HTTP protocol. WS is bidirectional and implements a layer on top of HTTP. WS started to get more momentum and now most of modern web browsers support it. </p>
+<h2>The Problem</h2>
+<p>WS requires an open connection to the server. Frameworks like django are not build on this idea. This problem does not only depends on django, it also depends on the WSGI implementation and the web server used. Most of the WSGI implementations come from a synchronous nature which does not play that well with WS. This is in part because of the specifications and also because of the state of the web a few years ago. Each request happens in a thread and, usually, a specific number of threads are reserved for this purpose.</p>
+<h2>The Solution</h2>
+<p>Basically, there are two general approaches to the problem:</p>
+<p>The first one is to run another framework side by side Django which supports WS. There are different projects out there that tackles this approach. The idea is to run something like Node.js and let it handle all the WS communications. The second approach is to use Offloading on the Gateway Interface. The idea is to create threads to handle slow and/or simple tasks in the background. For this uWSGI has a particularly great implementation of this. </p>
+<h2>Future Work</h2>
+<p>Django-Channels is changing adding a new layer in Django. Basically, this allows two loops to be running. One of the loops will handle HTTP and Websockets requests and the other one will run views, handlers and background tasks (synchronously). This is done by using ASGI, which is an asynchronous implementation of a Server Gateway Interface. It also uses workers for the background tasks as well as a backend to route requests to ASGI, e.g. Redis. </p>
+<p>Currently Django-Channels can be used with Django 1.8+ as a stand alone app, with the 1.10 release Django-Channels will be merged into django’s core.</p>
+<h2>Topics</h2>
+<ul>
+<li>Websockets<ul>
+<li>What are they?</li>
+<li>How do they work?</li>
+</ul>
+</li>
+<li>WSGI<ul>
+<li>What does this has to do with websockets?</li>
+<li>What does this has to do with django?</li>
+</ul>
+</li>
+<li>Solutions with Django<ul>
+<li>Important concepts of websockets implementations with Django</li>
+<li>Current projects to use</li>
+<li>Pros and Cons</li>
+<li>Task Queues and websockets - More Async</li>
+</ul>
+</li>
+<li>Django Channels<ul>
+<li>Important concepts</li>
+<li>The idea behind channels</li>
+<li>How to start using channels</li>
+<li>Pros and Cons</li>
+</ul>
+</li>
+</ul></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 page-content">
+      
+
+
+
+<div id="content_presentation_bottom" class="content-box ">
+    
+    <hr />
+<p><a href="https://defna.ticketbud.com/djangocon-us-2016">Buy your conference and tutorial tickets here!</a> Tutorials are $150 per session.</p>
+</div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+      <footer class="footer poster-wrapper ">
+<div class="stitches-divider"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <h5>Questions? Comments?</h5>
+        <a class="arrow-link" href="../../../contact/index.html">Contact Us</a>
+        <br>
+        Design + Build by
+        <a href="https://www.lincolnloop.com">Lincoln Loop</a> <br>
+        Hosted by <a href="http://eldarion.com">Eldarion</a> <br>
+        Presented by <a href="http://defna.org">DEFNA</a>
+        <p>©2016 DjangoCon US</p>
+      </div>
+    </div>
+  </div>
+  <div class="scotch scotch-bl"></div>
+  <div class="scotch scotch-br"></div>
+</footer>
+
+
+    </div>
+
+
+    
+
+    
+
+    
+    
+
+  </body>
+</html>
